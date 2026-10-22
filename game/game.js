@@ -6,6 +6,9 @@
   const MAPS = window.RQ_MAPS;
   const ART = window.RQ_ART;
   const MUSIC = window.RQ_MUSIC || { play() {}, unlock() {}, setVolume() {} };
+  const LOOT = window.RQ_LOOT;
+  const SHINY = 0.04;          // chance a critter is Sparkly when it appears
+  const RESPAWN = 40000;       // ms before a defeated critter comes back (while she's not right next to its spot)
   const BY_ID = {};
   Q.forEach(q => { BY_ID[q.id] = q; });
 
@@ -81,7 +84,9 @@
     return {
       v: 1, map: "hub", x, y, face: "down", hearts: 3, level: 1, xp: 0, flies: 5,
       items: { snack: 1, tea: 1 }, lilies: {}, bosses: {}, puzzles: {}, chests: {}, qs: {}, met: {},
-      check: { map: "hub", x, y }, musicVol: 0.7, sfxVol: 0.8, stats: { answered: 0, right: 0, won: false }
+      check: { map: "hub", x, y }, musicVol: 0.7, sfxVol: 0.8, stats: { answered: 0, right: 0, won: false },
+      owned: { gradcap: true, leaf: true }, look: { hat: "gradcap", face: "", neck: "", skin: "leaf", pet: "" },
+      kills: {}, killsTotal: 0, shinyKills: 0, rightBy: {}, streak: 0, bestStreak: 0, quests: {}
     };
   }
   function load() {
@@ -124,6 +129,11 @@
     if (ok) s.r++;
     s.last = ok ? 1 : 0;
     G.stats.answered++;
+    if (ok) {
+      G.streak++;
+      G.bestStreak = Math.max(G.bestStreak, G.streak);
+      G.rightBy[q.cat] = (G.rightBy[q.cat] || 0) + 1;
+    } else G.streak = 0;
     if (ok) G.stats.right++;
     try {
       const raw = JSON.parse(localStorage.getItem(PRACTICE_KEY) || "null") || { best: {}, missed: [], session: null };
@@ -172,6 +182,7 @@
   // ---------- the map in play ----------
   let M = null;
   const P = { x: 0, y: 0, rx: 0, ry: 0, fx: 0, fy: 0, face: "down", moving: false, t: 0, path: [], goal: null, invuln: 0 };
+  const PET = { x: 0, y: 0, rx: 0, ry: 0 };
   const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
   const STEP = 150;
   const WALK = new Set(["grass", "flower", "path", "pad", "bridge", "sand"]);
@@ -206,7 +217,7 @@
       if (e.type === "stone" && G.puzzles[e.key]) e.lit = true;
       if (e.type === "bramble" && G.puzzles[e.key]) e.gone = true;
       if (e.type === "owl" && G.puzzles.owl) { e.x = e.rx = e.perch[0]; e.y = e.ry = e.perch[1]; }
-      if (e.type === "enemy") { e.foe = pick(FOE_OF[id] || FOE_OF.isle); e.timer = 600 + Math.random() * 1500; e.seed = Math.random() * 6; }
+      if (e.type === "enemy") { e.foe = pick(FOE_OF[id] || FOE_OF.isle); e.timer = 600 + Math.random() * 1500; e.seed = Math.random() * 6; e.shiny = Math.random() < SHINY; }
       M.things.push(e);
     }
     if (def.pads) def.pads.slice(0, G.puzzles.pads || 0).forEach(([px, py]) => { M.t[py * M.w + px] = "pad"; });
@@ -215,6 +226,7 @@
       for (let xx = 0; xx < M.w; xx++)
         if (M.t[yy * M.w + xx] === "bridge") M.bdir[yy * M.w + xx] = tileAt(xx - 1, yy) !== "water" || tileAt(xx + 1, yy) !== "water" ? "h" : "v";
     Object.assign(P, { x, y, rx: x, ry: y, fx: x, fy: y, face: face || "down", moving: false, path: [], goal: null });
+    Object.assign(PET, { x, y, rx: x, ry: y });
     held.length = 0;
     G.map = id; G.x = x; G.y = y; G.face = P.face;
     save();
@@ -242,6 +254,7 @@
     }
     if (!free(nx, ny)) return false;
     P.fx = P.x; P.fy = P.y; P.x = nx; P.y = ny;
+    PET.x = P.fx; PET.y = P.fy;   // the pet hops into the spot she just left
     P.moving = true;
     P.t = 0;
     return true;
@@ -327,8 +340,16 @@
   }
 
   function updateEnemies(dt) {
+    const now = performance.now();
     for (const e of M.things) {
-      if (e.type !== "enemy" || e.gone) continue;
+      if (e.type !== "enemy") continue;
+      if (e.gone) {
+        if (e.back && now > e.back && Math.abs(e.hx - P.x) + Math.abs(e.hy - P.y) >= 5 && !thingAt(e.hx, e.hy)) {
+          Object.assign(e, { gone: false, back: 0, x: e.hx, y: e.hy, rx: e.hx, ry: e.hy, moving: false, stun: 0, timer: 900, shiny: Math.random() < SHINY });
+          if (M.id === "isle") e.foe = pick(FOE_OF.isle);
+        }
+        continue;
+      }
       if (e.moving) {
         e.t += dt;
         const k = Math.min(1, e.t / 260);
@@ -376,14 +397,24 @@
       else if (held.length) tryStep(held[held.length - 1]);
     }
     if (!busy()) updateEnemies(dt);
+    const k = Math.min(1, dt * 0.012);
+    PET.rx += (PET.x - PET.rx) * k;
+    PET.ry += (PET.y - PET.ry) * k;
   }
 
   // ---------- using things ----------
-  function interact(x, y) {
+  // Anything she does can finish a quest, so quests are checked once the interaction is over.
+  async function interact(x, y) {
+    await use(x, y);
+    await checkQuests();
+  }
+
+  function use(x, y) {
     const e = thingAt(x, y);
     if (e) {
       switch (e.type) {
         case "sign": return say(e.lines);
+        case "board": return openMenu("quests");
         case "npc": return e.who === "newt" ? talkNewt() : shop();
         case "spring": return useSpring();
         case "chest": return openChest(e);
@@ -399,7 +430,7 @@
       }
     }
     const pr = propAt(x, y);
-    if (pr) return pr.type === "shop" ? shop() : say(["Home sweet home.", "Your adventure saves itself as you go."], { who: "frog", name: "Gabi" });
+    if (pr) return pr.type === "shop" ? shop() : openMenu("wardrobe");
     return null;
   }
 
@@ -410,30 +441,137 @@
       save();
       return say(NEWT_HELLO, as);
     }
-    if (G.stats.won) return say(["You beat the Great Exam Toad!", "Friday doesn't stand a chance, Gabi."], as);
+    if (G.stats.won) return say(["You beat the Great Exam Toad! But the pond still has secrets.",
+      "Critters in each world drop their own rare treasures, and Sparkly ones drop them three times as often.",
+      "Answer right several times in a row and your luck goes up. Check the Quest Board next to me, and your Wardrobe at home!"], as);
     if (lilyCount() >= 4) return say(["The golden bridge is up!", "The Great Exam Toad waits on the isle in the pond."], as);
     return say(["Professor's tip:", pick(RULES)], as);
   }
 
   async function shop() {
-    const as = { who: "snail", name: "Shelly" };
-    const choice = await say(["Hi hon! Want a snack for the road?"], Object.assign({
-      choices: [
-        { label: `Hint Snack · 6 flies (you have ${G.items.snack})`, value: "snack" },
-        { label: `Lily Tea · 4 flies (you have ${G.items.tea})`, value: "tea" },
-        { label: "Just looking", value: "" }
-      ]
-    }, as));
-    if (!choice) return say(["Come back anytime!"], as);
-    const price = choice === "snack" ? 6 : 4;
-    if (G.flies < price) return say(["Oh! You need a few more flies, hon.", "Critters and chests drop them."], as);
+    await say(["Hi hon! Fresh stock today. Take a look!"], { who: "snail", name: "Shelly" });
+    openShop();
+  }
+
+  // ---------- collectibles, drops and quests ----------
+  const luck = () => 1 + Math.min(G.streak, 10) * 0.08;
+  const ZONE_NAMES = { ethics: "Lotus Lagoon", assess: "Lookout Lake", interv: "Helping Grove", human: "Lifespan Meadow", isle: "Exam Isle" };
+  const SUPPLIES = [
+    { id: "snack", name: "Hint Snack", price: 6, text: "Takes away a wrong answer in a battle." },
+    { id: "tea", name: "Lily Tea", price: 4, text: "Heals two hearts in a battle." }
+  ];
+
+  function sourceText(it) {
+    const f = it.from;
+    if (f.start) return "Starter";
+    if (f.shop) return `Shelly's shop · ${f.shop} flies`;
+    if (f.drop) return `Rare drop · ${ZONE_NAMES[f.drop]} · ${+(f.rate * 100).toFixed(1)}%`;
+    const q = LOOT.QUESTS.find(x => x.id === f.quest);
+    return q ? `Quest · ${q.name}` : "";
+  }
+
+  async function gotItem(it, title) {
+    G.owned[it.id] = true;
+    save();
+    sfx("win");
+    const wear = await say([`${title} You got the ${it.name}!`], {
+      face: ART.itemArt(it), name: "New collectible",
+      choices: [{ label: "Wear it now", value: "wear" }, { label: "Later", value: "" }]
+    });
+    if (wear) equip(it.id);
+  }
+
+  async function rollDrops(e) {
+    const mult = luck() * (e.shiny ? 3 : 1);
+    for (const it of LOOT.ITEMS) {
+      if (it.from.drop !== M.id || Math.random() >= it.from.rate * mult) continue;
+      if (G.owned[it.id]) {
+        G.flies += 10;
+        toast(`Another ${it.name}! Traded for 10 flies.`);
+        hud();
+        continue;
+      }
+      await gotItem(it, "Rare drop!");
+    }
+  }
+
+  function questProgress(q) {
+    const [kind, arg] = q.track.split(":");
+    switch (kind) {
+      case "kill": return G.kills[arg] || 0;
+      case "kills": return G.killsTotal;
+      case "shiny": return G.shinyKills;
+      case "bestStreak": return G.bestStreak;
+      case "right": return G.rightBy[arg] || 0;
+      case "mastered": return mastered();
+      case "quests": return LOOT.QUESTS.filter(x => x.id !== q.id && G.quests[x.id]).length;
+      default: return 0;
+    }
+  }
+
+  async function checkQuests() {
+    if (!started) return;
+    for (const q of LOOT.QUESTS) {
+      if (G.quests[q.id] || questProgress(q) < q.goal) continue;
+      G.quests[q.id] = true;
+      save();
+      const it = LOOT.rewardOf(q.id);
+      if (it && !G.owned[it.id]) await gotItem(it, `Quest complete: ${q.name}!`);
+      else toast(`Quest complete: ${q.name}!`);
+    }
+  }
+
+  function equip(id) {
+    const [slotName, none] = id.split(":");
+    if (none !== undefined) G.look[slotName] = "";
+    else {
+      const it = LOOT.BY_ID[id];
+      if (!it || !G.owned[id]) return;
+      G.look[it.slot] = G.look[it.slot] === id && it.slot !== "hat" && it.slot !== "skin" ? "" : id;
+    }
+    save();
+    ART.setLook(G.look);
+    if (!$("menu").hidden) renderWardrobe();
+  }
+
+  // ---------- Shelly's shop ----------
+  function openShop() {
+    renderShop();
+    $("shop").hidden = false;
+    $("shop-close").focus({ preventScroll: true });
+  }
+  function renderShop() {
+    let html = `<p class="summary purse">${ART.icon.fly}<b>${G.flies}</b> flies</p><h3>Supplies</h3><div class="shop-list">`;
+    for (const s of SUPPLIES)
+      html += `<div class="shop-row"><span class="shop-art">${ART.icon[s.id]}</span><span class="shop-txt"><b>${s.name}</b><span>${s.text} You have ${G.items[s.id]}.</span></span>` +
+        `<button type="button" class="btn mini" data-buy="${s.id}"${G.flies < s.price ? " disabled" : ""}>${s.price} ${ART.icon.fly}</button></div>`;
+    html += '</div><h3>Wardrobe</h3><div class="shop-list">';
+    for (const it of LOOT.ITEMS.filter(i => i.from.shop)) {
+      const owned = !!G.owned[it.id];
+      html += `<div class="shop-row"><span class="shop-art item-art">${ART.itemArt(it)}</span><span class="shop-txt"><b>${esc(it.name)}</b><span>${owned ? "You have this one." : SLOT_NAMES[it.slot]}</span></span>` +
+        (owned ? `<button type="button" class="btn mini" data-wear="${it.id}">${isWorn(it.id) ? "Wearing" : "Wear"}</button>`
+          : `<button type="button" class="btn mini leaf" data-buy="${it.id}"${G.flies < it.from.shop ? " disabled" : ""}>${it.from.shop} ${ART.icon.fly}</button>`) + "</div>";
+    }
+    $("shop-body").innerHTML = html + '</div><p class="fine">Rare treasures don\'t come from shops. Look for them on critters in each world.</p>';
+  }
+  const isWorn = id => Object.values(G.look).includes(id);
+  on("shop", "click", ev => {
+    const buy = ev.target.closest("[data-buy]"), wear = ev.target.closest("[data-wear]");
+    if (wear) { equip(wear.dataset.wear); renderShop(); return; }
+    if (!buy) return;
+    const id = buy.dataset.buy, supply = SUPPLIES.find(s => s.id === id), it = LOOT.BY_ID[id];
+    const price = supply ? supply.price : it.from.shop;
+    if (G.flies < price || (it && G.owned[id])) return;
     G.flies -= price;
-    G.items[choice]++;
+    if (supply) G.items[id]++;
+    else { G.owned[id] = true; equip(id); }
+    sfx("chest");
+    toast(supply ? `Bought a ${supply.name}.` : `Bought the ${it.name}! You're wearing it.`);
     save();
     hud();
-    sfx("chest");
-    return say([choice === "snack" ? "One Hint Snack! In a battle, it takes away a wrong answer." : "One Lily Tea! Sip it in a battle to heal two hearts."], as);
-  }
+    renderShop();
+  });
+  on("shop-close", "click", () => { $("shop").hidden = true; });
 
   async function useSpring() {
     G.hearts = maxHearts();
@@ -536,23 +674,34 @@
     P.path = [];
     P.goal = null;
     held.length = 0;
-    if (e.type === "boss") { await bossFight(e); return; }
-    const name = FOES[e.foe];
-    const res = await battle({ kind: "enemy", name, art: e.foe, cat: M.def.cat, hp: 2, hurt: true, line: `A ${name} hops out!` });
+    if (e.type === "boss") { await bossFight(e); await checkQuests(); return; }
+    const name = (e.shiny ? "Sparkly " : "") + FOES[e.foe];
+    const res = await battle({
+      kind: "enemy", name, art: e.foe, shiny: e.shiny, cat: M.def.cat, hp: e.shiny ? 3 : 2, hurt: true,
+      line: e.shiny ? `A ${name} appears! Rare drops are three times likelier.` : `A ${name} hops out!`
+    });
     if (res === "win") {
       e.gone = true;
-      const flies = 2 + Math.floor(Math.random() * 3);
+      e.back = performance.now() + RESPAWN;
+      G.kills[e.foe] = (G.kills[e.foe] || 0) + 1;
+      G.killsTotal++;
+      if (e.shiny) G.shinyKills++;
+      const flies = (2 + Math.floor(Math.random() * 3)) * (e.shiny ? 3 : 1);
       G.flies += flies;
-      gainXP(10);
+      gainXP(e.shiny ? 25 : 10);
       let extra = "";
       if (Math.random() < 0.15) { G.items.snack++; extra = " and a Hint Snack"; }
       toast(`+${flies} flies${extra}`);
+      save();
+      hud();
+      await rollDrops(e);
     } else if (res === "flee") {
       e.stun = 3500;
       P.invuln = 1800;
     } else if (res === "lose") await faint();
     save();
     hud();
+    await checkQuests();
   }
 
   async function bossFight(e) {
@@ -592,8 +741,9 @@
     return new Promise(resolve => {
       B = Object.assign({ hp: 1, hurt: false, need: 0 }, cfg, { left: cfg.hp || 1, streak: 0, resolve });
       $("b-face").innerHTML = ART.svg[B.art] || "";
+      $("b-face").classList.toggle("shiny", !!B.shiny);
       $("b-name").textContent = B.name;
-      $("b-me").innerHTML = ART.frogInline("Gabi", "idle");
+      $("b-me").innerHTML = ART.frogInline("Gabi", "idle", G.look);
       $("b-line").textContent = B.line || "";
       $("b-flee").textContent = B.kind === "enemy" || B.kind === "boss" ? "Hop away" : "Not now";
       $("b-tea").hidden = !B.hurt;
@@ -613,6 +763,11 @@
     let hearts = "";
     if (B.hurt) for (let i = 0; i < maxHearts(); i++) hearts += i < G.hearts ? ART.icon.heart : ART.icon.heartEmpty;
     $("b-hearts").innerHTML = hearts;
+    const lucky = $("b-luck");
+    if (lucky) {
+      lucky.hidden = G.streak < 2;
+      lucky.textContent = `Lucky streak ${G.streak} · drops ×${luck().toFixed(2)}`;
+    }
   }
 
   function fillAsk(el, text) {
@@ -800,8 +955,8 @@
     return new Promise(resolve => {
       D = { lines: [].concat(lines), i: 0, opts: opts || {}, resolve, at: performance.now() };
       const who = D.opts.who;
-      $("dlg-face").innerHTML = who === "frog" ? ART.frogInline("Gabi") : who ? ART.svg[who] || "" : "";
-      $("dlg-face").hidden = !who;
+      $("dlg-face").innerHTML = D.opts.face || (who === "frog" ? ART.frogInline("Gabi", "idle", G.look) : who ? ART.svg[who] || "" : "");
+      $("dlg-face").hidden = !who && !D.opts.face;
       $("dlg-name").textContent = D.opts.name || "";
       $("dlg-name").hidden = !D.opts.name;
       showLine();
@@ -893,7 +1048,47 @@
     $$(".tab-panel").forEach(p => { p.hidden = p.id !== "tab-" + name; });
   }
 
+  // Wardrobe: what she's wearing, plus every collectible (owned ones to wear, missing ones with where they come from).
+  const SLOT_NAMES = { hat: "Hats", face: "Faces", neck: "Neck", skin: "Colors", pet: "Pets" };
+  let wardSlot = "hat";
+  function renderWardrobe() {
+    const owned = LOOT.ITEMS.filter(it => G.owned[it.id]).length;
+    let html = `<div class="ward-top"><span class="ward-frog">${ART.frogInline("Gabi in her outfit", "idle", G.look)}</span>` +
+      `<div class="ward-info"><p class="summary">${owned} of ${LOOT.ITEMS.length} collected</p>` +
+      `<p class="fine">Lucky streak: ${G.streak} right in a row, so rare drops are ×${luck().toFixed(2)} as likely. Sparkly critters triple it.</p></div></div>` +
+      '<div class="tabs slots">' + Object.keys(SLOT_NAMES).map(s => {
+        const have = LOOT.ITEMS.filter(it => it.slot === s && G.owned[it.id]).length, all = LOOT.ITEMS.filter(it => it.slot === s).length;
+        return `<button type="button" class="tab" data-slot="${s}" aria-selected="${s === wardSlot}">${SLOT_NAMES[s]} ${have}/${all}</button>`;
+      }).join("") + '</div><div class="items-grid">';
+    if (wardSlot === "face" || wardSlot === "neck" || wardSlot === "pet")
+      html += `<button type="button" class="item${G.look[wardSlot] ? "" : " on"}" data-equip="${wardSlot}:none"><span class="item-art none">None</span><b>Nothing</b><span class="src">Take it off</span></button>`;
+    for (const it of LOOT.ITEMS.filter(i => i.slot === wardSlot)) {
+      const have = !!G.owned[it.id], worn = G.look[it.slot] === it.id;
+      html += `<button type="button" class="item${have ? "" : " locked"}${worn ? " on" : ""}" ${have ? `data-equip="${it.id}"` : "disabled"}>` +
+        `<span class="item-art">${ART.itemArt(it)}</span><b>${esc(it.name)}</b><span class="src">${esc(worn ? "Wearing" : have ? "Tap to wear" : sourceText(it))}</span></button>`;
+    }
+    $("tab-wardrobe").innerHTML = html + "</div>";
+  }
+  on("tab-wardrobe", "click", ev => {
+    const slot = ev.target.closest("[data-slot]"), item = ev.target.closest("[data-equip]");
+    if (slot) { wardSlot = slot.dataset.slot; renderWardrobe(); }
+    else if (item) equip(item.dataset.equip);
+  });
+
+  function renderQuests() {
+    const done = LOOT.QUESTS.filter(q => G.quests[q.id]).length;
+    $("tab-quests").innerHTML = `<p class="summary">${done} of ${LOOT.QUESTS.length} quests done</p>` + LOOT.QUESTS.map(q => {
+      const n = Math.min(q.goal, questProgress(q)), it = LOOT.rewardOf(q.id), fin = !!G.quests[q.id];
+      return `<article class="quest${fin ? " done" : ""}"><span class="quest-art item-art">${it ? ART.itemArt(it) : ""}</span>` +
+        `<div class="quest-txt"><b>${esc(q.name)}</b><span>${esc(q.text)}</span>` +
+        `<div class="qbar"><span style="width:${Math.round((100 * n) / q.goal)}%"></span></div>` +
+        `<span class="quest-n">${fin ? "Done" : `${n} / ${q.goal}`} · Reward: ${esc(it ? it.name : "")}</span></div></article>`;
+    }).join("");
+  }
+
   function renderMenu() {
+    renderWardrobe();
+    renderQuests();
     const acc = G.stats.answered ? Math.round((100 * G.stats.right) / G.stats.answered) : 0;
     let html = `<p class="summary">Level ${G.level} · ${mastered()} of ${Q.length} questions mastered` +
       (G.stats.answered ? ` · ${acc}% right` : "") + "</p><div class=\"worlds\">";
@@ -943,7 +1138,7 @@
 
   // ---------- ending ----------
   function ending() {
-    $("end-frog").innerHTML = ART.frogInline("Gabi celebrating", "cheer");
+    $("end-frog").innerHTML = ART.frogInline("Gabi celebrating", "cheer", G.look);
     const acc = G.stats.answered ? Math.round((100 * G.stats.right) / G.stats.answered) : 0;
     $("end-stats").textContent = `${G.stats.answered} questions answered · ${acc}% right · level ${G.level}`;
     const box = $("confetti");
@@ -1060,7 +1255,33 @@
     return (h ^ (h >>> 16)) >>> 0;
   };
 
-  const SIZE = { enemy: 1.05, boss: 1.75, npc: 1.15, owl: 1.1, spring: 1.15, portal: 1.2, sign: 1, chest: 0.95, stone: 1.05, gate: 1.05, bramble: 1.05, bell: 1.05 };
+  const SIZE = { enemy: 1.05, boss: 1.75, npc: 1.15, owl: 1.1, spring: 1.15, portal: 1.2, sign: 1, chest: 0.95, stone: 1.05, gate: 1.05, bramble: 1.05, bell: 1.05, board: 1.15 };
+
+  function twinkle(c, x, y, r, alpha) {
+    c.fillStyle = `rgba(255,253,246,${alpha})`;
+    c.beginPath();
+    c.moveTo(x, y - r);
+    c.quadraticCurveTo(x, y, x + r, y);
+    c.quadraticCurveTo(x, y, x, y + r);
+    c.quadraticCurveTo(x, y, x - r, y);
+    c.quadraticCurveTo(x, y, x, y - r);
+    c.fill();
+  }
+
+  function drawPet(c, now) {
+    const art = ART.PET_ART[G.look.pet];
+    const s = TS * (G.look.pet === "firefly" ? 0.6 : 0.68);
+    const img = art && ART.sprite(art, s);
+    if (!img) return;
+    const fly = G.look.pet === "firefly";
+    const lift = fly ? TS * (0.35 + Math.sin(now / 350) * 0.1) : Math.abs(Math.sin(now / 240)) * TS * 0.06 * (Math.abs(PET.rx - PET.x) + Math.abs(PET.ry - PET.y) > 0.05 ? 1 : 0.3);
+    const cx = (PET.rx + 0.5) * TS - cam.x, bottom = (PET.ry + 1) * TS - cam.y + TS * 0.02;
+    c.save();
+    c.translate(cx, bottom - lift);
+    c.scale(PET.rx > P.rx + 0.05 ? -1 : 1, 1);
+    c.drawImage(img, -s / 2, -s, s, s);
+    c.restore();
+  }
 
   function artFor(e) {
     if (e.type === "enemy") return e.foe;
@@ -1074,7 +1295,7 @@
 
   function usable(e) {
     switch (e.type) {
-      case "sign": case "npc": case "spring": case "portal": case "bramble": case "bell": return true;
+      case "sign": case "npc": case "spring": case "portal": case "bramble": case "bell": case "board": return true;
       case "chest": return !e.open;
       case "stone": return !e.lit;
       case "gate": return !e.open;
@@ -1129,6 +1350,7 @@
     for (const pr of M.props) list.push({ z: pr.y + pr.h - 1, pr });
     for (const e of M.things) if (!e.gone && e.type !== "warp") list.push({ z: e.ry, e });
     list.push({ z: P.ry + 0.001, me: true });
+    if (G.look.pet) list.push({ z: PET.ry, pet: true });
     list.sort((a, b) => a.z - b.z);
 
     for (const it of list) {
@@ -1141,6 +1363,7 @@
         const img = ART.sprite(it.pr.type, w, h);
         if (img) c.drawImage(img, it.pr.x * TS - cam.x, (it.pr.y + it.pr.h) * TS - h + TS * 0.12 - cam.y, w, h);
       } else if (it.e) drawThing(c, it.e, now);
+      else if (it.pet) drawPet(c, now);
       else drawFrog(c, now);
     }
 
@@ -1168,6 +1391,13 @@
     if (e.type === "enemy") lift = Math.abs(Math.sin(now / 260 + e.seed)) * TS * 0.07;
     if (e.type === "boss" || e.type === "npc" || e.type === "owl") lift = (Math.sin(now / 500 + e.x) + 1) * TS * 0.025;
     const cx = (e.rx + 0.5) * TS - cam.x, bottom = (e.ry + 1) * TS - cam.y + TS * 0.04;
+    if (e.shiny) {
+      const pulse = 0.35 + 0.15 * Math.sin(now / 250);
+      c.fillStyle = `rgba(255,215,106,${pulse})`;
+      c.beginPath();
+      c.ellipse(cx, bottom - s * 0.42, s * 0.62, s * 0.55, 0, 0, Math.PI * 2);
+      c.fill();
+    }
     if (e.type === "portal") {
       c.globalAlpha = 0.75 + 0.25 * Math.sin(now / 300);
       c.drawImage(img, cx - s / 2, bottom - s * 0.92, s, s);
@@ -1179,6 +1409,12 @@
       c.drawImage(img, -s / 2, bottom - s - lift, s, s);
       c.restore();
     } else c.drawImage(img, cx - s / 2, bottom - s - lift, s, s);
+
+    if (e.shiny)
+      for (let k = 0; k < 3; k++) {
+        const a = now / 450 + (k * Math.PI * 2) / 3, phase = (now / 700 + k / 3) % 1;
+        twinkle(c, cx + Math.cos(a) * s * 0.5, bottom - s * 0.5 - lift + Math.sin(a) * s * 0.42, TS * 0.09 * (1 - phase * 0.5), 1 - phase * 0.6);
+      }
 
     if (e.type === "spring") {
       c.fillStyle = "rgba(255,255,255,.9)";
@@ -1230,7 +1466,7 @@
   }
 
   // ---------- input ----------
-  const busy = () => !!(B || D || !$("menu").hidden || !$("title").hidden || !$("end").hidden);
+  const busy = () => !!(B || D || !$("menu").hidden || !$("shop").hidden || !$("title").hidden || !$("end").hidden);
   const KEYS = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right", w: "up", s: "down", a: "left", d: "right", W: "up", S: "down", A: "left", D: "right" };
 
   function actionKey() {
@@ -1269,6 +1505,10 @@
     }
     if (!$("menu").hidden) {
       if (k === "Escape" || k === "m" || k === "M") closeMenu();
+      return;
+    }
+    if (!$("shop").hidden) {
+      if (k === "Escape") $("shop").hidden = true;
       return;
     }
     const dir = KEYS[k];
@@ -1319,7 +1559,19 @@
     enterMap(G.map, G.x, G.y, G.face);
     hud();
     save();
-    if (!G.met.newt) setTimeout(talkNewt, 500);
+    setTimeout(async () => {
+      if (busy()) return;
+      if (!G.met.newt) await talkNewt();
+      else if (!G.met.loot) {
+        G.met.loot = true;
+        save();
+        await say(["Gabi! Big news from the pond.",
+          "Every world's critters now drop their own rare treasures: hats, colors, even pets. Sparkly critters drop them three times as often.",
+          "Answer several in a row right and your luck goes up. Shelly has new stock, and there's a Quest Board right next to me.",
+          "Your Wardrobe is at home, or in your Journal. Happy hunting!"], { who: "newt", name: "Professor Newt" });
+      }
+      await checkQuests();
+    }, 500);
   }
 
   on("t-play", "click", play);
@@ -1343,6 +1595,8 @@
     await ART.load();
     saved = load();
     G = saved || fresh();
+    await ART.setLook(G.look);
+    $("title-frog").innerHTML = ART.frogInline("Gabi the frog", "idle", G.look);
     enterMap(G.map, G.x, G.y, G.face, true);
     hud();
     $("t-play").textContent = saved ? "Continue adventure" : "Start adventure";

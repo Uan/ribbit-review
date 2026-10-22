@@ -89,6 +89,7 @@
 
     g.add("start", 5, 7);
     g.add("npc", 8, 9, { who: "newt" });
+    g.add("board", 11, 9);
     g.add("npc", 26, 7, { who: "snail" });
     g.add("spring", 11, 15);
     g.add("sign", 17, 3, { lines: ["North: Lotus Lagoon.", "Values & Ethics live there."] });

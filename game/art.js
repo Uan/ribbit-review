@@ -37,26 +37,127 @@
     `<circle cx="${cx}" cy="70" r="17.76" fill="#fff"/><circle cx="${ix}" cy="71.44" r="12" fill="#6a4527"/>` +
     `<circle cx="${ix}" cy="71.44" r="7.2" fill="#2a1e14"/><circle cx="${s1}" cy="66.64" r="3.84" fill="#fff"/>` +
     `<circle cx="${s2}" cy="75.28" r="1.8" fill="#fff"/>`;
-  const FROG_IMG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">' +
-    '<ellipse cx="100" cy="191" rx="72" ry="7" fill="#3b2a1a" opacity=".16"/>' + CAP +
-    '<g fill="#3f7f37" stroke="#3f7f37" stroke-width="7" stroke-linejoin="round">' + SIL + '</g>' +
-    '<g fill="#7cc46a">' + SIL + '</g>' +
-    '<ellipse cx="100" cy="148" rx="42" ry="31" fill="#d9f1bd"/>' +
-    '<ellipse cx="57.84" cy="56.56" rx="7.2" ry="3.84" fill="#fff" opacity=".4" transform="rotate(-28 57.84 56.56)"/>' +
-    eyeImg(66, 67.92, 63.84, 72.24) + eyeImg(134, 132.08, 128, 136.4) +
-    '<ellipse cx="56" cy="114" rx="11" ry="6.5" fill="#f4a7b9" opacity=".85"/><ellipse cx="144" cy="114" rx="11" ry="6.5" fill="#f4a7b9" opacity=".85"/>' +
-    '<circle cx="94" cy="104" r="1.9" fill="#3f7f37"/><circle cx="106" cy="104" r="1.9" fill="#3f7f37"/>' +
-    '<path d="M89 116Q100 126 111 116" fill="none" stroke="#3b2a1a" stroke-width="3.6" stroke-linecap="round"/>' +
-    TASSEL + '</svg>';
+  // ---------- wardrobe: colors and accessories, all in the frog's 200x200 space ----------
+  const SKINS = {
+    leaf: ["#7cc46a", "#3f7f37", "#d9f1bd"], sunny: ["#f6d05c", "#a88420", "#fff4cc"], mint: ["#8fddb7", "#3e9270", "#e2f8ed"],
+    pink: ["#f4a7b9", "#b85a73", "#ffe5ec"], sky: ["#8cc7f2", "#3f7db0", "#e3f1fc"], lavender: ["#b9a3ec", "#6c55a8", "#efe8fd"],
+    peach: ["#f8c09a", "#b8744a", "#ffeddf"], midnight: ["#56618a", "#262c47", "#bcc7e6"], golden: ["#e8c04a", "#9a7413", "#fff2b8"]
+  };
+  const star = (x, y, r, fill, stroke) => {
+    let d = "";
+    for (let k = 0; k < 10; k++) {
+      const a = -Math.PI / 2 + (k * Math.PI) / 5, rr = k % 2 ? r * 0.45 : r;
+      d += (k ? "L" : "M") + (x + Math.cos(a) * rr).toFixed(1) + " " + (y + Math.sin(a) * rr).toFixed(1);
+    }
+    return `<path d="${d}Z" fill="${fill}"${stroke ? ` stroke="${stroke}" stroke-width="2" stroke-linejoin="round"` : ""}/>`;
+  };
+  const flower = (x, y, c) => {
+    let s = "";
+    for (let k = 0; k < 5; k++) {
+      const a = (k * Math.PI * 2) / 5 - Math.PI / 2;
+      s += `<circle cx="${(x + Math.cos(a) * 5).toFixed(1)}" cy="${(y + Math.sin(a) * 5).toFixed(1)}" r="4.6" fill="${c}"/>`;
+    }
+    return s + `<circle cx="${x}" cy="${y}" r="3.4" fill="${c === "#ffd76a" ? "#f6a85a" : "#ffd76a"}"/>`;
+  };
+  const lotus = (x, y, k) => [-28, 0, 28].map(a => `<ellipse cx="${x}" cy="${y - 7 * k}" rx="${4.5 * k}" ry="${9 * k}" transform="rotate(${a} ${x} ${y})" fill="#f4a7b9" stroke="#e27d96" stroke-width="2"/>`).join("") + `<circle cx="${x}" cy="${y - 2 * k}" r="${2.6 * k}" fill="#ffd76a"/>`;
+
+  // back: drawn behind the frog (peeks out between the eyes); front: drawn on top
+  const HATS = {
+    gradcap: { back: CAP, front: TASSEL },
+    scholar: {
+      back: CAP.replace(/#3b3a44/g, "#e0b640").replace("#18171d", "#a88420").replace("#6a6976", "#fff0a8"),
+      front: TASSEL.replace(/#ffd76a/g, "#fffdf6").replace("#b8901f", "#c9b797") + star(100, 38, 5, "#fffdf6")
+    },
+    flowers: { front: '<path d="M50 49Q100 24 150 49" fill="none" stroke="#5aa845" stroke-width="5" stroke-linecap="round"/>' +
+      [[54, 46, "#f4a7b9"], [72, 37, "#fffdf6"], [91, 32, "#ffd76a"], [110, 32, "#f4a7b9"], [129, 37, "#c3a6f0"], [147, 46, "#fffdf6"]].map(([x, y, c]) => flower(x, y, c)).join("") },
+    beanie: { back: '<path d="M68 54Q66 18 100 16Q134 18 132 54Z" fill="#ffd76a" stroke="#b8901f" stroke-width="3.5" stroke-linejoin="round"/>' +
+      '<path d="M84 24V50M100 20V50M116 24V50" stroke="#e0b640" stroke-width="3" stroke-linecap="round"/>' +
+      '<rect x="64" y="44" width="72" height="12" rx="6" fill="#f6a85a" stroke="#b06a22" stroke-width="3"/>' +
+      '<circle cx="100" cy="13" r="9" fill="#fffdf6" stroke="#c9b797" stroke-width="3"/>' },
+    lilyhat: { front: '<ellipse cx="100" cy="40" rx="44" ry="12" fill="#8fd177" stroke="#4e9a45" stroke-width="3.5"/>' +
+      '<path d="M100 40L70 45M100 40L130 46M100 40L104 51" stroke="#4e9a45" stroke-width="2" stroke-linecap="round"/>' + lotus(100, 34, 1.1) },
+    bow: { front: '<path d="M96 44L88 58M104 44L112 58" stroke="#b85a73" stroke-width="6" stroke-linecap="round"/>' +
+      '<path d="M100 40C88 22 62 22 64 38C66 52 88 48 100 40Z" fill="#f4a7b9" stroke="#b85a73" stroke-width="3.5" stroke-linejoin="round"/>' +
+      '<path d="M100 40C112 22 138 22 136 38C134 52 112 48 100 40Z" fill="#f4a7b9" stroke="#b85a73" stroke-width="3.5" stroke-linejoin="round"/>' +
+      '<circle cx="100" cy="40" r="7" fill="#ef8a9a" stroke="#b85a73" stroke-width="3"/>' },
+    strawberry: { front: '<path d="M68 48Q66 16 100 12Q134 16 132 48Q100 56 68 48Z" fill="#ef6f6c" stroke="#a8322f" stroke-width="3.5" stroke-linejoin="round"/>' +
+      [[84, 30], [100, 24], [116, 30], [90, 41], [110, 41], [100, 35]].map(([x, y]) => `<ellipse cx="${x}" cy="${y}" rx="2" ry="3" fill="#ffe08a"/>`).join("") +
+      '<path d="M100 15L88 6L95 16L83 19L98 20L100 26L102 20L117 19L105 16L112 6Z" fill="#7cc46a" stroke="#3f7f37" stroke-width="2.5" stroke-linejoin="round"/>' },
+    mushroom: { front: '<path d="M46 50Q46 8 100 6Q154 8 154 50Q100 40 46 50Z" fill="#ef6f6c" stroke="#a8322f" stroke-width="4" stroke-linejoin="round"/>' +
+      [[70, 30, 7], [100, 18, 8], [130, 30, 7], [86, 41, 5], [116, 41, 5]].map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#fffdf6"/>`).join("") },
+    wizard: { front: '<path d="M66 48L106 6Q110 2 112 8L134 48Q100 40 66 48Z" fill="#8c6fd0" stroke="#4b2d7f" stroke-width="4" stroke-linejoin="round"/>' +
+      '<path d="M70 44Q100 36 131 44" fill="none" stroke="#ffd76a" stroke-width="5" stroke-linecap="round"/>' + star(100, 28, 6, "#ffd76a") + star(114, 16, 4, "#fffdf6") },
+    lotuscrown: { front: '<path d="M68 50L64 22L80 36L92 16L100 30L108 16L120 36L136 22L132 50Q100 44 68 50Z" fill="#ffd76a" stroke="#b8901f" stroke-width="3.5" stroke-linejoin="round"/>' +
+      [[64, 22], [92, 16], [108, 16], [136, 22]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="3.6" fill="#f4a7b9" stroke="#b85a73" stroke-width="1.5"/>`).join("") + lotus(100, 46, 0.9) },
+    halo: { front: '<ellipse cx="100" cy="20" rx="38" ry="9" fill="none" stroke="#fff0c2" stroke-width="10" opacity=".7"/>' +
+      '<ellipse cx="100" cy="20" rx="38" ry="9" fill="none" stroke="#ffd76a" stroke-width="5"/>' + flower(64, 22, "#fffdf6") + flower(136, 22, "#fffdf6") }
+  };
+  const FACES = {
+    glasses: '<g fill="#fff" fill-opacity=".18" stroke="#6e4d2d" stroke-width="4.5"><circle cx="66" cy="70" r="21"/><circle cx="134" cy="70" r="21"/></g>' +
+      '<path d="M87 66Q100 58 113 66" fill="none" stroke="#6e4d2d" stroke-width="4.5" stroke-linecap="round"/>',
+    heartshades: [66, 134].map(x => `<path d="M${x} 90C${x - 16} 79 ${x - 23} 71 ${x - 23} 63A11.5 11.5 0 0 1 ${x} 58A11.5 11.5 0 0 1 ${x + 23} 63C${x + 23} 71 ${x + 16} 79 ${x} 90Z" fill="#b85a73" stroke="#7a2941" stroke-width="3.5" stroke-linejoin="round"/>` +
+      `<path d="M${x - 15} 64q3 -5 9 -5" stroke="#fbe3ea" stroke-width="3" fill="none" stroke-linecap="round"/>`).join("") +
+      '<path d="M89 66Q100 60 111 66" fill="none" stroke="#7a2941" stroke-width="4" stroke-linecap="round"/>',
+    monocle: '<circle cx="134" cy="70" r="21" fill="#fff" fill-opacity=".18" stroke="#e0b640" stroke-width="4.5"/>' +
+      '<path d="M153 78Q164 104 150 124" fill="none" stroke="#e0b640" stroke-width="2.5" stroke-dasharray="4 3"/>',
+    stickers: star(46, 98, 9, "#ffd76a", "#b8901f") + star(155, 96, 8, "#ffd76a", "#b8901f") +
+      '<path d="M150 112c-3 -4 -8 -1 -5 2l5 5 5 -5c3 -3 -2 -6 -5 -2z" fill="#f4a7b9"/>',
+    butterfly: '<g transform="rotate(18 142 42)"><ellipse cx="132" cy="36" rx="11" ry="8" fill="#c3a6f0" stroke="#6c55a8" stroke-width="2.5"/>' +
+      '<ellipse cx="152" cy="36" rx="11" ry="8" fill="#c3a6f0" stroke="#6c55a8" stroke-width="2.5"/>' +
+      '<ellipse cx="134" cy="48" rx="7" ry="5" fill="#f4a7b9" stroke="#6c55a8" stroke-width="2.5"/>' +
+      '<ellipse cx="150" cy="48" rx="7" ry="5" fill="#f4a7b9" stroke="#6c55a8" stroke-width="2.5"/>' +
+      '<rect x="140" y="30" width="4" height="22" rx="2" fill="#4b2d7f"/></g>',
+    stargoggles: '<path d="M44 56Q100 36 156 56" fill="none" stroke="#2d7f76" stroke-width="5"/>' +
+      '<g fill="#8fd3c8" fill-opacity=".45" stroke="#2d7f76" stroke-width="6"><circle cx="66" cy="70" r="20"/><circle cx="134" cy="70" r="20"/></g>' +
+      '<path d="M86 68H114" stroke="#2d7f76" stroke-width="6" stroke-linecap="round"/>' + star(150, 52, 6, "#fffdf6")
+  };
+  const NECKS = {
+    bowtie: '<path d="M100 134L80 122V146Z" fill="#ef6f6c" stroke="#a8322f" stroke-width="3" stroke-linejoin="round"/>' +
+      '<path d="M100 134L120 122V146Z" fill="#ef6f6c" stroke="#a8322f" stroke-width="3" stroke-linejoin="round"/>' +
+      '<circle cx="100" cy="134" r="6" fill="#ef6f6c" stroke="#a8322f" stroke-width="3"/>',
+    scarf: '<path d="M122 140L128 174L144 170L138 136Z" fill="#ef8a7a" stroke="#a8402f" stroke-width="3" stroke-linejoin="round"/>' +
+      '<path d="M44 122Q100 146 156 122L158 136Q100 162 42 136Z" fill="#ef8a7a" stroke="#a8402f" stroke-width="3" stroke-linejoin="round"/>' +
+      '<path d="M58 132L60 142M78 138L79 148M100 140V150M122 138L121 148M142 132L140 142" stroke="#fffdf6" stroke-width="3" stroke-linecap="round"/>',
+    pearls: Array.from({ length: 11 }, (_, k) => {
+      const x = 62 + k * 7.6, y = 128 + 16 * (1 - ((x - 100) / 40) ** 2);
+      return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.6" fill="#fffdf6" stroke="#c9b797" stroke-width="1.5"/>`;
+    }).join(""),
+    bell: '<path d="M54 124Q100 144 146 124" fill="none" stroke="#ef6f6c" stroke-width="7" stroke-linecap="round"/>' +
+      '<circle cx="100" cy="142" r="10" fill="#ffd76a" stroke="#b8901f" stroke-width="3"/><path d="M93 144H107M100 144V150" stroke="#b8901f" stroke-width="2.5" stroke-linecap="round"/>',
+    leafcape: [[62, 126, -40], [78, 134, -20], [100, 138, 0], [122, 134, 20], [138, 126, 40]]
+      .map(([x, y, a]) => `<ellipse cx="${x}" cy="${y}" rx="8" ry="14" transform="rotate(${a} ${x} ${y})" fill="#5fb24f" stroke="#2f6b2a" stroke-width="2.5"/>`).join(""),
+    medal: '<path d="M86 122L100 146L114 122" fill="none" stroke="#5ea9dd" stroke-width="8" stroke-linejoin="round"/>' +
+      '<path d="M90 122L100 140L110 122" fill="none" stroke="#ef6f6c" stroke-width="3"/>' +
+      '<circle cx="100" cy="152" r="12" fill="#ffd76a" stroke="#b8901f" stroke-width="3"/>' + star(100, 152, 6, "#fff0c2")
+  };
+  const GOLD_SHINE = star(62, 150, 6, "#fffdf6") + star(146, 140, 5, "#fffdf6") + star(124, 96, 3.5, "#fffdf6");
+  const DEFAULT_LOOK = { hat: "gradcap", face: "", neck: "", skin: "leaf", pet: "" };
+  const lookOf = look => Object.assign({}, DEFAULT_LOOK, look || {});
+
+  // The frog as a stand-alone image (map sprite, item previews).
+  function frogImage(look, vb) {
+    const L = lookOf(look), [f, d, b] = SKINS[L.skin] || SKINS.leaf, hat = HATS[L.hat] || {};
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb || "0 0 200 200"}">` +
+      '<ellipse cx="100" cy="191" rx="72" ry="7" fill="#3b2a1a" opacity=".16"/>' + (hat.back || "") +
+      `<g fill="${d}" stroke="${d}" stroke-width="7" stroke-linejoin="round">${SIL}</g><g fill="${f}">${SIL}</g>` +
+      `<ellipse cx="100" cy="148" rx="42" ry="31" fill="${b}"/>` +
+      '<ellipse cx="57.84" cy="56.56" rx="7.2" ry="3.84" fill="#fff" opacity=".4" transform="rotate(-28 57.84 56.56)"/>' +
+      eyeImg(66, 67.92, 63.84, 72.24) + eyeImg(134, 132.08, 128, 136.4) +
+      '<ellipse cx="56" cy="114" rx="11" ry="6.5" fill="#f4a7b9" opacity=".85"/><ellipse cx="144" cy="114" rx="11" ry="6.5" fill="#f4a7b9" opacity=".85"/>' +
+      `<circle cx="94" cy="104" r="1.9" fill="${d}"/><circle cx="106" cy="104" r="1.9" fill="${d}"/>` +
+      '<path d="M89 116Q100 126 111 116" fill="none" stroke="#3b2a1a" stroke-width="3.6" stroke-linecap="round"/>' +
+      (L.skin === "golden" ? GOLD_SHINE : "") + (NECKS[L.neck] || "") + (FACES[L.face] || "") + (hat.front || "") + "</svg>";
+  }
 
   // Class-based copy for HTML portraits, so CSS can switch moods (idle, happy, oops, cheer).
   const eyeCss = (cx, ix, s1, s2) =>
     `<g class="e-open"><circle class="white" cx="${cx}" cy="70" r="17.76"/><circle class="iris" cx="${ix}" cy="71.44" r="12"/>` +
     `<circle class="pupil" cx="${ix}" cy="71.44" r="7.2"/><circle class="white" cx="${s1}" cy="66.64" r="3.84"/>` +
     `<circle class="white" cx="${s2}" cy="75.28" r="1.8"/></g>`;
-  const frogInline = (label, mood) =>
-    `<svg class="frog" viewBox="0 0 200 200" data-mood="${mood || "idle"}" role="img" aria-label="${label || "Gabi the frog"}">` +
-    '<ellipse class="shadow" cx="100" cy="191" rx="72" ry="7"/><g class="bob">' + CAP +
+  const frogInline = (label, mood, look) => {
+    const L = lookOf(look), [f, d, b] = SKINS[L.skin] || SKINS.leaf, hat = HATS[L.hat] || {};
+    return `<svg class="frog" viewBox="0 0 200 200" data-mood="${mood || "idle"}" role="img" aria-label="${label || "Gabi the frog"}" style="--frog:${f};--frog-dark:${d};--frog-belly:${b}">` +
+    '<ellipse class="shadow" cx="100" cy="191" rx="72" ry="7"/><g class="bob">' + (hat.back || "") +
     '<g class="sil-line">' + SIL + '</g><g class="sil-fill">' + SIL + '</g>' +
     '<ellipse class="belly" cx="100" cy="148" rx="42" ry="31"/>' +
     '<ellipse class="shine" cx="57.84" cy="56.56" rx="7.2" ry="3.84" transform="rotate(-28 57.84 56.56)"/>' +
@@ -67,7 +168,9 @@
     '<path class="m-smile" d="M89 116Q100 126 111 116"/>' +
     '<g class="m-grin"><path d="M86 114Q100 134 114 114Z"/><ellipse cx="100" cy="122" rx="6" ry="3.2"/></g>' +
     '<ellipse class="m-o" cx="100" cy="119" rx="4.2" ry="5.2"/>' +
-    '<path class="drop" d="M30 50c-4 6-6 9-6 12a6 6 0 0 0 12 0c0-3-2-6-6-12z"/>' + TASSEL + '</g></svg>';
+    '<path class="drop" d="M30 50c-4 6-6 9-6 12a6 6 0 0 0 12 0c0-3-2-6-6-12z"/>' +
+    (L.skin === "golden" ? GOLD_SHINE : "") + (NECKS[L.neck] || "") + (FACES[L.face] || "") + (hat.front || "") + "</g></svg>";
+  };
 
   // ---------- characters and props (viewBox 0 0 100 100 unless noted) ----------
   const svg = body => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' + body + '</svg>';
@@ -83,7 +186,47 @@
   };
 
   const SVG = {
-    frog: FROG_IMG,
+    frog: frogImage(DEFAULT_LOOK),
+
+    // pets (the baby snail and moth plushie reuse the snail and moth)
+    tadpole: svg(shadow(24, 90) +
+      '<path d="M60 70Q80 58 90 72Q96 84 84 80Q76 76 66 82Z" fill="#5f8f4a" stroke="#2f4f22" stroke-width="3" stroke-linejoin="round"/>' +
+      '<ellipse cx="44" cy="68" rx="25" ry="21" fill="#6fa356" stroke="#2f4f22" stroke-width="3.5"/>' + eyes(35, 53, 62, 6.5) +
+      '<path d="M38 77Q44 81 50 77" fill="none" stroke="#1b2f12" stroke-width="2.5" stroke-linecap="round"/>' +
+      '<ellipse cx="28" cy="74" rx="4" ry="2.5" fill="#f4a7b9"/><ellipse cx="60" cy="74" rx="4" ry="2.5" fill="#f4a7b9"/>'),
+    ladybug: svg(shadow(30) +
+      '<path d="M26 66L14 62M26 76L14 80M74 66L86 62M74 76L86 80" stroke="#3b3a44" stroke-width="3.5" stroke-linecap="round"/>' +
+      '<path d="M18 78Q18 38 50 36Q82 38 82 78Z" fill="#ef6f6c" stroke="#a8322f" stroke-width="4" stroke-linejoin="round"/>' +
+      '<path d="M50 38V78" stroke="#a8322f" stroke-width="3"/>' +
+      '<circle cx="36" cy="54" r="5" fill="#3b3a44"/><circle cx="64" cy="54" r="5" fill="#3b3a44"/><circle cx="32" cy="68" r="4" fill="#3b3a44"/><circle cx="68" cy="68" r="4" fill="#3b3a44"/>' +
+      '<path d="M40 30Q36 18 30 16M60 30Q64 18 70 16" fill="none" stroke="#3b3a44" stroke-width="3" stroke-linecap="round"/>' +
+      '<ellipse cx="50" cy="80" rx="18" ry="11" fill="#3b3a44"/>' + eyes(44, 56, 80, 4) +
+      '<ellipse cx="36" cy="84" rx="3" ry="2" fill="#f4a7b9"/><ellipse cx="64" cy="84" rx="3" ry="2" fill="#f4a7b9"/>'),
+    firefly: svg('<circle cx="50" cy="70" r="30" fill="#ffe08a" opacity=".4"/>' + shadow(18) +
+      '<ellipse cx="34" cy="42" rx="14" ry="9" transform="rotate(-25 34 42)" fill="#e3f2fc" stroke="#5e6a75" stroke-width="2.5"/>' +
+      '<ellipse cx="66" cy="42" rx="14" ry="9" transform="rotate(25 66 42)" fill="#e3f2fc" stroke="#5e6a75" stroke-width="2.5"/>' +
+      '<ellipse cx="50" cy="74" rx="14" ry="13" fill="#ffd76a" stroke="#e0b640" stroke-width="3"/>' +
+      '<ellipse cx="50" cy="52" rx="13" ry="14" fill="#3b3a44"/>' + eyes(44, 56, 50, 4.5) +
+      '<path d="M44 40Q40 28 34 26M56 40Q60 28 66 26" fill="none" stroke="#3b3a44" stroke-width="2.5" stroke-linecap="round"/>' +
+      '<circle cx="34" cy="26" r="3" fill="#ffd76a"/><circle cx="66" cy="26" r="3" fill="#ffd76a"/>'),
+    gabunny: svg(shadow(28) +
+      '<ellipse cx="38" cy="26" rx="9" ry="22" transform="rotate(-10 38 26)" fill="#fffdf6" stroke="#c9b797" stroke-width="3.5"/>' +
+      '<ellipse cx="62" cy="26" rx="9" ry="22" transform="rotate(10 62 26)" fill="#fffdf6" stroke="#c9b797" stroke-width="3.5"/>' +
+      '<ellipse cx="38" cy="28" rx="4.5" ry="15" transform="rotate(-10 38 28)" fill="#f4a7b9"/><ellipse cx="62" cy="28" rx="4.5" ry="15" transform="rotate(10 62 28)" fill="#f4a7b9"/>' +
+      '<ellipse cx="50" cy="76" rx="26" ry="17" fill="#fffdf6" stroke="#c9b797" stroke-width="3.5"/>' +
+      '<circle cx="50" cy="55" r="20" fill="#fffdf6" stroke="#c9b797" stroke-width="3.5"/>' + eyes(43, 57, 53, 4.5) +
+      '<path d="M47 60L53 60L50 63Z" fill="#ef8a9a"/><path d="M45 65Q50 68 55 65" fill="none" stroke="#8a6238" stroke-width="2" stroke-linecap="round"/>' +
+      '<ellipse cx="38" cy="61" rx="4" ry="2.5" fill="#f4a7b9"/><ellipse cx="62" cy="61" rx="4" ry="2.5" fill="#f4a7b9"/>' +
+      '<path d="M50 36C44 28 36 32 42 38C44 40 48 38 50 36C52 38 56 40 58 38C64 32 56 28 50 36Z" fill="#ef8a9a" stroke="#b85a73" stroke-width="2"/>'),
+    board: svg('<ellipse cx="50" cy="92" rx="32" ry="5" fill="#3b2a1a" opacity=".16"/>' +
+      '<rect x="22" y="56" width="8" height="36" rx="2" fill="#8a6238"/><rect x="70" y="56" width="8" height="36" rx="2" fill="#8a6238"/>' +
+      '<rect x="10" y="14" width="80" height="52" rx="7" fill="#c98f52" stroke="#6e4d2d" stroke-width="4"/>' +
+      '<rect x="18" y="22" width="22" height="18" rx="2" fill="#fffdf6" transform="rotate(-6 29 31)"/>' +
+      '<rect x="44" y="20" width="20" height="24" rx="2" fill="#fbe3ea" transform="rotate(4 54 32)"/>' +
+      '<rect x="67" y="26" width="16" height="16" rx="2" fill="#fff0c2"/><rect x="24" y="44" width="24" height="15" rx="2" fill="#e3f5f2"/>' +
+      '<rect x="54" y="48" width="26" height="12" rx="2" fill="#ede5fb"/>' +
+      '<circle cx="29" cy="24" r="2.5" fill="#ef6f6c"/><circle cx="54" cy="22" r="2.5" fill="#5ea9dd"/><circle cx="75" cy="28" r="2.5" fill="#7cc46a"/><circle cx="36" cy="46" r="2.5" fill="#ffd76a"/>' +
+      '<path d="M24 30h10M24 34h7M48 30h12M48 34h9M48 38h11" stroke="#a57a48" stroke-width="2" stroke-linecap="round"/>'),
 
     // critters
     blob: svg(shadow(34, 91) +
@@ -601,5 +744,29 @@
     })));
   }
 
-  window.RQ_ART = { theme, load, reset, ground, tree, rock, sprite, svg: SVG, icon: ICON, frogInline, WATERY };
+  // Re-draw the map frog wearing her current look. The old image stays until the new one is ready.
+  function setLook(look) {
+    return new Promise(done => {
+      const img = new Image();
+      img.onload = () => {
+        IMG.frog = img;
+        for (const k of Array.from(cache.keys())) if (k.startsWith("s|frog|")) cache.delete(k);
+        done();
+      };
+      img.onerror = () => done();
+      img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(frogImage(look));
+    });
+  }
+
+  // Small picture of a collectible: the frog wearing it, cropped to where it sits (pets show on their own).
+  const PET_ART = { tadpole: "tadpole", snailbaby: "snail", ladybug: "ladybug", firefly: "firefly", mothplush: "moth", gabunny: "gabunny" };
+  const CROP = { hat: "14 -6 172 132", face: "14 20 172 124", neck: "14 48 172 136", skin: "14 28 172 170" };
+  function itemArt(it) {
+    if (it.slot === "pet") return SVG[PET_ART[it.id]] || "";
+    const look = { hat: "", face: "", neck: "", skin: "leaf" };
+    look[it.slot] = it.id;
+    return frogImage(look, CROP[it.slot]);
+  }
+
+  window.RQ_ART = { theme, load, reset, ground, tree, rock, sprite, svg: SVG, icon: ICON, frogInline, frogImage, itemArt, setLook, PET_ART, WATERY };
 })();
