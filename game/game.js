@@ -5,7 +5,7 @@
   const Q = window.RIBBIT_Q || [];
   const MAPS = window.RQ_MAPS;
   const ART = window.RQ_ART;
-  const MUSIC = window.RQ_MUSIC || { play() {}, unlock() {}, setEnabled() {} };
+  const MUSIC = window.RQ_MUSIC || { play() {}, unlock() {}, setVolume() {} };
   const BY_ID = {};
   Q.forEach(q => { BY_ID[q.id] = q; });
 
@@ -79,13 +79,21 @@
     return {
       v: 1, map: "hub", x, y, face: "down", hearts: 3, level: 1, xp: 0, flies: 5,
       items: { snack: 1, tea: 1 }, lilies: {}, bosses: {}, puzzles: {}, chests: {}, qs: {}, met: {},
-      check: { map: "hub", x, y }, sound: true, music: true, stats: { answered: 0, right: 0, won: false }
+      check: { map: "hub", x, y }, musicVol: 0.7, sfxVol: 0.8, stats: { answered: 0, right: 0, won: false }
     };
   }
   function load() {
     try {
       const s = JSON.parse(localStorage.getItem(KEY) || "null");
-      if (s && s.v === 1 && MAPS[s.map]) return Object.assign(fresh(), s);
+      if (s && s.v === 1 && MAPS[s.map]) {
+        const g = Object.assign(fresh(), s);
+        // older saves had on/off switches instead of volume levels
+        if (s.musicVol == null && s.music === false) g.musicVol = 0;
+        if (s.sfxVol == null && s.sound === false) g.sfxVol = 0;
+        delete g.music;
+        delete g.sound;
+        return g;
+      }
     } catch (e) { /* storage blocked: start fresh */ }
     return null;
   }
@@ -906,8 +914,7 @@
       : '<p class="summary">Nothing to review right now. Every question you miss shows up here.</p>';
 
     $("tab-rules").innerHTML = '<p class="summary">How to think like the exam</p><ul class="rules">' + RULES.map(r => `<li>${esc(r)}</li>`).join("") + "</ul>";
-    $("sound-btn").textContent = G.sound ? "Sound effects: on" : "Sound effects: off";
-    musicButtons();
+    volumeUI();
   }
 
   const esc = s => String(s).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[ch]);
@@ -915,12 +922,6 @@
   $("menu-btn").addEventListener("click", () => { if (!busy()) openMenu(); });
   $("menu-close").addEventListener("click", closeMenu);
   $$(".tab").forEach(t => t.addEventListener("click", () => showTab(t.dataset.tab)));
-  $("sound-btn").addEventListener("click", () => {
-    G.sound = !G.sound;
-    unlockAudio();
-    save();
-    $("sound-btn").textContent = G.sound ? "Sound effects: on" : "Sound effects: off";
-  });
 
   let resetArmed = 0;
   function armReset(btn) {
@@ -968,36 +969,56 @@
     if (started) MUSIC.unlock();
   }
 
-  function setMusic(on) {
-    G.music = on;
-    MUSIC.setEnabled(on);
+  // ---------- volume ----------
+  function setVolume(kind, v) {
+    v = Math.max(0, Math.min(1, v));
+    if (kind === "music") { G.musicVol = v; MUSIC.setVolume(v); }
+    else G.sfxVol = v;
     unlockAudio();
-    save();
-    musicButtons();
+    save(true);
+    volumeUI();
   }
-  function musicButtons() {
-    const on = G.music !== false;
-    $("music-btn").setAttribute("aria-pressed", String(on));
-    $("music-btn").setAttribute("aria-label", on ? "Turn music off" : "Turn music on");
-    $("music-btn").classList.toggle("off", !on);
-    $("music-toggle").textContent = on ? "Music: on" : "Music: off";
+  function volumeUI() {
+    const m = Math.round(G.musicVol * 100), s = Math.round(G.sfxVol * 100);
+    for (const [ids, val, cls] of [[["vol-music", "vol-music-2"], m, ".vol-music-n"], [["vol-sfx", "vol-sfx-2"], s, ".vol-sfx-n"]]) {
+      ids.forEach(id => { $(id).value = val; $(id).style.setProperty("--fill", val + "%"); });
+      $$(cls).forEach(el => { el.textContent = val ? val + "%" : "Off"; });
+    }
+    $("music-btn").classList.toggle("off", m === 0);
   }
-  $("music-btn").addEventListener("click", () => setMusic(G.music === false));
-  $("music-toggle").addEventListener("click", () => setMusic(G.music === false));
+  for (const [id, kind] of [["vol-music", "music"], ["vol-music-2", "music"], ["vol-sfx", "sfx"], ["vol-sfx-2", "sfx"]]) {
+    $(id).addEventListener("input", ev => setVolume(kind, ev.target.value / 100));
+    $(id).addEventListener("change", () => { save(); if (kind === "sfx") sfx("chest"); });
+  }
+  const volOpen = () => !$("vol-pop").hidden;
+  function toggleVolume(show) {
+    $("vol-pop").hidden = !show;
+    $("music-btn").setAttribute("aria-expanded", String(show));
+    if (show) { unlockAudio(); volumeUI(); }
+  }
+  $("music-btn").addEventListener("click", () => toggleVolume(!volOpen()));
+  let swallowTap = 0;   // the tap that closes the panel shouldn't also walk the frog
+  document.addEventListener("pointerdown", ev => {
+    if (!volOpen() || $("vol-pop").contains(ev.target) || $("music-btn").contains(ev.target)) return;
+    toggleVolume(false);
+    if (ev.target === $("world")) swallowTap = performance.now();
+  }, true);
+  window.addEventListener("keydown", ev => { if (ev.key === "Escape" && volOpen()) toggleVolume(false); });
   const TUNES = {
     right: [[660, 0.07], [880, 0.12]], wrong: [[233, 0.2]], level: [[523, 0.08], [659, 0.08], [784, 0.08], [1047, 0.22]],
     chest: [[784, 0.06], [988, 0.06], [1319, 0.14]], heal: [[440, 0.1], [554, 0.1], [659, 0.18]], warp: [[392, 0.07], [523, 0.12]],
     faint: [[330, 0.14], [262, 0.26]], win: [[523, 0.1], [659, 0.1], [784, 0.1], [1047, 0.32]]
   };
   function sfx(name) {
-    if (!AC || !G || !G.sound || !TUNES[name]) return;
+    const k = G ? Math.pow(G.sfxVol / 0.8, 2) : 0;   // 80% is the original mix
+    if (!AC || k <= 0 || !TUNES[name]) return;
     let t = AC.currentTime + 0.01;
     for (const [f, d] of TUNES[name]) {
       const o = AC.createOscillator(), g = AC.createGain();
       o.type = name === "wrong" || name === "faint" ? "square" : "triangle";
       o.frequency.value = f;
       g.gain.setValueAtTime(0.0001, t);
-      g.gain.exponentialRampToValueAtTime(name === "wrong" ? 0.035 : 0.07, t + 0.015);
+      g.gain.exponentialRampToValueAtTime((name === "wrong" ? 0.035 : 0.07) * k, t + 0.015);
       g.gain.exponentialRampToValueAtTime(0.0001, t + d);
       o.connect(g).connect(AC.destination);
       o.start(t);
@@ -1268,7 +1289,7 @@
   window.addEventListener("blur", () => { held.length = 0; });
 
   canvas.addEventListener("pointerdown", ev => {
-    if (busy() || !M) return;
+    if (busy() || !M || performance.now() - swallowTap < 100) return;
     unlockAudio();
     const tx = Math.floor((ev.clientX + cam.x) / TS), ty = Math.floor((ev.clientY + cam.y) / TS);
     if (tx < 0 || ty < 0 || tx >= M.w || ty >= M.h || (tx === P.x && ty === P.y)) return;
@@ -1287,9 +1308,9 @@
   function play() {
     if (started) return;
     started = true;
-    MUSIC.setEnabled(G.music !== false);
+    MUSIC.setVolume(G.musicVol);
     unlockAudio();
-    musicButtons();
+    volumeUI();
     importPractice();
     $("title").hidden = true;
     if (G.hearts <= 0 || G.hearts > maxHearts()) G.hearts = maxHearts();

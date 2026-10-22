@@ -191,7 +191,9 @@
   const tunes = {};
   const tune = name => tunes[name] || (tunes[name] = compose(TRACKS[name]));
 
-  let ctx = null, out = null, cur = null, wanted = null, enabled = true, timer = 0;
+  let ctx = null, out = null, cur = null, wanted = null, enabled = true, timer = 0, level = 0.7;
+  // Slider 0..1; 0.7 is the mix the levels were measured at. Squared, so the slider feels even to the ear.
+  const gainFor = v => VOL * Math.pow(v / 0.7, 2);
 
   function start(name) {
     const t = TRACKS[name];
@@ -227,7 +229,7 @@
     if (!ctx) {
       try { ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { return; }
       out = makeOut(ctx);
-      out.master.gain.value = enabled ? VOL : 0;
+      out.master.gain.value = enabled ? gainFor(level) : 0;
       timer = setInterval(tick, 40);
     }
     if (ctx.state === "suspended" && !document.hidden) ctx.resume();
@@ -240,13 +242,14 @@
     start(name);
   }
 
-  function setEnabled(on) {
-    enabled = !!on;
+  function setVolume(v) {
+    level = Math.max(0, Math.min(1, Number(v) || 0));
+    enabled = level > 0.001;
     if (!ctx) return;
     const now = ctx.currentTime, g = out.master.gain;
     g.cancelScheduledValues(now);
     g.setValueAtTime(Math.max(0.0001, g.value), now);
-    g.linearRampToValueAtTime(enabled ? VOL : 0.0001, now + 0.4);
+    g.linearRampToValueAtTime(enabled ? gainFor(level) : 0.0001, now + 0.15);
     if (enabled) { if (!cur || cur.name !== wanted) start(wanted); }
     else setTimeout(() => { if (!enabled && cur) { cur.bus.disconnect(); cur = null; } }, 600);
   }
@@ -274,8 +277,8 @@
   }
 
   window.RQ_MUSIC = {
-    unlock, play, setEnabled, measure,
-    get now() { return { track: cur && cur.name, wanted, enabled, state: ctx && ctx.state }; },
+    unlock, play, setVolume, measure,
+    get now() { return { track: cur && cur.name, wanted, enabled, level, gain: ctx ? +out.master.gain.value.toFixed(3) : null, state: ctx && ctx.state }; },
     tracks: Object.keys(TRACKS)
   };
 })();

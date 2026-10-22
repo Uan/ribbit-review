@@ -61,6 +61,16 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-appearance:n
 .lilies svg{width:19px;height:19px;display:block}
 .round-btn{width:44px;height:44px;flex:none;border-radius:50%;border:0;background:var(--paper-hi);box-shadow:var(--lift);display:grid;place-items:center;cursor:pointer;color:var(--ink);font-size:18px}
 .round-btn svg{width:24px;height:24px;display:block}
+.vol-pop{position:fixed;z-index:12;top:calc(env(safe-area-inset-top,0px) + 64px);right:max(10px,env(safe-area-inset-right,0px));width:min(260px,calc(100vw - 20px));background:var(--paper-hi);border-radius:18px;box-shadow:0 4px 0 var(--edge),0 10px 24px rgba(0,0,0,.18);padding:12px 14px 10px;display:flex;flex-direction:column;gap:2px}
+.vol-box{width:100%;max-width:340px;background:var(--paper-hi);border-radius:16px;box-shadow:0 3px 0 var(--edge);padding:12px 14px 10px;display:flex;flex-direction:column;gap:2px}
+.vol-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-family:var(--font-head);font-weight:500}
+.vol-n{font-size:14px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.vol{--fill:70%;-webkit-appearance:none;appearance:none;width:100%;height:30px;margin:0 0 6px;background:transparent;cursor:pointer;touch-action:pan-y}
+.vol::-webkit-slider-runnable-track{height:10px;border-radius:99px;background:linear-gradient(90deg,var(--leaf) var(--fill),var(--line) var(--fill))}
+.vol::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;margin-top:-8px;border-radius:50%;background:var(--paper-hi);border:3px solid var(--leaf-dark);box-shadow:0 2px 0 rgba(90,63,34,.25)}
+.vol::-moz-range-track{height:10px;border-radius:99px;background:var(--line)}
+.vol::-moz-range-progress{height:10px;border-radius:99px;background:var(--leaf)}
+.vol::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--paper-hi);border:3px solid var(--leaf-dark)}
 .round-btn.music .mute{display:none}
 .round-btn.music.off svg{opacity:.55}
 .round-btn.music.off .mute{display:inline}
@@ -265,11 +275,18 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-appearance:n
       <b id="flies" aria-label="Flies">0</b>
       <span id="lilies" class="lilies" aria-label="Golden Lilies"></span>
     </div>
-    <button type="button" id="music-btn" class="round-btn music" aria-label="Turn music off" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17.5V6.5L19 4.5V15.5" fill="none" stroke="#5a3f22" stroke-width="2" stroke-linejoin="round"/><ellipse cx="6.6" cy="17.6" rx="2.9" ry="2.3" fill="#c3a6f0" stroke="#5a3f22" stroke-width="1.6"/><ellipse cx="16.6" cy="15.6" rx="2.9" ry="2.3" fill="#f4a7b9" stroke="#5a3f22" stroke-width="1.6"/><path class="mute" d="M4 4L20 20" stroke="#c9604f" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <button type="button" id="music-btn" class="round-btn music" aria-label="Volume" aria-expanded="false" aria-controls="vol-pop"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17.5V6.5L19 4.5V15.5" fill="none" stroke="#5a3f22" stroke-width="2" stroke-linejoin="round"/><ellipse cx="6.6" cy="17.6" rx="2.9" ry="2.3" fill="#c3a6f0" stroke="#5a3f22" stroke-width="1.6"/><ellipse cx="16.6" cy="15.6" rx="2.9" ry="2.3" fill="#f4a7b9" stroke="#5a3f22" stroke-width="1.6"/><path class="mute" d="M4 4L20 20" stroke="#c9604f" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     <button type="button" id="menu-btn" class="round-btn" aria-label="Open the journal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v15H5.5C4.7 19 4 18.3 4 17.5Z" fill="#8fd3c8" stroke="#2d7f76" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H13v15h5.5c.8 0 1.5-.7 1.5-1.5Z" fill="#f4a7b9" stroke="#b85a73" stroke-width="1.6" stroke-linejoin="round"/></svg></button>
   </div>
 </div>
 <a class="side-link" href="practice/">Practice questions</a>
+
+<div id="vol-pop" class="vol-pop" role="group" aria-label="Volume" hidden>
+  <div class="vol-row"><label for="vol-music">Music</label><span class="vol-n vol-music-n"></span></div>
+  <input type="range" id="vol-music" class="vol" min="0" max="100" step="5">
+  <div class="vol-row"><label for="vol-sfx">Sound effects</label><span class="vol-n vol-sfx-n"></span></div>
+  <input type="range" id="vol-sfx" class="vol" min="0" max="100" step="5">
+</div>
 
 <div id="banner" class="banner" hidden><b id="banner-name"></b><span id="banner-sub"></span></div>
 <div id="toast" class="toast" role="status" hidden></div>
@@ -325,8 +342,12 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-appearance:n
     <div id="tab-rules" class="tab-panel" hidden></div>
     <div id="tab-more" class="tab-panel" hidden>
       <a class="btn" href="practice/">Practice questions without the game</a>
-      <button type="button" id="music-toggle" class="btn">Music: on</button>
-      <button type="button" id="sound-btn" class="btn">Sound effects: on</button>
+      <div class="vol-box" role="group" aria-label="Volume">
+        <div class="vol-row"><label for="vol-music-2">Music</label><span class="vol-n vol-music-n"></span></div>
+        <input type="range" id="vol-music-2" class="vol" min="0" max="100" step="5">
+        <div class="vol-row"><label for="vol-sfx-2">Sound effects</label><span class="vol-n vol-sfx-n"></span></div>
+        <input type="range" id="vol-sfx-2" class="vol" min="0" max="100" step="5">
+      </div>
       <button type="button" id="reset-btn" class="btn plain">Start the adventure over</button>
       <p class="fine">Starting over keeps your practice scores. These are practice questions in the ASWB style, written for studying. They aren't official exam items.</p>
     </div>
