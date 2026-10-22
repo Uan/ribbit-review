@@ -57,6 +57,8 @@
 
   const $ = id => document.getElementById(id);
   const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+  // Wire a control if the page has it; a page/script mismatch then can't stop the whole game from loading.
+  const on = (id, type, fn, opts) => { const el = $(id); if (el) el.addEventListener(type, fn, opts); };
   const pick = a => a[Math.floor(Math.random() * a.length)];
   const shuffle = a => {
     const b = a.slice();
@@ -759,13 +761,13 @@
     el.classList.add("bump");
   }
 
-  $("b-next").addEventListener("click", cont);
-  $("b-flee").addEventListener("click", () => { if (B) finish("flee"); });
-  $("b-why").addEventListener("click", () => {
+  on("b-next", "click", cont);
+  on("b-flee", "click", () => { if (B) finish("flee"); });
+  on("b-why", "click", () => {
     $$("#b-opts .note").forEach(n => { n.hidden = false; });
     $("b-why").hidden = true;
   });
-  $("b-snack").addEventListener("click", () => {
+  on("b-snack", "click", () => {
     if (!B || B.picked !== null || G.items.snack <= 0) return;
     const wrong = [0, 1, 2, 3].filter(o => o !== B.q.c && !B.gone.includes(o));
     if (wrong.length <= 1) return;
@@ -779,7 +781,7 @@
     hud();
     save();
   });
-  $("b-tea").addEventListener("click", () => {
+  on("b-tea", "click", () => {
     if (!B || !B.hurt || G.items.tea <= 0 || G.hearts >= maxHearts()) return;
     G.items.tea--;
     G.hearts = Math.min(maxHearts(), G.hearts + 2);
@@ -844,7 +846,7 @@
     done(value);
   }
 
-  $("dialog").addEventListener("click", advance);
+  on("dialog", "click", advance);
 
   // ---------- heads-up display ----------
   function hud() {
@@ -919,8 +921,8 @@
 
   const esc = s => String(s).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[ch]);
 
-  $("menu-btn").addEventListener("click", () => { if (!busy()) openMenu(); });
-  $("menu-close").addEventListener("click", closeMenu);
+  on("menu-btn", "click", () => { if (!busy()) openMenu(); });
+  on("menu-close", "click", closeMenu);
   $$(".tab").forEach(t => t.addEventListener("click", () => showTab(t.dataset.tab)));
 
   let resetArmed = 0;
@@ -936,8 +938,8 @@
     btn.textContent = "Tap again to erase the adventure";
     setTimeout(() => { btn.textContent = label; }, 3500);
   }
-  $("reset-btn").addEventListener("click", ev => armReset(ev.currentTarget));
-  $("t-reset").addEventListener("click", ev => armReset(ev.currentTarget));
+  on("reset-btn", "click", ev => armReset(ev.currentTarget));
+  on("t-reset", "click", ev => armReset(ev.currentTarget));
 
   // ---------- ending ----------
   function ending() {
@@ -957,7 +959,7 @@
     }
     $("end").hidden = false;
   }
-  $("end-ok").addEventListener("click", () => { $("end").hidden = true; });
+  on("end-ok", "click", () => { $("end").hidden = true; });
 
   // ---------- sound ----------
   let AC = null;
@@ -981,14 +983,14 @@
   function volumeUI() {
     const m = Math.round(G.musicVol * 100), s = Math.round(G.sfxVol * 100);
     for (const [ids, val, cls] of [[["vol-music", "vol-music-2"], m, ".vol-music-n"], [["vol-sfx", "vol-sfx-2"], s, ".vol-sfx-n"]]) {
-      ids.forEach(id => { $(id).value = val; $(id).style.setProperty("--fill", val + "%"); });
+      ids.map($).filter(Boolean).forEach(el => { el.value = val; el.style.setProperty("--fill", val + "%"); });
       $$(cls).forEach(el => { el.textContent = val ? val + "%" : "Off"; });
     }
-    $("music-btn").classList.toggle("off", m === 0);
+    if ($("music-btn")) $("music-btn").classList.toggle("off", m === 0);
   }
   for (const [id, kind] of [["vol-music", "music"], ["vol-music-2", "music"], ["vol-sfx", "sfx"], ["vol-sfx-2", "sfx"]]) {
-    $(id).addEventListener("input", ev => setVolume(kind, ev.target.value / 100));
-    $(id).addEventListener("change", () => { save(); if (kind === "sfx") sfx("chest"); });
+    on(id, "input", ev => setVolume(kind, ev.target.value / 100));
+    on(id, "change", () => { save(); if (kind === "sfx") sfx("chest"); });
   }
   const volOpen = () => !$("vol-pop").hidden;
   function toggleVolume(show) {
@@ -996,7 +998,7 @@
     $("music-btn").setAttribute("aria-expanded", String(show));
     if (show) { unlockAudio(); volumeUI(); }
   }
-  $("music-btn").addEventListener("click", () => toggleVolume(!volOpen()));
+  on("music-btn", "click", () => toggleVolume(!volOpen()));
   let swallowTap = 0;   // the tap that closes the panel shouldn't also walk the frog
   document.addEventListener("pointerdown", ev => {
     if (!volOpen() || $("vol-pop").contains(ev.target) || $("music-btn").contains(ev.target)) return;
@@ -1320,7 +1322,7 @@
     if (!G.met.newt) setTimeout(talkNewt, 500);
   }
 
-  $("t-play").addEventListener("click", play);
+  on("t-play", "click", play);
   window.addEventListener("resize", resize);
   document.addEventListener("visibilitychange", () => { if (document.hidden) save(); });
 

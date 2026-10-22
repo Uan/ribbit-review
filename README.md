@@ -18,4 +18,6 @@ No build step. Progress is saved in the browser: the game under `ribbit-quest-v1
 
 Open it locally with `.\launch.ps1`.
 
+Before every publish, run `node stamp.mjs`. It puts a fresh `?v=` tag on each script link, so a browser never pairs a new page with old cached scripts (GitHub Pages caches files for up to 10 minutes, and that mix crashed the game once).
+
 These are practice questions written in the ASWB style for studying. They are not official exam items.
