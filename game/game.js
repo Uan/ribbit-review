@@ -5,6 +5,7 @@
   const Q = window.RIBBIT_Q || [];
   const MAPS = window.RQ_MAPS;
   const ART = window.RQ_ART;
+  const MUSIC = window.RQ_MUSIC || { play() {}, unlock() {}, setEnabled() {} };
   const BY_ID = {};
   Q.forEach(q => { BY_ID[q.id] = q; });
 
@@ -78,7 +79,7 @@
     return {
       v: 1, map: "hub", x, y, face: "down", hearts: 3, level: 1, xp: 0, flies: 5,
       items: { snack: 1, tea: 1 }, lilies: {}, bosses: {}, puzzles: {}, chests: {}, qs: {}, met: {},
-      check: { map: "hub", x, y }, sound: true, stats: { answered: 0, right: 0, won: false }
+      check: { map: "hub", x, y }, sound: true, music: true, stats: { answered: 0, right: 0, won: false }
     };
   }
   function load() {
@@ -207,6 +208,7 @@
     held.length = 0;
     G.map = id; G.x = x; G.y = y; G.face = P.face;
     save();
+    MUSIC.play(id);
     if (!quiet) banner(def.name, def.sub);
   }
 
@@ -546,6 +548,7 @@
   async function bossFight(e) {
     const b = BOSSES[e.boss];
     const as = { who: e.boss, name: b.name };
+    MUSIC.play("boss");
     await say(b.hello, as);
     const res = await battle({ kind: "boss", name: b.name, art: e.boss, cat: b.cat, hp: b.hp, hurt: true, line: `Boss battle! Get ${b.hp} right to win.` });
     if (res === "win") {
@@ -585,6 +588,7 @@
       $("b-flee").textContent = B.kind === "enemy" || B.kind === "boss" ? "Hop away" : "Not now";
       $("b-tea").hidden = !B.hurt;
       $("battle").hidden = false;
+      if (B.kind === "enemy" || B.kind === "boss") MUSIC.play(B.kind === "boss" ? "boss" : "battle");
       nextQuestion();
     });
   }
@@ -729,6 +733,7 @@
     const done = B.resolve;
     B = null;
     $("battle").hidden = true;
+    MUSIC.play(M.id);
     done(res);
   }
 
@@ -901,7 +906,8 @@
       : '<p class="summary">Nothing to review right now. Every question you miss shows up here.</p>';
 
     $("tab-rules").innerHTML = '<p class="summary">How to think like the exam</p><ul class="rules">' + RULES.map(r => `<li>${esc(r)}</li>`).join("") + "</ul>";
-    $("sound-btn").textContent = G.sound ? "Sound: on" : "Sound: off";
+    $("sound-btn").textContent = G.sound ? "Sound effects: on" : "Sound effects: off";
+    musicButtons();
   }
 
   const esc = s => String(s).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[ch]);
@@ -913,7 +919,7 @@
     G.sound = !G.sound;
     unlockAudio();
     save();
-    $("sound-btn").textContent = G.sound ? "Sound: on" : "Sound: off";
+    $("sound-btn").textContent = G.sound ? "Sound effects: on" : "Sound effects: off";
   });
 
   let resetArmed = 0;
@@ -959,7 +965,25 @@
       AC = AC || new (window.AudioContext || window.webkitAudioContext)();
       if (AC.state === "suspended") AC.resume();
     } catch (e) { AC = null; }
+    if (started) MUSIC.unlock();
   }
+
+  function setMusic(on) {
+    G.music = on;
+    MUSIC.setEnabled(on);
+    unlockAudio();
+    save();
+    musicButtons();
+  }
+  function musicButtons() {
+    const on = G.music !== false;
+    $("music-btn").setAttribute("aria-pressed", String(on));
+    $("music-btn").setAttribute("aria-label", on ? "Turn music off" : "Turn music on");
+    $("music-btn").classList.toggle("off", !on);
+    $("music-toggle").textContent = on ? "Music: on" : "Music: off";
+  }
+  $("music-btn").addEventListener("click", () => setMusic(G.music === false));
+  $("music-toggle").addEventListener("click", () => setMusic(G.music === false));
   const TUNES = {
     right: [[660, 0.07], [880, 0.12]], wrong: [[233, 0.2]], level: [[523, 0.08], [659, 0.08], [784, 0.08], [1047, 0.22]],
     chest: [[784, 0.06], [988, 0.06], [1319, 0.14]], heal: [[440, 0.1], [554, 0.1], [659, 0.18]], warp: [[392, 0.07], [523, 0.12]],
@@ -1262,8 +1286,10 @@
 
   function play() {
     if (started) return;
-    unlockAudio();
     started = true;
+    MUSIC.setEnabled(G.music !== false);
+    unlockAudio();
+    musicButtons();
     importPractice();
     $("title").hidden = true;
     if (G.hearts <= 0 || G.hearts > maxHearts()) G.hearts = maxHearts();
