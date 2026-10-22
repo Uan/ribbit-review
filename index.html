@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gabi’s Ribbit Review</title>
-<meta name="description" content="60 ASWB-style practice questions on values and ethics, assessment and planning, and intervention and practice, with the why behind every answer.">
+<meta name="description" content="80 ASWB-style practice questions on human development and diversity, values and ethics, assessment and planning, and intervention and practice, with the why behind every answer.">
 <meta property="og:title" content="Gabi’s Ribbit Review">
-<meta property="og:description" content="60 ASWB-style practice questions, with the why behind every answer.">
+<meta property="og:description" content="80 ASWB-style practice questions, with the why behind every answer.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#bfe6cb" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#11231d" media="(prefers-color-scheme: dark)">
@@ -25,6 +25,7 @@
   --lotus:#f4a7b9; --lotus-dark:#e27d96; --lotus-ink:#7a2941;
   --sun:#ffd76a; --sun-dark:#e0b640; --sun-ink:#6f5200;
   --berry:#ef8a7a; --berry-dark:#c9604f; --berry-ink:#6a1c12;
+  --grape:#c3a6f0; --grape-dark:#9b80d8; --grape-ink:#4b2d7f;
   --ok-bg:#e8f5dd; --ok-fg:#24531f; --ok-line:#4e9a45;
   --no-bg:#fde3de; --no-fg:#7c2418; --no-line:#c9604f;
   --tip-bg:#fff0c2; --tip-fg:#5c4500;
@@ -41,7 +42,7 @@
     --bg:#11231d; --bg-dots:#163027;
     --paper:#1b2f27; --paper-hi:#22382f; --edge:#0b1913; --line:#36513f;
     --ink:#f5ecd6; --ink-soft:#c9bd9f;
-    --leaf-dark:#3f7f37; --pond-dark:#3e8f83; --lotus-dark:#b85a73; --sun-dark:#b8901f; --berry-dark:#a8402f;
+    --leaf-dark:#3f7f37; --pond-dark:#3e8f83; --lotus-dark:#b85a73; --sun-dark:#b8901f; --berry-dark:#a8402f; --grape-dark:#6c55a8;
     --ok-bg:#20402a; --ok-fg:#c8f0b8; --ok-line:#7cc46a;
     --no-bg:#43221f; --no-fg:#ffcdc4; --no-line:#ef8a7a;
     --tip-bg:#3a3118; --tip-fg:#ffe7a3;
@@ -54,7 +55,7 @@
   --bg:#11231d; --bg-dots:#163027;
   --paper:#1b2f27; --paper-hi:#22382f; --edge:#0b1913; --line:#36513f;
   --ink:#f5ecd6; --ink-soft:#c9bd9f;
-  --leaf-dark:#3f7f37; --pond-dark:#3e8f83; --lotus-dark:#b85a73; --sun-dark:#b8901f; --berry-dark:#a8402f;
+  --leaf-dark:#3f7f37; --pond-dark:#3e8f83; --lotus-dark:#b85a73; --sun-dark:#b8901f; --berry-dark:#a8402f; --grape-dark:#6c55a8;
   --ok-bg:#20402a; --ok-fg:#c8f0b8; --ok-line:#7cc46a;
   --no-bg:#43221f; --no-fg:#ffcdc4; --no-line:#ef8a7a;
   --tip-bg:#3a3118; --tip-fg:#ffe7a3;
@@ -151,6 +152,7 @@ button{font:inherit; color:inherit; touch-action:manipulation; -webkit-appearanc
 [data-c="leaf"]{--c:var(--leaf); --cd:var(--leaf-dark); --ci:var(--leaf-ink)}
 [data-c="sun"]{--c:var(--sun); --cd:var(--sun-dark); --ci:var(--sun-ink)}
 [data-c="berry"]{--c:var(--berry); --cd:var(--berry-dark); --ci:var(--berry-ink)}
+[data-c="grape"]{--c:var(--grape); --cd:var(--grape-dark); --ci:var(--grape-ink)}
 
 .ponds-block{display:flex; flex-direction:column; gap:12px}
 .ponds{display:flex; flex-direction:column; gap:12px}
@@ -258,7 +260,7 @@ button{font:inherit; color:inherit; touch-action:manipulation; -webkit-appearanc
       <div class="hero-text">
         <p class="hello">Hi Gabi!</p>
         <h1 id="title">Ribbit Review</h1>
-        <p class="sub">60 ASWB-style practice questions, with the why behind every answer.</p>
+        <p class="sub">80 ASWB-style practice questions, with the why behind every answer.</p>
       </div>
       <div class="hero-frog">
         <p id="hero-bubble" class="bubble down" aria-live="polite">Tap me for luck!</p>
@@ -290,9 +292,14 @@ button{font:inherit; color:inherit; touch-action:manipulation; -webkit-appearanc
           <span class="pond-txt"><span class="pond-name">Intervention &amp; Practice</span><span class="pond-meta">20 questions</span></span>
           <span class="chev" aria-hidden="true">›</span>
         </button>
+        <button type="button" id="pond-human" class="pond-btn" data-pond="human" data-c="grape">
+          <svg class="pad-ico" viewBox="0 0 44 44" aria-hidden="true"><path class="lp" d="M22 22L38.45 12.5A19 19 0 1 1 31.5 5.55Z"/><path class="lv" d="M22 22L7 25M22 22L12 35M22 22L25 39"/></svg>
+          <span class="pond-txt"><span class="pond-name">Human Development &amp; Diversity</span><span class="pond-meta">20 questions</span></span>
+          <span class="chev" aria-hidden="true">›</span>
+        </button>
         <button type="button" id="pond-mix" class="pond-btn" data-pond="mix" data-c="sun">
           <svg class="pad-ico" viewBox="0 0 44 44" aria-hidden="true"><path class="lp" d="M22 22L38.45 12.5A19 19 0 1 1 31.5 5.55Z"/><path class="lv" d="M22 22L7 25M22 22L12 35M22 22L25 39"/></svg>
-          <span class="pond-txt"><span class="pond-name">Mixed pond</span><span class="pond-meta">20 random from all three</span></span>
+          <span class="pond-txt"><span class="pond-name">Mixed pond</span><span class="pond-meta">20 random from all four</span></span>
           <span class="chev" aria-hidden="true">›</span>
         </button>
         <button type="button" id="pond-missed" class="pond-btn" data-pond="missed" data-c="berry" hidden>
@@ -380,7 +387,8 @@ button{font:inherit; color:inherit; touch-action:manipulation; -webkit-appearanc
   const CATS = {
     ethics: { name: "Values & Ethics", c: "lotus" },
     assess: { name: "Assessment & Planning", c: "pond" },
-    interv: { name: "Intervention & Practice", c: "leaf" }
+    interv: { name: "Intervention & Practice", c: "leaf" },
+    human: { name: "Human Development & Diversity", c: "grape" }
   };
 
   // Each option is [answer text, why it is right or wrong]; c is the index of the best answer.
@@ -1106,7 +1114,248 @@ button{font:inherit; color:inherit; touch-action:manipulation; -webkit-appearanc
         ["“Maybe you should talk to HR about it.”", "That's advice."]
       ],
       c: 1,
-      tip: "Paraphrase = content. Reflection of feeling = emotion." }
+      tip: "Paraphrase = content. Reflection of feeling = emotion." },
+
+    // ---------------- Human Development & Diversity ----------------
+    { id: "h1", cat: "human",
+      text: "A 15-year-old keeps changing her style, friend groups, and career plans every few months. Her parents worry that something is wrong.",
+      ask: "According to Erikson, which stage BEST explains this behavior?",
+      opts: [
+        ["Identity vs. role confusion", "Teens try on roles, values, and looks as they work out who they are. Some trying-on is healthy and expected."],
+        ["Intimacy vs. isolation", "That's young adulthood: forming close, committed relationships."],
+        ["Industry vs. inferiority", "That's school age, about 6 to 12: building skills and competence."],
+        ["Autonomy vs. shame and doubt", "That's toddlerhood: learning to do things for oneself."]
+      ],
+      c: 0,
+      tip: "Erikson in the teen years = identity vs. role confusion. Experimenting is normal." },
+
+    { id: "h2", cat: "human",
+      text: "A 79-year-old man in hospice spends much of his time looking back on his life. He says he's mostly at peace, though he regrets losing touch with his brother.",
+      ask: "Which of Erikson's stages is he working through?",
+      opts: [
+        ["Generativity vs. stagnation", "That's middle adulthood: contributing to the next generation."],
+        ["Integrity vs. despair", "Late adulthood: looking back and finding meaning (integrity) or regret (despair). A life review fits here."],
+        ["Intimacy vs. isolation", "That's young adulthood."],
+        ["Trust vs. mistrust", "That's infancy."]
+      ],
+      c: 1,
+      tip: "Life review in old age = integrity vs. despair." },
+
+    { id: "h3", cat: "human",
+      text: "A mother says her 10-month-old now cries and searches when she hides his toy under a blanket. A few months ago, he lost interest as soon as it was out of sight.",
+      ask: "Which developmental milestone does this show?",
+      opts: [
+        ["Object permanence", "In Piaget's sensorimotor stage, babies learn that things still exist when they can't see them, usually from around 8 months."],
+        ["Conservation", "Conservation (amount stays the same when shape changes) comes in the concrete operational stage, around ages 7 to 11."],
+        ["Egocentrism", "Egocentrism is a preschooler's difficulty seeing another person's point of view."],
+        ["Separation anxiety", "Separation anxiety also shows up around this age, but it's about the caregiver leaving, not hidden toys."]
+      ],
+      c: 0,
+      tip: "Piaget: sensorimotor (object permanence), preoperational (egocentrism), concrete operational (conservation), formal operational (abstract thinking)." },
+
+    { id: "h4", cat: "human",
+      text: "A 5-year-old insists that a tall, thin glass holds more juice than a short, wide glass, even after watching the same amount poured into each.",
+      ask: "In Piaget's terms, what has this child NOT yet developed?",
+      opts: [
+        ["Object permanence", "That develops in infancy. This child already has it."],
+        ["Conservation", "Knowing that quantity stays the same when shape changes arrives in the concrete operational stage, around age 7. A 5-year-old is still preoperational."],
+        ["Abstract reasoning", "That's formal operational thinking in adolescence, and it isn't what this task tests."],
+        ["Theory of mind", "Understanding other people's beliefs is usually in place by age 4 or 5, and it isn't what this task tests."]
+      ],
+      c: 1,
+      tip: "Tall glass vs. wide glass = conservation (concrete operational, about age 7)." },
+
+    { id: "h5", cat: "human",
+      text: "In a structured observation, a toddler barely reacts when his mother leaves the room. When she comes back, he ignores her and keeps playing with his toys.",
+      ask: "This pattern BEST fits which attachment style?",
+      opts: [
+        ["Secure", "A securely attached child is usually upset when the parent leaves and is comforted when the parent returns."],
+        ["Anxious-ambivalent", "These children are very upset at separation and both seek and resist comfort at the reunion."],
+        ["Avoidant", "Little distress at separation and avoiding the parent at reunion is the classic avoidant pattern in Ainsworth's Strange Situation."],
+        ["Disorganized", "Disorganized attachment shows confused or contradictory behavior, like freezing, and is often linked to frightening caregiving."]
+      ],
+      c: 2,
+      tip: "Attachment: secure, avoidant, anxious-ambivalent, disorganized. Avoidant = “I don't need you” at the reunion." },
+
+    { id: "h6", cat: "human",
+      text: "After being criticized by his boss, a man comes home and yells at his kids for leaving their shoes by the door.",
+      ask: "Which defense mechanism is he using?",
+      opts: [
+        ["Projection", "Projection puts your own unacceptable feelings onto someone else, like accusing others of being angry."],
+        ["Displacement", "He moves his anger from a risky target (his boss) to a safer one (his kids)."],
+        ["Sublimation", "Sublimation channels an urge into something healthy, like going for a hard run."],
+        ["Reaction formation", "Reaction formation is acting the opposite of what you feel, like being extra sweet to someone you resent."]
+      ],
+      c: 1,
+      tip: "Displacement = kicking the dog. Projection = “You're the angry one!”" },
+
+    { id: "h7", cat: "human",
+      text: "A woman who deeply resents her mother-in-law goes out of her way to be extremely sweet and complimentary to her, far more than to anyone else.",
+      ask: "Which defense mechanism BEST describes this?",
+      opts: [
+        ["Rationalization", "Rationalization is making up acceptable reasons for behavior, like “I failed because the test was unfair.”"],
+        ["Reaction formation", "She turns an unacceptable feeling (resentment) into its exaggerated opposite (sweetness)."],
+        ["Denial", "Denial is refusing to accept a reality, like insisting a serious diagnosis is wrong."],
+        ["Intellectualization", "Intellectualization is retreating into facts and logic to avoid feelings."]
+      ],
+      c: 1,
+      tip: "Reaction formation = the over-the-top opposite of what you really feel." },
+
+    { id: "h8", cat: "human",
+      text: "A man recently diagnosed with terminal cancer tells the social worker, “If I can just live to see my daughter graduate in June, I'll accept whatever comes after.”",
+      ask: "Which stage of grief is he MOST likely in?",
+      opts: [
+        ["Denial", "He isn't rejecting the diagnosis. He's acknowledging it."],
+        ["Anger", "There's no blame or rage in what he says."],
+        ["Bargaining", "“If I can just…” is a classic bargain: trying to negotiate for more time or a different outcome."],
+        ["Acceptance", "He isn't at peace with it yet. He's trying to make a deal first."]
+      ],
+      c: 2,
+      tip: "Kübler-Ross: denial, anger, bargaining, depression, acceptance. People don't always move through them in order." },
+
+    { id: "h9", cat: "human",
+      text: "A father was evicted yesterday and is sleeping in his car with his two children. He tells the social worker he feels like a complete failure.",
+      ask: "Using Maslow's hierarchy, what should the social worker focus on FIRST?",
+      opts: [
+        ["His feelings of failure and low self-esteem", "Esteem matters, but Maslow puts it above basic survival and safety needs."],
+        ["Finding safe shelter for the family tonight", "Physiological and safety needs, like shelter, come first in Maslow's hierarchy."],
+        ["His long-term career and education goals", "Growth goals rest on a stable base. Shelter comes first."],
+        ["Rebuilding his support network", "Belonging comes after physiological and safety needs."]
+      ],
+      c: 1,
+      tip: "Maslow: body, safety, belonging, esteem, self-actualization. Shelter first." },
+
+    { id: "h10", cat: "human",
+      text: "A 9-year-old says it's wrong to cheat on a test “because you'll get in trouble if the teacher catches you.”",
+      ask: "Which level of Kohlberg's moral development does this reflect?",
+      opts: [
+        ["Preconventional", "Right and wrong are judged by punishment and reward, which is typical of young children."],
+        ["Conventional", "Conventional reasoning is about following rules and meeting others' expectations to be seen as good."],
+        ["Postconventional", "Postconventional reasoning rests on personal principles and universal ethics, beyond rules."],
+        ["Formal operational", "That's Piaget's stage of abstract thinking, not a Kohlberg level."]
+      ],
+      c: 0,
+      tip: "Kohlberg: preconventional (avoid punishment), conventional (follow rules, be good), postconventional (principles)." },
+
+    { id: "h11", cat: "human",
+      text: "After the father in a family stops drinking, the family seems to struggle more. Without realizing it, the mother and kids act in ways that make a relapse more likely.",
+      ask: "Which systems theory concept BEST explains this?",
+      opts: [
+        ["Equifinality", "Equifinality means different starting points can lead to the same outcome."],
+        ["Homeostasis", "Systems tend to pull back toward their familiar balance, even an unhealthy one, when one part changes."],
+        ["Differentiation", "Differentiation (Bowen) is about separating your own thoughts and feelings from the family's."],
+        ["Entropy", "Entropy is a closed system's slide toward disorder and decline."]
+      ],
+      c: 1,
+      tip: "Homeostasis: families pull back toward the old balance, even when it hurts." },
+
+    { id: "h12", cat: "human",
+      text: "A child's anxiety rises after her mother's employer moves the mother to night shifts. The child has never been to her mother's workplace.",
+      ask: "In Bronfenbrenner's ecological model, which of the child's systems includes her mother's workplace?",
+      opts: [
+        ["Microsystem", "The microsystem is the settings the child is directly in, like home and school."],
+        ["Mesosystem", "The mesosystem is the links between the child's settings, like parents and teachers talking."],
+        ["Exosystem", "The exosystem is settings the child isn't part of that still affect her, like a parent's job."],
+        ["Macrosystem", "The macrosystem is the broad culture, values, laws, and economy."]
+      ],
+      c: 2,
+      tip: "Bronfenbrenner: micro (direct), meso (links), exo (affects you from outside), macro (culture), chrono (time)." },
+
+    { id: "h13", cat: "human",
+      text: "An immigrant family keeps their native language and traditions at home while also taking an active part in their new country's schools, work, and community life.",
+      ask: "Which acculturation strategy does this describe?",
+      opts: [
+        ["Assimilation", "Assimilation means giving up the original culture to adopt the new one."],
+        ["Integration", "Integration, sometimes called biculturalism, keeps the heritage culture while taking part in the new one. It's generally linked to the best adjustment."],
+        ["Separation", "Separation keeps the original culture while avoiding the new one."],
+        ["Marginalization", "Marginalization is losing connection with both cultures."]
+      ],
+      c: 1,
+      tip: "Berry: integration (both), assimilation (new only), separation (old only), marginalization (neither)." },
+
+    { id: "h14", cat: "human",
+      text: "A Korean American client born in Ohio tells her social worker that coworkers often compliment her “excellent English” and ask where she's “really” from.",
+      ask: "What BEST describes these comments?",
+      opts: [
+        ["Microaggressions", "Everyday comments, often unintended, that signal someone doesn't belong. Here, a U.S.-born woman is treated as a foreigner."],
+        ["Institutional racism", "Institutional racism lives in policies and systems, not individual comments."],
+        ["Cultural appropriation", "That's adopting parts of another culture, often without respect or credit."],
+        ["Acculturative stress", "That's stress from adapting to a new culture. She was born here."]
+      ],
+      c: 0,
+      tip: "Microaggressions: small, often unintended slights that add up. Validate the client's experience." },
+
+    { id: "h15", cat: "human",
+      text: "A social worker realizes that a client's experiences as a Black, disabled woman can't be understood by looking at race, disability, or gender one at a time.",
+      ask: "Which concept does this reflect?",
+      opts: [
+        ["Intersectionality", "Kimberlé Crenshaw's term for how overlapping identities create unique experiences of privilege and oppression."],
+        ["Cultural relativism", "Cultural relativism means judging a culture's practices by its own standards."],
+        ["Assimilation", "Assimilation is adopting the dominant culture's ways."],
+        ["Color-blindness", "Ignoring race erases important parts of the client's experience."]
+      ],
+      c: 0,
+      tip: "Intersectionality: identities overlap and combine. They don't just add up." },
+
+    { id: "h16", cat: "human",
+      text: "A 17-year-old client who was assigned female at birth tells the social worker he is a boy and that he's attracted to boys. He asks whether that means he's gay or transgender.",
+      ask: "What is the MOST accurate response?",
+      opts: [
+        ["“Those are two separate things. You can be transgender and gay.”", "Gender identity is who you are. Sexual orientation is who you're attracted to. They're independent of each other."],
+        ["“Being attracted to boys might mean you're confused about your gender.”", "Orientation doesn't determine gender identity, and this treats his identity as confusion."],
+        ["“Lots of teens go through phases like this and outgrow them.”", "Dismissing a teen's stated identity harms trust and well-being. Affirm and explore."],
+        ["“You won't know your orientation until after you transition.”", "Orientation and transition are unrelated, and he has already said who he's attracted to."]
+      ],
+      c: 0,
+      tip: "Gender identity = who you are. Sexual orientation = who you're attracted to. Separate things." },
+
+    { id: "h17", cat: "human",
+      text: "A 72-year-old woman says she sometimes forgets a name and remembers it later, or walks into a room and forgets why. She handles her money, cooking, and appointments without trouble.",
+      ask: "How is this BEST understood?",
+      opts: [
+        ["Early signs of Alzheimer's disease", "Dementia affects daily functioning, and she's managing everything on her own."],
+        ["Typical age-related changes in memory", "Occasional lapses that come back to her, with daily life intact, are part of normal aging."],
+        ["Delirium needing emergency care", "Delirium is sudden confusion and inattention, not occasional forgetfulness."],
+        ["Memory problems caused by depression", "Depression can affect memory, but nothing here suggests low mood."]
+      ],
+      c: 1,
+      tip: "Normal aging: forgets, then remembers, and life still works. Dementia: daily life starts to slip." },
+
+    { id: "h18", cat: "human",
+      text: "A social worker is reading research on adverse childhood experiences (ACEs), such as abuse, neglect, and household dysfunction.",
+      ask: "What does the research MOST consistently show?",
+      opts: [
+        ["Most children who face adversity show no lasting effects once they reach adulthood.", "Many children are resilient, but on average ACEs raise the risk of later problems."],
+        ["The more ACEs a person has, the higher their risk of adult health problems.", "The original CDC-Kaiser study found a dose-response link: more ACEs, higher risk of conditions like heart disease, depression, and substance use."],
+        ["ACEs affect mental health but not physical health.", "ACEs are linked to physical conditions too, like heart disease and diabetes."],
+        ["Only physical abuse has a measurable long-term impact.", "Neglect, household dysfunction, and other ACEs raise risk too."]
+      ],
+      c: 1,
+      tip: "ACEs work like a dose: more adversity, more lifelong risk. Supportive relationships can buffer it." },
+
+    { id: "h19", cat: "human",
+      text: "A 6-year-old starts hitting his little sister after watching his older cousin hit other kids and get his way.",
+      ask: "Which theory BEST explains how this behavior was learned?",
+      opts: [
+        ["Social learning theory", "Bandura: people learn by watching others, especially when they see the behavior rewarded."],
+        ["Classical conditioning", "Classical conditioning pairs a neutral stimulus with an automatic response, like Pavlov's dogs."],
+        ["Psychosexual theory", "Freud's stages focus on drives and early conflicts, not learning by watching."],
+        ["Cognitive dissonance theory", "That's the discomfort of holding conflicting beliefs or acting against them."]
+      ],
+      c: 0,
+      tip: "Learning by watching, and seeing it pay off = Bandura's social learning theory." },
+
+    { id: "h20", cat: "human",
+      text: "Parents of a 2-year-old are worried because she says “No!” to almost everything and has tantrums when she can't do things by herself.",
+      ask: "What is the BEST way to understand this behavior?",
+      opts: [
+        ["A normal push for independence at this age", "Erikson's autonomy vs. shame and doubt: toddlers assert themselves, so “No!” and tantrums are expected."],
+        ["Early oppositional defiant disorder", "Saying no is normal at 2. A diagnosis needs a lasting pattern beyond what's typical for the child's age."],
+        ["A reaction to inconsistent parenting", "Nothing here points to a parenting problem."],
+        ["A sign of insecure attachment", "Asserting independence doesn't signal insecure attachment. Secure toddlers explore and push back."]
+      ],
+      c: 0,
+      tip: "Toddler “No!” = autonomy vs. shame and doubt. Normal development, not a disorder." }
   ] /* Q-END */;
 
   const BY_ID = {};
@@ -1214,7 +1463,7 @@ button{font:inherit; color:inherit; touch-action:manipulation; -webkit-appearanc
   function renderHome() {
     Object.keys(CATS).concat("mix").forEach(k => {
       const best = store.best[k];
-      const base = k === "mix" ? "20 random from all three" : "20 questions";
+      const base = k === "mix" ? "20 random from all four" : "20 questions";
       $("#pond-" + k + " .pond-meta").textContent = typeof best === "number" ? base + " · best " + best + "/20" : base;
     });
     const n = store.missed.length;
@@ -1233,8 +1482,10 @@ button{font:inherit; color:inherit; touch-action:manipulation; -webkit-appearanc
     let ids = [];
     if (CATS[pond]) ids = shuffle(Q.filter(q => q.cat === pond).map(q => q.id));
     else if (pond === "mix") {
-      shuffle(Object.keys(CATS)).forEach((k, n) => {
-        ids = ids.concat(shuffle(Q.filter(q => q.cat === k).map(q => q.id)).slice(0, n < 2 ? 7 : 6));
+      const keys = shuffle(Object.keys(CATS));
+      keys.forEach((k, n) => {
+        const take = Math.floor(20 / keys.length) + (n < 20 % keys.length ? 1 : 0);
+        ids = ids.concat(shuffle(Q.filter(q => q.cat === k).map(q => q.id)).slice(0, take));
       });
       ids = shuffle(ids);
     } else if (pond === "missed") ids = shuffle(store.missed).slice(0, 20);
@@ -1248,7 +1499,7 @@ button{font:inherit; color:inherit; touch-action:manipulation; -webkit-appearanc
 
   function fillAsk(el, text) {
     el.textContent = "";
-    text.split(/\b(FIRST|NEXT|BEST|MOST|STRONGEST|LEAST)\b/).forEach((part, n) => {
+    text.split(/\b(FIRST|NEXT|BEST|MOST|STRONGEST|LEAST|NOT)\b/).forEach((part, n) => {
       if (n % 2) {
         const m = document.createElement("mark");
         m.textContent = part;

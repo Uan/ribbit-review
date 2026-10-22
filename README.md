@@ -1,6 +1,6 @@
 # Ribbit Review
 
-A froggy ASWB practice quiz for Gabi: 60 questions across values and ethics, assessment and planning, and intervention and practice, with the reasoning behind every answer choice.
+A froggy ASWB practice quiz for Gabi: 80 questions across human development and diversity, values and ethics, assessment and planning, and intervention and practice, with the reasoning behind every answer choice.
 
 Live: https://uan.github.io/ribbit-review/
 
