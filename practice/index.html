@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gabi’s Ribbit Review</title>
+<meta name="description" content="80 ASWB-style practice questions on human development and diversity, values and ethics, assessment and planning, and intervention and practice, with the why behind every answer.">
+<meta property="og:title" content="Gabi’s Ribbit Review">
+<meta property="og:description" content="80 ASWB-style practice questions, with the why behind every answer.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#bfe6cb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#11231d" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='%233f7f37' stroke='%233f7f37' stroke-width='3' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='14' r='8'/%3E%3Ccircle cx='28' cy='14' r='8'/%3E%3Cellipse cx='20' cy='26' rx='17' ry='11'/%3E%3C/g%3E%3Cg fill='%237cc46a'%3E%3Ccircle cx='12' cy='14' r='8'/%3E%3Ccircle cx='28' cy='14' r='8'/%3E%3Cellipse cx='20' cy='26' rx='17' ry='11'/%3E%3C/g%3E%3Ccircle cx='12' cy='14' r='5' fill='white'/%3E%3Ccircle cx='28' cy='14' r='5' fill='white'/%3E%3Ccircle cx='12.6' cy='14.6' r='2.6' fill='%232a1e14'/%3E%3Ccircle cx='27.4' cy='14.6' r='2.6' fill='%232a1e14'/%3E%3Cpath d='M14 27q6 5 12 0' fill='none' stroke='%233b2a1a' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@600;700;800&display=swap">
+<style>
+/* Layout: one cream study column floating on a dotted pond (the Ribbit Reps look); a frog hosts every screen */
+:root{
+  --bg:#bfe6cb; --bg-dots:#cdeed6;
+  --paper:#fff8e6; --paper-hi:#fffdf6; --edge:#eadbb6; --line:#e6d6ae;
+  --ink:#5a3f22; --ink-soft:#6f5a3b;
+  --leaf:#7cc46a; --leaf-dark:#4e9a45; --leaf-ink:#1b4317;
+  --pond:#8fd3c8; --pond-dark:#4fae9f; --pond-ink:#0e4a43;
+  --lotus:#f4a7b9; --lotus-dark:#e27d96; --lotus-ink:#7a2941;
+  --sun:#ffd76a; --sun-dark:#e0b640; --sun-ink:#6f5200;
+  --berry:#ef8a7a; --berry-dark:#c9604f; --berry-ink:#6a1c12;
+  --grape:#c3a6f0; --grape-dark:#9b80d8; --grape-ink:#4b2d7f;
+  --ok-bg:#e8f5dd; --ok-fg:#24531f; --ok-line:#4e9a45;
+  --no-bg:#fde3de; --no-fg:#7c2418; --no-line:#c9604f;
+  --tip-bg:#fff0c2; --tip-fg:#5c4500;
+  --mark:#ffe08a; --pad-empty:rgba(90,63,34,.2);
+  --focus:#2f8f82; --shadow:rgba(59,42,26,.14);
+  --frog:#7cc46a; --frog-dark:#3f7f37; --frog-belly:#d9f1bd; --frog-ink:#3b2a1a;
+  --cap:#3b3a44; --cap-dark:#18171d; --cap-hi:#6a6976; --tassel:#ffd76a; --tassel-dark:#b8901f;
+  --font-head:"Fredoka","Nunito",ui-rounded,"Arial Rounded MT Bold",system-ui,sans-serif;
+  --font-body:"Nunito",ui-rounded,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11231d; --bg-dots:#163027;
+    --paper:#1b2f27; --paper-hi:#22382f; --edge:#0b1913; --line:#36513f;
+    --ink:#f5ecd6; --ink-soft:#c9bd9f;
+    --leaf-dark:#3f7f37; --pond-dark:#3e8f83; --lotus-dark:#b85a73; --sun-dark:#b8901f; --berry-dark:#a8402f; --grape-dark:#6c55a8;
+    --ok-bg:#20402a; --ok-fg:#c8f0b8; --ok-line:#7cc46a;
+    --no-bg:#43221f; --no-fg:#ffcdc4; --no-line:#ef8a7a;
+    --tip-bg:#3a3118; --tip-fg:#ffe7a3;
+    --mark:rgba(255,215,106,.32); --pad-empty:rgba(245,236,214,.16);
+    --focus:#8fd3c8; --shadow:rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11231d; --bg-dots:#163027;
+  --paper:#1b2f27; --paper-hi:#22382f; --edge:#0b1913; --line:#36513f;
+  --ink:#f5ecd6; --ink-soft:#c9bd9f;
+  --leaf-dark:#3f7f37; --pond-dark:#3e8f83; --lotus-dark:#b85a73; --sun-dark:#b8901f; --berry-dark:#a8402f; --grape-dark:#6c55a8;
+  --ok-bg:#20402a; --ok-fg:#c8f0b8; --ok-line:#7cc46a;
+  --no-bg:#43221f; --no-fg:#ffcdc4; --no-line:#ef8a7a;
+  --tip-bg:#3a3118; --tip-fg:#ffe7a3;
+  --mark:rgba(255,215,106,.32); --pad-empty:rgba(245,236,214,.16);
+  --focus:#8fd3c8; --shadow:rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background-color:var(--bg)}
+body{
+  margin:0; min-height:100%;
+  background-color:var(--bg);
+  background-image:radial-gradient(circle, var(--bg-dots) 2.4px, transparent 2.9px);
+  background-size:28px 28px;
+  color:var(--ink); font-family:var(--font-body); font-weight:600; font-size:16px; line-height:1.5;
+  -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%;
+}
+h1,h2,h3{font-family:var(--font-head); font-weight:600; margin:0; line-height:1.15; text-wrap:balance}
+h2{font-size:21px}
+p{margin:0}
+button{font:inherit; color:inherit; touch-action:manipulation; -webkit-appearance:none; appearance:none}
+:focus-visible{outline:3px solid var(--focus); outline-offset:3px}
+.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
+
+.wrap{max-width:680px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); padding-block:20px 44px; display:flex; flex-direction:column; gap:28px}
+.view{display:flex; flex-direction:column; gap:20px}
+
+/* ---------- frog ---------- */
+.frog-slot{display:block}
+.frog{display:block; width:100%; height:auto; aspect-ratio:1; overflow:visible}
+.frog.has-pad{aspect-ratio:200/206}
+.frog .pad{fill:var(--leaf); stroke:var(--leaf-dark); stroke-width:2.5; stroke-linejoin:round}
+.frog .shadow{fill:var(--shadow)}
+.frog .sil-line{fill:var(--frog-dark); stroke:var(--frog-dark); stroke-width:7; stroke-linejoin:round}
+.frog .sil-fill{fill:var(--frog)}
+.frog .belly{fill:var(--frog-belly)}
+.frog .shine{fill:#fff; opacity:.4}
+.frog .white{fill:#fff}
+.frog .iris{fill:#6a4527}
+.frog .pupil{fill:#2a1e14}
+.frog .lid{fill:var(--frog)}
+.frog .e-happy{fill:none; stroke:var(--frog-ink); stroke-width:4.2; stroke-linecap:round}
+.frog .cheek{fill:#f4a7b9; opacity:.85}
+.frog .nostril{fill:var(--frog-dark)}
+.frog .m-smile{fill:none; stroke:var(--frog-ink); stroke-width:3.6; stroke-linecap:round}
+.frog .m-grin path{fill:#6b2b2b; stroke:var(--frog-ink); stroke-width:2.4; stroke-linejoin:round}
+.frog .m-grin ellipse{fill:#f58aa0}
+.frog .m-o{fill:#6b2b2b; stroke:var(--frog-ink); stroke-width:2}
+.frog .drop{fill:#9bd0f5; stroke:#5ea9dd; stroke-width:1.5}
+.frog .cap-skull,.frog .cap-board{fill:var(--cap)}
+.frog .cap-side{fill:var(--cap-dark)}
+.frog .cap-hi{fill:none; stroke:var(--cap-hi); stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+.frog .cap-btn{fill:var(--tassel)}
+.frog .tassel{fill:none; stroke:var(--tassel); stroke-width:3; stroke-linecap:round; stroke-linejoin:round}
+.frog .tassel-end{fill:var(--tassel); stroke:var(--tassel-dark); stroke-width:1.5; stroke-linejoin:round}
+
+.frog .e-happy,.frog .m-grin,.frog .m-o,.frog .drop{display:none}
+.frog[data-mood="happy"] .e-open,.frog[data-mood="cheer"] .e-open{display:none}
+.frog[data-mood="happy"] .e-happy,.frog[data-mood="cheer"] .e-happy{display:inline}
+.frog[data-mood="happy"] .m-smile,.frog[data-mood="cheer"] .m-smile{display:none}
+.frog[data-mood="happy"] .m-grin,.frog[data-mood="cheer"] .m-grin{display:inline}
+.frog[data-mood="oops"] .m-smile{display:none}
+.frog[data-mood="oops"] .m-o,.frog[data-mood="oops"] .drop{display:inline}
+
+.frog .bob{transform-box:view-box; transform-origin:100px 188px; animation:breathe 3.4s ease-in-out infinite}
+.frog[data-mood="happy"] .bob{animation:hop .62s cubic-bezier(.3,.7,.4,1) 2}
+.frog[data-mood="cheer"] .bob{animation:hop .7s cubic-bezier(.3,.7,.4,1) infinite}
+.frog[data-mood="oops"] .bob{animation:wobble .6s ease-in-out 1}
+.frog .lid{transform-box:fill-box; transform-origin:50% 0%; transform:scaleY(0); animation:blink 5.4s infinite}
+@keyframes breathe{0%,100%{transform:scale(1,1)}50%{transform:scale(1.018,.982)}}
+@keyframes blink{0%,93%{transform:scaleY(0)}95.5%{transform:scaleY(1)}98%,100%{transform:scaleY(0)}}
+@keyframes hop{0%,100%{transform:translateY(0) scale(1.04,.95)}40%{transform:translateY(-18px) scale(.96,1.05)}70%{transform:translateY(0) scale(1.06,.93)}}
+@keyframes wobble{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg)}60%{transform:rotate(4deg)}}
+
+.bubble{position:relative; background:var(--paper-hi); color:var(--ink); font-family:var(--font-head); font-weight:500; font-size:15px; line-height:1.25; padding:8px 12px; border-radius:16px; box-shadow:0 3px 0 var(--edge)}
+.bubble::after{content:""; position:absolute; width:12px; height:12px; background:var(--paper-hi); transform:rotate(45deg)}
+.bubble.down{width:100%; text-align:center}
+.bubble.down::after{left:calc(50% - 6px); bottom:-6px}
+.bubble.left::after{left:-6px; top:calc(50% - 6px)}
+
+/* ---------- home ---------- */
+.hero{display:flex; align-items:flex-end; gap:12px}
+.hero-text{flex:1; min-width:0; display:flex; flex-direction:column; gap:6px; padding-bottom:12px}
+.hello{font-family:var(--font-head); font-weight:500; font-size:19px; color:var(--ink-soft)}
+.hero h1{font-size:clamp(38px, 11vw, 54px); line-height:1}
+.sub{color:var(--ink-soft); font-size:16px; max-width:30ch}
+.hero-frog{flex:none; width:clamp(124px, 32vw, 160px); display:flex; flex-direction:column; align-items:center; gap:12px}
+.frog-btn{display:block; width:100%; padding:0; border:0; background:none; cursor:pointer; border-radius:24px}
+
+[data-c="lotus"]{--c:var(--lotus); --cd:var(--lotus-dark); --ci:var(--lotus-ink)}
+[data-c="pond"]{--c:var(--pond); --cd:var(--pond-dark); --ci:var(--pond-ink)}
+[data-c="leaf"]{--c:var(--leaf); --cd:var(--leaf-dark); --ci:var(--leaf-ink)}
+[data-c="sun"]{--c:var(--sun); --cd:var(--sun-dark); --ci:var(--sun-ink)}
+[data-c="berry"]{--c:var(--berry); --cd:var(--berry-dark); --ci:var(--berry-ink)}
+[data-c="grape"]{--c:var(--grape); --cd:var(--grape-dark); --ci:var(--grape-ink)}
+
+.ponds-block{display:flex; flex-direction:column; gap:12px}
+.ponds{display:flex; flex-direction:column; gap:12px}
+.pond-btn{display:flex; align-items:center; gap:14px; width:100%; padding:12px 18px 12px 14px; border:0; border-radius:22px; background:var(--paper-hi); color:var(--ink); box-shadow:0 4px 0 var(--edge); text-align:left; cursor:pointer; transition:transform 80ms ease, box-shadow 80ms ease}
+.pond-btn:active{transform:translateY(3px); box-shadow:0 1px 0 var(--edge)}
+.pad-ico{flex:none; width:46px; height:46px; transition:transform .25s ease}
+.pond-btn:hover .pad-ico{transform:rotate(-10deg) scale(1.06)}
+.pad-ico .lp{fill:var(--c); stroke:var(--cd); stroke-width:2; stroke-linejoin:round}
+.pad-ico .lv{fill:none; stroke:var(--cd); stroke-width:1.6; stroke-linecap:round; opacity:.6}
+.pond-txt{flex:1; min-width:0; display:flex; flex-direction:column}
+.pond-name{font-family:var(--font-head); font-weight:600; font-size:19px; line-height:1.25}
+.pond-meta{color:var(--ink-soft); font-size:14.5px}
+.chev{flex:none; font-family:var(--font-head); font-size:26px; line-height:1; color:var(--ink-soft)}
+
+.rules{background:var(--paper); border-radius:24px; padding:20px; display:flex; flex-direction:column; gap:12px}
+.rules-sub{color:var(--ink-soft); margin-top:-6px}
+.rules ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px}
+.rules li{display:flex; gap:10px; align-items:flex-start}
+.rules li::before{content:""; flex:none; width:13px; height:13px; margin-top:6px; border-radius:50%; background:conic-gradient(from 20deg, transparent 0 38deg, var(--leaf) 38deg)}
+.rules b{font-weight:800}
+
+/* ---------- quiz ---------- */
+.quiz-top{display:flex; align-items:center; justify-content:space-between; gap:12px}
+.pill-btn{border:0; border-radius:999px; padding:8px 16px; background:var(--paper-hi); color:var(--ink); font-family:var(--font-head); font-weight:500; font-size:16px; box-shadow:0 3px 0 var(--edge); cursor:pointer}
+.pill-btn:active{transform:translateY(2px); box-shadow:0 1px 0 var(--edge)}
+a.pill-btn{display:inline-flex; align-self:flex-start; text-decoration:none}
+.count{font-family:var(--font-head); font-weight:500; color:var(--ink-soft); font-variant-numeric:tabular-nums}
+.pads{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:7px}
+.pads li{--pc:var(--pad-empty); width:16px; height:16px; border-radius:50%; background:conic-gradient(from 20deg, transparent 0 40deg, var(--pc) 40deg); transition:transform .2s ease}
+.pads li.ok{--pc:var(--leaf)}
+.pads li.miss{--pc:var(--berry)}
+.pads li.now{transform:scale(1.4)}
+.pads li.now:not(.ok):not(.miss){--pc:var(--sun)}
+.quiz-frog{display:flex; align-items:center; gap:10px}
+.quiz-frog .frog-slot{flex:none; width:84px}
+.quiz-frog .bubble{flex:0 1 auto; min-width:0}
+
+.card{background:var(--paper-hi); border-radius:24px; box-shadow:0 5px 0 var(--edge); padding:22px 20px; display:flex; flex-direction:column; gap:16px}
+.chip{align-self:flex-start; font-family:var(--font-head); font-weight:500; font-size:14px; line-height:1.2; padding:5px 12px; border-radius:999px; background:var(--c); color:var(--ci)}
+.vignette{font-size:17.5px; line-height:1.6; max-width:62ch}
+.ask{font-family:var(--font-head); font-weight:600; font-size:19.5px; line-height:1.3}
+.ask mark,.r-ask mark{background:linear-gradient(transparent 55%, var(--mark) 55%); color:inherit; padding:0 .08em}
+.opts{display:flex; flex-direction:column; gap:10px}
+.opt{display:flex; gap:12px; align-items:flex-start; width:100%; text-align:left; padding:12px 14px; border-radius:18px; border:2px solid var(--line); background:var(--paper); color:var(--ink); font-size:16.5px; line-height:1.45; cursor:pointer; transition:border-color .15s ease, background-color .15s ease, transform 80ms ease}
+.opt:not([aria-disabled="true"]):hover{border-color:var(--leaf)}
+.opt:not([aria-disabled="true"]):active{transform:scale(.99)}
+.opt[aria-disabled="true"]{cursor:default}
+.letter{flex:none; width:30px; height:30px; border-radius:50%; display:grid; place-items:center; font-family:var(--font-head); font-weight:600; font-size:15px; background:var(--paper-hi); border:2px solid var(--line); color:var(--ink)}
+.opt-body{flex:1; min-width:0; display:flex; flex-direction:column; gap:6px; padding-top:2px}
+.opt-text{display:block}
+.note{display:block; font-size:14.5px; line-height:1.45; color:var(--ink-soft)}
+.tag{display:inline-block; margin-right:6px; padding:1px 8px; border-radius:999px; font-family:var(--font-head); font-weight:600; font-size:12.5px; background:var(--c); color:var(--ci)}
+.opt.right{background:var(--ok-bg); border-color:var(--ok-line); color:var(--ok-fg)}
+.opt.right .note{color:var(--ok-fg)}
+.opt.right .letter{background:var(--leaf); border-color:var(--leaf-dark); color:var(--leaf-ink)}
+.opt.right .tag{--c:var(--leaf); --ci:var(--leaf-ink)}
+.opt.wrong{background:var(--no-bg); border-color:var(--no-line); color:var(--no-fg)}
+.opt.wrong .note{color:var(--no-fg)}
+.opt.wrong .letter{background:var(--berry); border-color:var(--berry-dark); color:var(--berry-ink)}
+.opt.wrong .tag{--c:var(--berry); --ci:var(--berry-ink)}
+.tip{display:flex; gap:10px; align-items:flex-start; background:var(--tip-bg); color:var(--tip-fg); border-radius:18px; padding:12px 14px; font-size:15.5px}
+.tip svg{flex:none; width:30px; height:30px}
+.tip b{font-family:var(--font-head); font-weight:600}
+.mini .ml{fill:var(--frog-dark); stroke:var(--frog-dark); stroke-width:3; stroke-linejoin:round}
+.mini .mf{fill:var(--frog)}
+.actions{display:flex; justify-content:flex-end}
+
+.btn{--b:var(--paper-hi); --e:var(--edge); --t:var(--ink); display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:52px; padding:10px 24px; border:0; border-radius:999px; background:var(--b); color:var(--t); font-family:var(--font-head); font-weight:600; font-size:18px; box-shadow:0 4px 0 var(--e); cursor:pointer; transition:transform 80ms ease, box-shadow 80ms ease}
+.btn:active{transform:translateY(3px); box-shadow:0 1px 0 var(--e)}
+.btn.leaf{--b:var(--leaf); --e:var(--leaf-dark); --t:var(--leaf-ink)}
+.btn.lotus{--b:var(--lotus); --e:var(--lotus-dark); --t:var(--lotus-ink)}
+
+/* ---------- results ---------- */
+.done-head{display:flex; align-items:center; gap:16px}
+.done-head .frog-slot{flex:none; width:clamp(112px, 30vw, 150px)}
+.done-txt{flex:1; min-width:0; display:flex; flex-direction:column; gap:6px}
+.done-pond{font-family:var(--font-head); font-weight:500; color:var(--ink-soft); font-size:17px}
+.score{font-size:60px; line-height:1; font-variant-numeric:tabular-nums}
+.score small{font-size:26px; color:var(--ink-soft)}
+.done-msg{font-size:17px}
+.btn-row{display:flex; flex-wrap:wrap; gap:12px}
+.review-wrap{display:flex; flex-direction:column; gap:12px}
+.review{display:flex; flex-direction:column; gap:12px}
+.review-item{background:var(--paper-hi); border-radius:20px; padding:16px 18px; box-shadow:0 3px 0 var(--edge); display:flex; flex-direction:column; gap:10px}
+.r-ask{font-family:var(--font-head); font-weight:600; font-size:17px; line-height:1.3}
+.r-a{background:var(--ok-bg); color:var(--ok-fg); border-radius:12px; padding:9px 12px}
+.r-t{color:var(--ink-soft); font-size:15px}
+
+.foot{display:flex; flex-direction:column; gap:4px; color:var(--ink-soft); font-size:14px}
+
+@media (max-width:420px){
+  .card{padding:18px 16px}
+  .vignette{font-size:17px}
+  .btn-row .btn{flex:1 1 100%}
+}
+@media (prefers-reduced-motion: reduce){
+  .frog .bob,.frog .lid{animation:none!important}
+  .pad-ico,.pads li{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section id="home" class="view" aria-labelledby="title">
+    <a class="pill-btn" href="../">‹ Back to Ribbit Quest</a>
+    <header class="hero">
+      <div class="hero-text">
+        <p class="hello">Hi Gabi!</p>
+        <h1 id="title">Ribbit Review</h1>
+        <p class="sub">80 ASWB-style practice questions, with the why behind every answer.</p>
+      </div>
+      <div class="hero-frog">
+        <p id="hero-bubble" class="bubble down" aria-live="polite">Tap me for luck!</p>
+        <button type="button" id="hero-frog" class="frog-btn" aria-label="Tap the frog for luck"><span id="hero-frog-slot" class="frog-slot"></span></button>
+      </div>
+    </header>
+
+    <button type="button" id="resume" class="pond-btn" data-c="sun" hidden>
+      <svg class="pad-ico" viewBox="0 0 44 44" aria-hidden="true"><path class="lp" d="M22 22L38.45 12.5A19 19 0 1 1 31.5 5.55Z"/><path class="lv" d="M22 22L7 25M22 22L12 35M22 22L25 39"/></svg>
+      <span class="pond-txt"><span class="pond-name">Pick up where you left off</span><span id="resume-meta" class="pond-meta"></span></span>
+      <span class="chev" aria-hidden="true">›</span>
+    </button>
+
+    <div class="ponds-block">
+      <h2>Pick a pond</h2>
+      <div class="ponds">
+        <button type="button" id="pond-ethics" class="pond-btn" data-pond="ethics" data-c="lotus">
+          <svg class="pad-ico" viewBox="0 0 44 44" aria-hidden="true"><path class="lp" d="M22 22L38.45 12.5A19 19 0 1 1 31.5 5.55Z"/><path class="lv" d="M22 22L7 25M22 22L12 35M22 22L25 39"/></svg>
+          <span class="pond-txt"><span class="pond-name">Values &amp; Ethics</span><span class="pond-meta">20 questions</span></span>
+          <span class="chev" aria-hidden="true">›</span>
+        </button>
+        <button type="button" id="pond-assess" class="pond-btn" data-pond="assess" data-c="pond">
+          <svg class="pad-ico" viewBox="0 0 44 44" aria-hidden="true"><path class="lp" d="M22 22L38.45 12.5A19 19 0 1 1 31.5 5.55Z"/><path class="lv" d="M22 22L7 25M22 22L12 35M22 22L25 39"/></svg>
+          <span class="pond-txt"><span class="pond-name">Assessment &amp; Planning</span><span class="pond-meta">20 questions</span></span>
+          <span class="chev" aria-hidden="true">›</span>
+        </button>
+        <button type="button" id="pond-interv" class="pond-btn" data-pond="interv" data-c="leaf">
+          <svg class="pad-ico" viewBox="0 0 44 44" aria-hidden="true"><path class="lp" d="M22 22L38.45 12.5A19 19 0 1 1 31.5 5.55Z"/><path class="lv" d="M22 22L7 25M22 22L12 35M22 22L25 39"/></svg>
+          <span class="pond-txt"><span class="pond-name">Intervention &amp; Practice</span><span class="pond-meta">20 questions</span></span>
+          <span class="chev" aria-hidden="true">›</span>
+        </button>
+        <button type="button" id="pond-human" class="pond-btn" data-pond="human" data-c="grape">
+          <svg class="pad-ico" viewBox="0 0 44 44" aria-hidden="true"><path class="lp" d="M22 22L38.45 12.5A19 19 0 1 1 31.5 5.55Z"/><path class="lv" d="M22 22L7 25M22 22L12 35M22 22L25 39"/></svg>
+          <span class="pond-txt"><span class="pond-name">Human Development &amp; Diversity</span><span class="pond-meta">20 questions</span></span>
+          <span class="chev" aria-hidden="true">›</span>
+        </button>
+        <button type="button" id="pond-mix" class="pond-btn" data-pond="mix" data-c="sun">
+          <svg class="pad-ico" viewBox="0 0 44 44" aria-hidden="true"><path class="lp" d="M22 22L38.45 12.5A19 19 0 1 1 31.5 5.55Z"/><path class="lv" d="M22 22L7 25M22 22L12 35M22 22L25 39"/></svg>
+          <span class="pond-txt"><span class="pond-name">Mixed pond</span><span class="pond-meta">20 random from all four</span></span>
+          <span class="chev" aria-hidden="true">›</span>
+        </button>
+        <button type="button" id="pond-missed" class="pond-btn" data-pond="missed" data-c="berry" hidden>
+          <svg class="pad-ico" viewBox="0 0 44 44" aria-hidden="true"><path class="lp" d="M22 22L38.45 12.5A19 19 0 1 1 31.5 5.55Z"/><path class="lv" d="M22 22L7 25M22 22L12 35M22 22L25 39"/></svg>
+          <span class="pond-txt"><span class="pond-name">Missed ones</span><span class="pond-meta"></span></span>
+          <span class="chev" aria-hidden="true">›</span>
+        </button>
+      </div>
+    </div>
+
+    <section class="rules" aria-labelledby="rules-title">
+      <h2 id="rules-title">Rules of the pond</h2>
+      <p class="rules-sub">How to think like the exam</p>
+      <ul>
+        <li><span><b>Read the question line first.</b> FIRST, NEXT, BEST and MOST change the answer.</span></li>
+        <li><span><b>Safety first.</b> A risk to someone’s life or safety beats everything else.</span></li>
+        <li><span><b>Assess before you act,</b> unless someone is in danger right now.</span></li>
+        <li><span><b>Start where the client is:</b> their words, their priorities, their pace.</span></li>
+        <li><span><b>Clients decide</b> unless there’s serious, foreseeable, imminent harm.</span></li>
+        <li><span><b>Pick the least restrictive option</b> that still keeps people safe.</span></li>
+        <li><span><b>Sudden change?</b> Rule out medical causes first.</span></li>
+        <li><span><b>Colleague problem?</b> Talk to them first, then go up the chain.</span></li>
+        <li><span><b>Answer for the ideal agency,</b> not the one you’ve worked in.</span></li>
+        <li><span><b>Two answers look right?</b> Pick the one that has to happen first.</span></li>
+      </ul>
+    </section>
+  </section>
+
+  <section id="quiz" class="view" aria-label="Practice question" hidden>
+    <div class="quiz-top">
+      <button type="button" id="back" class="pill-btn">‹ Ponds</button>
+      <p id="count" class="count"></p>
+    </div>
+    <ol id="pads" class="pads"></ol>
+    <div class="quiz-frog">
+      <span id="quiz-frog-slot" class="frog-slot"></span>
+      <p id="quiz-bubble" class="bubble left"></p>
+    </div>
+    <article class="card">
+      <p id="chip" class="chip" data-c="lotus"></p>
+      <p id="vignette" class="vignette"></p>
+      <p id="ask" class="ask"></p>
+      <div id="opts" class="opts" role="group" aria-labelledby="ask"></div>
+      <div id="tip" class="tip" hidden>
+        <svg class="mini" viewBox="0 0 40 40" aria-hidden="true"><g class="ml"><circle cx="12" cy="14" r="8"/><circle cx="28" cy="14" r="8"/><ellipse cx="20" cy="26" rx="17" ry="11"/></g><g class="mf"><circle cx="12" cy="14" r="8"/><circle cx="28" cy="14" r="8"/><ellipse cx="20" cy="26" rx="17" ry="11"/></g><circle cx="12" cy="14" r="5" fill="#fff"/><circle cx="28" cy="14" r="5" fill="#fff"/><circle cx="12.6" cy="14.6" r="2.6" fill="#2a1e14"/><circle cx="27.4" cy="14.6" r="2.6" fill="#2a1e14"/><path d="M14 27q6 5 12 0" fill="none" stroke="#3b2a1a" stroke-width="2" stroke-linecap="round"/><ellipse cx="9" cy="26" rx="3" ry="1.8" fill="#f4a7b9"/><ellipse cx="31" cy="26" rx="3" ry="1.8" fill="#f4a7b9"/></svg>
+        <p><b>Frog tip</b> <span id="tip-text"></span></p>
+      </div>
+    </article>
+    <div class="actions">
+      <button type="button" id="next" class="btn leaf" hidden><span id="next-label">Next hop</span><span aria-hidden="true">›</span></button>
+    </div>
+    <p id="sr" class="sr-only" aria-live="polite"></p>
+  </section>
+
+  <section id="done" class="view" aria-labelledby="done-title" hidden>
+    <div class="done-head">
+      <span id="done-frog-slot" class="frog-slot"></span>
+      <div class="done-txt">
+        <p id="done-pond" class="done-pond"></p>
+        <h2 id="done-title" class="score"><span id="score-num">0</span><small id="score-total"> / 20</small></h2>
+        <p id="done-msg" class="done-msg"></p>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button type="button" id="again-missed" class="btn lotus"></button>
+      <button type="button" id="again-same" class="btn leaf">Try this pond again</button>
+      <button type="button" id="to-home" class="btn">Back to the ponds</button>
+    </div>
+    <div id="review-wrap" class="review-wrap">
+      <h2>Worth another look</h2>
+      <div id="review" class="review"></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Practice questions written in the ASWB style for studying. They aren’t official exam items.</p>
+    <p>Good luck Friday, Gabi 💚</p>
+  </footer>
+</div>
+
+<script src="../questions.js"></script>
+<script>
+(() => {
+  "use strict";
+
+  const CATS = {
+    ethics: { name: "Values & Ethics", c: "lotus" },
+    assess: { name: "Assessment & Planning", c: "pond" },
+    interv: { name: "Intervention & Practice", c: "leaf" },
+    human: { name: "Human Development & Diversity", c: "grape" }
+  };
+
+  const Q = window.RIBBIT_Q;
+
+  const BY_ID = {};
+  Q.forEach(q => { BY_ID[q.id] = q; });
+
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  const shuffle = a => {
+    const b = a.slice();
+    for (let i = b.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [b[i], b[j]] = [b[j], b[i]];
+    }
+    return b;
+  };
+
+  const RIGHT = ["Ribbit! That's it!", "Toad-ally right!", "Hoppin' good answer!", "Lily-pad perfect!", "Frog-tastic!", "Yes! Big brain frog energy."];
+  const WRONG = ["Close one!", "Not quite!", "Little oopsie!", "Almost!"];
+  const READY = ["You've got this!", "Read the question line first.", "Take your time. Ribbit.", "What would the textbook social worker do?", "Find the key word: FIRST, BEST, NEXT…"];
+  const LUCK = ["Ribbit! That's frog for good luck.", "You're going to do amazing Friday.", "Snack, water, deep breath. Ribbit.", "One question at a time. Hop, hop.", "I believe in you, Gabi!", "Frog wisdom: read the last line first."];
+
+  // ---------- frog art (the classic pond frog from Ribbit Reps, plus a graduation cap) ----------
+  const SIL = '<ellipse cx="40" cy="168" rx="25" ry="16"/><ellipse cx="160" cy="168" rx="25" ry="16"/>' +
+    '<path d="M100 64C146 64 168 98 168 136C168 170 140 186 100 186C60 186 32 170 32 136C32 98 54 64 100 64Z"/>' +
+    '<ellipse cx="76" cy="183" rx="15" ry="7"/><ellipse cx="124" cy="183" rx="15" ry="7"/>' +
+    '<circle cx="66" cy="186" r="4.2"/><circle cx="76" cy="188.5" r="4.2"/><circle cx="86" cy="186" r="4.2"/>' +
+    '<circle cx="114" cy="186" r="4.2"/><circle cx="124" cy="188.5" r="4.2"/><circle cx="134" cy="186" r="4.2"/>' +
+    '<circle cx="66" cy="70" r="24"/><circle cx="134" cy="70" r="24"/>';
+  const EYE = (cx, ix, s1, s2) =>
+    '<g class="e-open"><circle class="white" cx="' + cx + '" cy="70" r="17.76"/>' +
+    '<circle class="iris" cx="' + ix + '" cy="71.44" r="12"/><circle class="pupil" cx="' + ix + '" cy="71.44" r="7.2"/>' +
+    '<circle class="white" cx="' + s1 + '" cy="66.64" r="3.84"/><circle class="white" cx="' + s2 + '" cy="75.28" r="1.8"/>' +
+    '<ellipse class="lid" cx="' + cx + '" cy="70" rx="19.68" ry="19.2"/></g>';
+  const FROG =
+    '<ellipse class="shadow" cx="100" cy="191" rx="72" ry="7"/><g class="bob">' +
+    '<g class="cap"><path class="cap-skull" d="M80 45H120L118 68Q100 74 82 68Z"/>' +
+    '<path class="cap-side" d="M58 42L100 53L142 42V45.5L100 56.5L58 45.5Z"/>' +
+    '<path class="cap-board" d="M100 31L142 42L100 53L58 42Z"/><path class="cap-hi" d="M61 41.4L100 31.6L139 41.4"/></g>' +
+    '<g class="sil-line">' + SIL + '</g><g class="sil-fill">' + SIL + '</g>' +
+    '<ellipse class="belly" cx="100" cy="148" rx="42" ry="31"/>' +
+    '<ellipse class="shine" cx="57.84" cy="56.56" rx="7.2" ry="3.84" transform="rotate(-28 57.84 56.56)"/>' +
+    EYE(66, 67.92, 63.84, 72.24) + EYE(134, 132.08, 128, 136.4) +
+    '<path class="e-happy" d="M54.96 72.88Q66 58 77.04 72.88M122.96 72.88Q134 58 145.04 72.88"/>' +
+    '<ellipse class="cheek" cx="56" cy="114" rx="11" ry="6.5"/><ellipse class="cheek" cx="144" cy="114" rx="11" ry="6.5"/>' +
+    '<circle class="nostril" cx="94" cy="104" r="1.9"/><circle class="nostril" cx="106" cy="104" r="1.9"/>' +
+    '<path class="m-smile" d="M89 116Q100 126 111 116"/>' +
+    '<g class="m-grin"><path d="M86 114Q100 134 114 114Z"/><ellipse cx="100" cy="122" rx="6" ry="3.2"/></g>' +
+    '<ellipse class="m-o" cx="100" cy="119" rx="4.2" ry="5.2"/>' +
+    '<path class="drop" d="M30 50c-4 6-6 9-6 12a6 6 0 0 0 12 0c0-3-2-6-6-12z"/>' +
+    '<circle class="cap-btn" cx="100" cy="42" r="3.2"/>' +
+    '<path class="tassel" d="M100 42L139 42.6Q146 43.2 148.5 49"/><path class="tassel-end" d="M144 49.5h9l1.8 10.5h-12.6z"/>' +
+    '</g>';
+  const PAD = '<path class="pad" d="M100 188L159.14 199.49A92 15 0 1 1 186.45 193.13Z"/>';
+  const frogSVG = (withPad, label) =>
+    '<svg class="frog' + (withPad ? ' has-pad' : '') + '" viewBox="0 0 200 ' + (withPad ? 206 : 200) +
+    '" data-mood="idle" role="img" aria-label="' + label + '">' + (withPad ? PAD : '') + FROG + '</svg>';
+
+  const heroSlot = $("#hero-frog-slot"), quizSlot = $("#quiz-frog-slot"), doneSlot = $("#done-frog-slot");
+  heroSlot.innerHTML = frogSVG(true, "A little frog in a graduation cap");
+  quizSlot.innerHTML = frogSVG(false, "Study frog");
+  doneSlot.innerHTML = frogSVG(true, "Study frog");
+
+  function setMood(slot, mood) {
+    const f = slot.querySelector(".frog");
+    if (!f) return;
+    f.setAttribute("data-mood", "idle");
+    void f.getBoundingClientRect();
+    f.setAttribute("data-mood", mood);
+  }
+
+  // ---------- saved progress (this browser only) ----------
+  const KEY = "gabi-ribbit-review-v1";
+  const store = { best: {}, missed: [], session: null };
+
+  function validSession(s) {
+    return !!s && typeof s.pond === "string" && Array.isArray(s.ids) && s.ids.length > 0 &&
+      s.ids.every(id => BY_ID[id]) && Array.isArray(s.perms) && s.perms.length === s.ids.length &&
+      s.perms.every(p => Array.isArray(p) && p.length === 4 && [0, 1, 2, 3].every(n => p.includes(n))) &&
+      Number.isInteger(s.i) && s.i >= 0 && s.i < s.ids.length && Array.isArray(s.answers);
+  }
+
+  try {
+    const raw = JSON.parse(localStorage.getItem(KEY) || "null");
+    if (raw && typeof raw === "object") {
+      if (raw.best && typeof raw.best === "object") store.best = raw.best;
+      if (Array.isArray(raw.missed)) store.missed = raw.missed.filter(id => BY_ID[id]);
+      if (validSession(raw.session)) store.session = raw.session;
+    }
+  } catch (e) { /* storage unavailable: start fresh */ }
+
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) { /* not saved, still works */ }
+  }
+
+  // ---------- views ----------
+  const views = { home: $("#home"), quiz: $("#quiz"), done: $("#done") };
+  function show(name) {
+    Object.keys(views).forEach(k => { views[k].hidden = k !== name; });
+    window.scrollTo(0, 0);
+  }
+
+  const pondName = k => k === "mix" ? "Mixed pond" : k === "missed" ? "Missed ones" : CATS[k].name;
+
+  function renderHome() {
+    Object.keys(CATS).concat("mix").forEach(k => {
+      const best = store.best[k];
+      const base = k === "mix" ? "20 random from all four" : "20 questions";
+      $("#pond-" + k + " .pond-meta").textContent = typeof best === "number" ? base + " · best " + best + "/20" : base;
+    });
+    const n = store.missed.length;
+    $("#pond-missed").hidden = n === 0;
+    $("#pond-missed .pond-meta").textContent = n + (n === 1 ? " question" : " questions") + " to try again";
+    const s = store.session;
+    $("#resume").hidden = !validSession(s);
+    if (validSession(s)) $("#resume-meta").textContent = pondName(s.pond) + " · question " + (s.i + 1) + " of " + s.ids.length;
+  }
+
+  // ---------- quiz ----------
+  let S = null;
+  const answered = k => typeof S.answers[k] === "number";
+
+  function start(pond) {
+    let ids = [];
+    if (CATS[pond]) ids = shuffle(Q.filter(q => q.cat === pond).map(q => q.id));
+    else if (pond === "mix") {
+      const keys = shuffle(Object.keys(CATS));
+      keys.forEach((k, n) => {
+        const take = Math.floor(20 / keys.length) + (n < 20 % keys.length ? 1 : 0);
+        ids = ids.concat(shuffle(Q.filter(q => q.cat === k).map(q => q.id)).slice(0, take));
+      });
+      ids = shuffle(ids);
+    } else if (pond === "missed") ids = shuffle(store.missed).slice(0, 20);
+    if (!ids.length) return;
+    S = { pond, ids, perms: ids.map(() => shuffle([0, 1, 2, 3])), i: 0, answers: [] };
+    store.session = S;
+    save();
+    renderQ();
+    show("quiz");
+  }
+
+  function fillAsk(el, text) {
+    el.textContent = "";
+    text.split(/\b(FIRST|NEXT|BEST|MOST|STRONGEST|LEAST|NOT)\b/).forEach((part, n) => {
+      if (n % 2) {
+        const m = document.createElement("mark");
+        m.textContent = part;
+        el.appendChild(m);
+      } else if (part) el.appendChild(document.createTextNode(part));
+    });
+  }
+
+  function renderPads() {
+    const ol = $("#pads");
+    ol.textContent = "";
+    S.ids.forEach((id, k) => {
+      const li = document.createElement("li");
+      if (answered(k)) li.className = S.answers[k] === BY_ID[id].c ? "ok" : "miss";
+      if (k === S.i) li.classList.add("now");
+      ol.appendChild(li);
+    });
+    ol.setAttribute("aria-label", "Question " + (S.i + 1) + " of " + S.ids.length);
+  }
+
+  function renderQ() {
+    const q = BY_ID[S.ids[S.i]];
+    $("#count").textContent = "Question " + (S.i + 1) + " of " + S.ids.length;
+    renderPads();
+    const chip = $("#chip");
+    chip.textContent = CATS[q.cat].name;
+    chip.dataset.c = CATS[q.cat].c;
+    $("#vignette").textContent = q.text;
+    fillAsk($("#ask"), q.ask);
+    const box = $("#opts");
+    box.textContent = "";
+    S.perms[S.i].forEach((orig, pos) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "opt";
+      b.dataset.orig = String(orig);
+      const letter = document.createElement("span");
+      letter.className = "letter";
+      letter.textContent = "ABCD"[pos];
+      const body = document.createElement("span");
+      body.className = "opt-body";
+      const txt = document.createElement("span");
+      txt.className = "opt-text";
+      txt.textContent = q.opts[orig][0];
+      const note = document.createElement("span");
+      note.className = "note";
+      note.hidden = true;
+      const tag = document.createElement("span");
+      tag.className = "tag";
+      note.append(tag, document.createTextNode(q.opts[orig][1]));
+      body.append(txt, note);
+      b.append(letter, body);
+      b.addEventListener("click", () => choose(orig));
+      box.appendChild(b);
+    });
+    $("#tip").hidden = true;
+    $("#next").hidden = true;
+    $("#sr").textContent = "";
+    if (answered(S.i)) reveal(false);
+    else {
+      setMood(quizSlot, "idle");
+      $("#quiz-bubble").textContent = pick(READY);
+    }
+  }
+
+  function choose(orig) {
+    if (!S || answered(S.i)) return;
+    S.answers[S.i] = orig;
+    const q = BY_ID[S.ids[S.i]];
+    const missed = new Set(store.missed);
+    if (orig === q.c) missed.delete(q.id); else missed.add(q.id);
+    store.missed = Array.from(missed);
+    store.session = S;
+    save();
+    reveal(true);
+  }
+
+  function reveal(fresh) {
+    const q = BY_ID[S.ids[S.i]];
+    const chosen = S.answers[S.i];
+    const ok = chosen === q.c;
+    let bestLetter = "";
+    $$("#opts .opt").forEach(b => {
+      const o = Number(b.dataset.orig);
+      const tag = b.querySelector(".tag");
+      b.setAttribute("aria-disabled", "true");
+      if (o === q.c) {
+        b.classList.add("right");
+        tag.textContent = "Best answer";
+        bestLetter = b.querySelector(".letter").textContent;
+      } else if (o === chosen) {
+        b.classList.add("wrong");
+        tag.textContent = "Your pick";
+      } else tag.hidden = true;
+      b.querySelector(".note").hidden = false;
+    });
+    $("#tip-text").textContent = q.tip;
+    $("#tip").hidden = false;
+    $("#next-label").textContent = S.i === S.ids.length - 1 ? "See my score" : "Next hop";
+    $("#next").hidden = false;
+    setMood(quizSlot, ok ? "happy" : "oops");
+    $("#quiz-bubble").textContent = ok ? pick(RIGHT) : pick(WRONG) + " The answer is " + bestLetter + ".";
+    $("#sr").textContent = ok ? "Correct." : "Not quite. The best answer is " + bestLetter + ".";
+    renderPads();
+    if (fresh) $("#next").focus({ preventScroll: true });
+  }
+
+  function next() {
+    if (!S || !answered(S.i)) return;
+    if (S.i < S.ids.length - 1) {
+      S.i++;
+      store.session = S;
+      save();
+      renderQ();
+      window.scrollTo(0, 0);
+    } else finish();
+  }
+
+  // ---------- results ----------
+  let result = null;
+
+  function finish() {
+    const missedHere = [];
+    let right = 0;
+    S.ids.forEach((id, k) => { if (S.answers[k] === BY_ID[id].c) right++; else missedHere.push(id); });
+    if (S.pond !== "missed") {
+      const prev = store.best[S.pond];
+      if (typeof prev !== "number" || right > prev) store.best[S.pond] = right;
+    }
+    result = { pond: S.pond, right, total: S.ids.length, missed: missedHere };
+    S = null;
+    store.session = null;
+    save();
+    renderDone();
+    show("done");
+  }
+
+  function renderDone() {
+    const { pond, right, total, missed } = result;
+    const pct = right / total;
+    let msg = "Every hop counts. Read the whys, then try the missed ones.", mood = "idle";
+    if (pct === 1) { msg = "Every single hop. Perfect pond!"; mood = "cheer"; }
+    else if (pct >= 0.85) { msg = "Pond champion! You're so ready."; mood = "cheer"; }
+    else if (pct >= 0.7) { msg = "Strong hops! Look over the misses and you're golden."; mood = "happy"; }
+    else if (pct >= 0.5) { msg = "Good practice! The missed ones are where the points are."; mood = "happy"; }
+    $("#done-pond").textContent = pondName(pond);
+    $("#score-num").textContent = right;
+    $("#score-total").textContent = " / " + total;
+    $("#done-msg").textContent = msg;
+    setMood(doneSlot, mood);
+
+    const n = store.missed.length;
+    $("#again-missed").hidden = n === 0;
+    $("#again-missed").textContent = "Practice missed ones (" + Math.min(n, 20) + ")";
+    $("#again-same").hidden = pond === "missed";
+
+    const list = $("#review");
+    list.textContent = "";
+    $("#review-wrap").hidden = missed.length === 0;
+    missed.forEach(id => {
+      const q = BY_ID[id];
+      const item = document.createElement("article");
+      item.className = "review-item";
+      const chip = document.createElement("p");
+      chip.className = "chip";
+      chip.dataset.c = CATS[q.cat].c;
+      chip.textContent = CATS[q.cat].name;
+      const text = document.createElement("p");
+      text.textContent = q.text;
+      const ask = document.createElement("p");
+      ask.className = "r-ask";
+      fillAsk(ask, q.ask);
+      const ans = document.createElement("p");
+      ans.className = "r-a";
+      const lead = document.createElement("b");
+      lead.textContent = "Best answer: ";
+      ans.append(lead, document.createTextNode(q.opts[q.c][0]));
+      const tip = document.createElement("p");
+      tip.className = "r-t";
+      tip.textContent = "Frog tip: " + q.tip;
+      item.append(chip, text, ask, ans, tip);
+      list.appendChild(item);
+    });
+  }
+
+  // ---------- wiring ----------
+  $$(".pond-btn[data-pond]").forEach(b => b.addEventListener("click", () => start(b.dataset.pond)));
+  $("#resume").addEventListener("click", () => {
+    if (!validSession(store.session)) return renderHome();
+    S = store.session;
+    renderQ();
+    show("quiz");
+  });
+  $("#back").addEventListener("click", () => { renderHome(); show("home"); });
+  $("#next").addEventListener("click", next);
+  $("#again-missed").addEventListener("click", () => start("missed"));
+  $("#again-same").addEventListener("click", () => { if (result) start(result.pond); });
+  $("#to-home").addEventListener("click", () => { renderHome(); show("home"); });
+
+  let luckTimer = 0;
+  $("#hero-frog").addEventListener("click", () => {
+    const bubble = $("#hero-bubble");
+    bubble.textContent = pick(LUCK.filter(line => line !== bubble.textContent));
+    setMood(heroSlot, "happy");
+    clearTimeout(luckTimer);
+    luckTimer = setTimeout(() => setMood(heroSlot, "idle"), 1400);
+  });
+
+  document.addEventListener("keydown", e => {
+    if (views.quiz.hidden || !S || e.altKey || e.ctrlKey || e.metaKey) return;
+    const k = e.key.toLowerCase();
+    let idx = "1234".indexOf(k);
+    if (idx < 0) idx = "abcd".indexOf(k);
+    if (k.length === 1 && idx >= 0) {
+      if (!answered(S.i)) {
+        const btn = $$("#opts .opt")[idx];
+        if (btn) btn.click();
+      }
+      return;
+    }
+    if ((k === "enter" || k === "arrowright") && answered(S.i)) {
+      if (k === "enter" && document.activeElement && document.activeElement.tagName === "BUTTON") return;
+      e.preventDefault();
+      next();
+    }
+  });
+
+  renderHome();
+})();
+</script>
+</body>
+</html>

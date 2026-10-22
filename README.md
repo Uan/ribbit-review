@@ -1,14 +1,20 @@
-# Ribbit Review
+# Ribbit Quest
 
-A froggy ASWB practice quiz for Gabi: 80 questions across human development and diversity, values and ethics, assessment and planning, and intervention and practice, with the reasoning behind every answer choice.
+Gabi's ASWB study adventure: a cozy top-down frog RPG where answering questions wins battles, solves puzzles and earns the four Golden Lilies needed to face the Great Exam Toad. A plain practice quiz sits beside it for studying without the game.
 
-Live: https://uan.github.io/ribbit-review/
+Live: https://uan.github.io/ribbit-review/ (practice mode: https://uan.github.io/ribbit-review/practice/)
 
-## How it works
+## What's where
 
-- One static page, `index.html`, with no build step. Fonts come from Google Fonts; everything else is inline.
-- Questions are in the `Q` array inside `index.html`. Each option is `[answer, why]`, and `c` is the index of the best answer. Options are shuffled on screen.
-- Progress (best scores, missed questions, a quiz in progress) is saved in the viewer's own browser.
-- Open it locally with `.\launch.ps1`.
+- `index.html`: the game page (HUD, battle, dialog and journal cards).
+- `game/maps.js`: the hub (Home Pond), four worlds (one per exam area) and the Exam Isle, built from shapes on a tile grid.
+- `game/art.js`: frog, critters, bosses, friends and props as SVG; tiles and trees painted on canvas.
+- `game/game.js`: movement, tap-to-walk, critters, battles, puzzles, saving, journal.
+- `questions.js`: the shared bank of 80 questions (20 per area). Each option is `[answer, why]`; `c` is the index of the best answer. Never change an `id`: saved progress uses them.
+- `practice/index.html`: the original quiz (ponds, missed ones, best scores).
+
+No build step. Progress is saved in the browser: the game under `ribbit-quest-v1`, practice under `gabi-ribbit-review-v1`. Both share one "missed" list, so a question missed in either mode comes back in both.
+
+Open it locally with `.\launch.ps1`.
 
 These are practice questions written in the ASWB style for studying. They are not official exam items.
