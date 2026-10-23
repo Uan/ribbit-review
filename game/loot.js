@@ -65,7 +65,8 @@
     { id: "human25", name: "Lifespan Expert", text: "Answer 25 Human Development & Diversity questions right.", goal: 25, track: "right:human" },
     { id: "crit50", name: "Pond Protector", text: "Defeat 50 critters anywhere.", goal: 50, track: "kills" },
     { id: "crit150", name: "Legend of the Pond", text: "Defeat 150 critters anywhere.", goal: 150, track: "kills" },
-    { id: "master", name: "Know It All", text: "Get every one of the 80 questions right on your latest try.", goal: 80, track: "mastered" },
+    // goal and text are set to the size of the question bank when the game starts
+    { id: "master", name: "Know It All", text: "Get every question right on your latest try.", goal: 80, track: "mastered" },
     { id: "all", name: "Pond Champion", text: "Finish every other quest.", goal: 15, track: "quests" }
   ];
 

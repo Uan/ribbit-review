@@ -963,5 +963,1826 @@ window.RIBBIT_Q = /* Q-START */ [
         ["A sign of insecure attachment", "Asserting independence doesn't signal insecure attachment. Secure toddlers explore and push back."]
       ],
       c: 0,
-      tip: "Toddler “No!” = autonomy vs. shame and doubt. Normal development, not a disorder." }
+      tip: "Toddler “No!” = autonomy vs. shame and doubt. Normal development, not a disorder." },
+
+    // ---------------- 2026 blueprint batch ----------------
+    { id: "e21", cat: "ethics",
+      text: "During intake, a middle-aged client quietly tells the social worker that he doesn't read well. He asks where to sign the consent forms.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Show him where to sign and give him copies of the forms to take home.", "A signature without understanding is not informed consent."],
+        ["Ask his wife, who is in the waiting room, to read the forms to him later.", "This shares his private struggle without asking him, and consent would still come after the fact."],
+        ["Explain the forms aloud in plain language and check that he understands.", "Consent must be in language the client can follow. Explain it clearly and check his understanding before he signs."],
+        ["Postpone services until he can bring someone along to help him read.", "Reading ability is no reason to delay help. The social worker can explain the forms herself."]
+      ],
+      c: 2,
+      tip: "Informed consent = understood, not just signed." },
+
+    { id: "e22", cat: "ethics",
+      text: "A social worker wants to video record her sessions with a client so she can review them with her clinical supervisor.",
+      ask: "What must she do FIRST?",
+      opts: [
+        ["Get the client's informed consent before recording.", "Clients must agree before any audio or video recording, and know who will see it and why."],
+        ["Record, then tell the client afterward how the video was used.", "Telling the client after the fact is not consent. Permission comes first."],
+        ["Get agency approval, since the video stays inside the agency.", "Agency rules may also apply, but they never replace the client's own consent."]
+      ],
+      c: 0,
+      tip: "Recording or third-party observation? Client consent first." },
+
+    { id: "e23", cat: "ethics",
+      text: "A man is court-ordered to attend anger management sessions. At intake he asks the social worker, “Do I even have a choice here?”",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Tell him he has no choice, since a judge has ordered him to attend.", "Involuntary clients still have a right to refuse. They need to know what refusing would mean."],
+        ["Explain that court-ordered clients don't sign consent forms for services.", "Mandated clients still get informed consent, adapted to their situation."],
+        ["Promise that what he says stays private and the court only hears about attendance.", "The social worker can't promise this. What goes to the court depends on the order and any releases."],
+        ["Explain what will be reported to the court and his right to refuse, with its consequences.", "Mandated clients should know what will be shared, with whom, and the likely results of saying no."]
+      ],
+      c: 3,
+      tip: "Mandated client: explain what gets reported and what refusing would cost." },
+
+    { id: "e24", cat: "ethics",
+      text: "An 82-year-old woman with advanced dementia is being referred to an adult day program. Her son is her legal guardian.",
+      ask: "How should the social worker handle informed consent?",
+      opts: [
+        ["Have the woman sign the form herself, since the services are for her.", "She lacks the capacity to give informed consent, so her signature alone isn't valid."],
+        ["Get consent from her son and explain the program to her simply to seek her assent.", "When a client lacks capacity, consent comes from the legal representative. The client still gets an explanation she can follow."],
+        ["Go ahead without consent, since the program is clearly in her best interest.", "A good outcome doesn't replace consent. Her guardian must agree."],
+        ["Ask the neighbor who checks on her every day to sign, since she knows her daily routine best.", "A neighbor has no legal authority to consent for her."]
+      ],
+      c: 1,
+      tip: "No capacity? Consent from the legal representative, assent from the client." },
+
+    { id: "e25", cat: "ethics",
+      text: "A social worker is inviting families at her agency to take part in a study of a new parenting program.",
+      ask: "Which point is MOST important to make clear to them?",
+      opts: [
+        ["The study could help improve services for many future families.", "That may be true, but it can feel like pressure. It isn't the key point."],
+        ["Their names will appear only in the study's private records.", "Privacy matters, but the core protection is that joining is truly voluntary."],
+        ["Saying no will not change the services they get here.", "Research consent must be voluntary. Clients need to know refusing or quitting won't cost them services."]
+      ],
+      c: 2,
+      tip: "Research with clients: no penalty for saying no or dropping out." },
+
+    { id: "e26", cat: "ethics",
+      text: "A social worker wants to survey 14-year-olds in an after-school program for a research study on bullying.",
+      ask: "What consent is needed?",
+      opts: [
+        ["Written consent from a parent or guardian and the teen's own assent.", "Minors usually can't consent to research on their own. A proxy gives consent and the teen agrees as far as able."],
+        ["The teen's consent only, since the survey answers will be anonymous.", "Anonymity doesn't remove the need for a parent or guardian's consent."],
+        ["A parent's consent only, since teens can't agree to research.", "Teens should still be asked. Their assent is sought along with the parent's consent."],
+        ["Permission from the program director, who is responsible for the youth.", "The director's approval may be needed too, but it doesn't replace consent from parents and teens."]
+      ],
+      c: 0,
+      tip: "Research with minors = parent consent + child assent." },
+
+    { id: "e27", cat: "ethics",
+      text: "A social worker is starting the first session of a new support group for people living with chronic pain.",
+      ask: "How should she address confidentiality?",
+      opts: [
+        ["Promise members that what is shared in the group will stay in the group.", "The social worker can't promise what other members will do."],
+        ["Have members sign a pledge, which makes breaking confidentiality illegal.", "A pledge can help set norms, but it doesn't make a member's disclosure illegal."],
+        ["Wait to raise the topic until members trust each other more.", "Confidentiality should be discussed at the start, before people share."],
+        ["Ask members to respect each other's privacy and explain she can't guarantee they will.", "In groups, the worker sets the norm of confidentiality and is honest about its limits."]
+      ],
+      c: 3,
+      tip: "Groups: ask members to keep confidences, but don't guarantee they will." },
+
+    { id: "e28", cat: "ethics",
+      text: "A social worker is about to begin counseling with a married couple. She knows that one partner might later share something privately, such as an affair.",
+      ask: "What is the BEST way to prepare for this?",
+      opts: [
+        ["Promise each partner that anything said privately will stay private.", "This can trap the worker into keeping a secret that blocks the couple's work."],
+        ["At the start, explain her policy on sharing information between partners and get both to agree.", "With couples and families, the worker should set and explain the rules on shared information up front."],
+        ["Wait until a secret comes up, then decide what to share based on what seems most helpful to them.", "Making rules up later is unfair to both partners. They need to know the policy before they share."],
+        ["Ask each partner in a separate private meeting whether there are any secrets she should know about.", "This invites secrets before any policy exists for how they will be handled."]
+      ],
+      c: 1,
+      tip: "Couples and families: set the secrets policy at the start." },
+
+    { id: "e29", cat: "ethics",
+      text: "A client's employer calls the social worker and asks whether the client has been coming to his counseling sessions. There is no release on file.",
+      ask: "What should the social worker say?",
+      opts: [
+        ["Confirm attendance only, since that isn't clinical information.", "Even confirming that someone is a client is a disclosure."],
+        ["Say she can't share any information, not even whether he is a client.", "Without written consent, the social worker should neither confirm nor deny a client relationship."],
+        ["Ask the employer to send the request in writing on company letterhead.", "A written request from the employer is still not the client's consent."]
+      ],
+      c: 1,
+      tip: "No release? Don't even confirm the person is a client." },
+
+    { id: "e30", cat: "ethics",
+      text: "A client signed a release so her social worker can share treatment progress with her primary care doctor. The doctor's office now asks for her full file, including detailed notes about childhood abuse.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Send the full file, since the client has already signed a release.", "A release covers only what it names. It doesn't open the whole record."],
+        ["Send nothing, since counseling notes can never be shared with doctors.", "The client agreed to share progress for her care. Refusing everything ignores her wishes."],
+        ["Share only the progress information the release covers and the doctor needs.", "Disclose the minimum needed for the purpose, within the client's consent. More would need her new permission."],
+        ["Send the full file and ask the doctor's office to keep the abuse notes private.", "Asking for privacy doesn't fix sharing more than the client agreed to."]
+      ],
+      c: 2,
+      tip: "A release covers what it names: share the minimum needed." },
+
+    { id: "e31", cat: "ethics",
+      text: "A judge orders a social worker to release a client's records in a court case. The client doesn't want them released, and the social worker believes it could harm him.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Refuse to release the records, since the client has not consented.", "A court order is a legal command. Simply refusing can put the worker in contempt of court."],
+        ["Release the full record right away, since a judge has signed and issued the order.", "The worker should first try to protect the client by asking to limit what is released."],
+        ["Ask the court to narrow the order or seal the records, then comply as required.", "The Code asks workers to request that the order be withdrawn, limited, or kept under seal. If the court still requires it, they comply."]
+      ],
+      c: 2,
+      tip: "Subpoena: respond, don't just hand over. Court order: ask to narrow or seal, then comply." },
+
+    { id: "e32", cat: "ethics",
+      text: "A social worker in a small town wants advice on a hard case at a monthly peer consultation group. Some group members may know the client's family.",
+      ask: "How should she present the case?",
+      opts: [
+        ["Share only what is needed for advice and leave out details that could identify the client.", "Consultation is encouraged. Protect the client by sharing the minimum and removing identifying details."],
+        ["Wait until the members who know the family step out, then share the full case.", "Others may still recognize the family from full details. Share the minimum, without identifying details, with everyone."],
+        ["Share all the details, since the members are also bound by confidentiality.", "Colleagues' duties don't make extra identifying details necessary, especially in a small town."],
+        ["Skip consultation, since any talk about the case breaks confidentiality.", "Consulting without identifying information is ethical and often wise."]
+      ],
+      c: 0,
+      tip: "Consult freely, but without identifying details." },
+
+    { id: "e33", cat: "ethics",
+      text: "Two hospital social workers ride a crowded elevator. One starts describing a patient's suicide attempt without saying the patient's name.",
+      ask: "What should the other social worker do?",
+      opts: [
+        ["Answer briefly, since no name was used and the patient can't be identified.", "Others may still recognize the patient from details. Unnamed is not the same as private."],
+        ["Join the conversation, then remind her colleague about privacy later this week.", "This keeps the breach going. The issue needs attention now."],
+        ["Report the colleague to the hospital's privacy officer right away.", "A quiet word in the moment is the first step for a lapse like this."],
+        ["Suggest they wait and talk about the case later in a private space.", "Confidential matters shouldn't be discussed in elevators, hallways, or other public places."]
+      ],
+      c: 3,
+      tip: "Elevators, hallways, cafeterias: no case talk." },
+
+    { id: "e34", cat: "ethics",
+      text: "A social worker feels torn between two ethical duties in a case and isn't sure what the right course is.",
+      ask: "Using an ethical decision-making model, what should she do FIRST?",
+      opts: [
+        ["Choose the option that best protects the agency from a lawsuit.", "Risk to the agency is one factor, not the starting point or the deciding value."],
+        ["Identify the ethical issues, including the values and duties in conflict.", "Decision-making models begin by naming the dilemma: which values and duties clash."],
+        ["Talk with colleagues and her supervisor about possible actions.", "Consultation is important, but it comes after the issues and options are clear."],
+        ["List every possible course of action and carefully weigh the risks of each one.", "Weighing options is a later step, after the issues and people affected are identified."]
+      ],
+      c: 1,
+      tip: "Ethical dilemma: name the conflicting values first." },
+
+    { id: "e35", cat: "ethics",
+      text: "A supervisor gets along well with her supervisee and often has lunch with her. The supervisee has missed several documentation deadlines, and her yearly review is due.",
+      ask: "What should the supervisor do?",
+      opts: [
+        ["Rate her fairly against the job's stated standards and discuss the missed deadlines.", "Supervisors should evaluate supervisees fairly and respectfully, using clear criteria."],
+        ["Give her a strong review, since her direct work with clients is good.", "Leaving out a real problem is not a fair evaluation, and it denies her a chance to improve."],
+        ["Ask another supervisor to write the review to protect the friendship.", "The evaluation is the supervisor's job. Handing it off avoids the duty."],
+        ["Leave the deadlines out of the formal review and mention them casually over lunch instead.", "Problems should be addressed in the formal review, not in a social setting."]
+      ],
+      c: 0,
+      tip: "Supervisors evaluate fairly, by clear standards, even when it's awkward." },
+
+    { id: "e36", cat: "ethics",
+      text: "A clinic social worker is trained in adult substance use treatment. She is assigned a 7-year-old with selective mutism. A colleague down the hall specializes in childhood anxiety.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Keep the case and read up on selective mutism before the first session.", "Reading alone doesn't make her competent in a new area."],
+        ["Keep the case, since her clinical license covers work with all ages.", "A license doesn't mean competence in every area. Practice stays within training and experience."],
+        ["Ask to transfer the case to the colleague who has the right expertise.", "Social workers practice within their competence. A skilled colleague is available, so refer."],
+        ["Keep the case and tell the parents she will learn as she goes.", "Being honest doesn't make up for not having the needed skills."]
+      ],
+      c: 2,
+      tip: "Outside your expertise and a specialist is nearby? Refer." },
+
+    { id: "e37", cat: "ethics",
+      text: "After a two-hour webinar on EMDR, a social worker wants to start using it next week with clients who have trauma histories.",
+      ask: "What should she do?",
+      opts: [
+        ["Use it with clients who agree to try it, since their consent makes it acceptable to do.", "Consent doesn't replace competence. Clients agree to skilled care."],
+        ["Complete full training and get supervision from someone skilled in EMDR first.", "New techniques need proper study, training, and supervision before use with clients."],
+        ["Use it, since EMDR has strong research support for treating trauma.", "A strong method can still harm clients when used without training."]
+      ],
+      c: 1,
+      tip: "New technique = training + supervision before use." },
+
+    { id: "e38", cat: "ethics",
+      text: "A social worker with 30 years of experience tells a newer colleague that she skips trainings because she already knows what works.",
+      ask: "What does the NASW Code say about this?",
+      opts: [
+        ["Experienced social workers may rely on practice wisdom instead of training.", "Experience is valuable, but the Code still expects ongoing learning."],
+        ["Only the training hours required for license renewal are an ethical duty.", "The Code's duty goes beyond the minimum hours a state requires."],
+        ["Ongoing training mainly matters for newer workers who are still building skills.", "The duty to keep learning applies to all social workers at every stage."],
+        ["Social workers should keep up with new knowledge in their field throughout their careers.", "The Code asks social workers to stay current with emerging knowledge and take part in continuing education."]
+      ],
+      c: 3,
+      tip: "Continuing education is a career-long duty." },
+
+    { id: "e39", cat: "ethics",
+      text: "Before an audit, a supervisor asks a social worker to write a note for a session held last month and date it as if it were written that day.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Decline, and offer to write a late entry clearly marked with today's date.", "Backdating is falsifying a record. A late entry, dated honestly, keeps the record accurate."],
+        ["Write the note as asked, since the session really did take place.", "A real session doesn't make a false date honest."],
+        ["Write the note, but keep a private record of when it was really written.", "The official record would still be false."],
+        ["Refuse, and report the supervisor to the state licensing board right away.", "Declining is right, but going straight to the board skips talking with the supervisor and using agency channels."]
+      ],
+      c: 0,
+      tip: "Never backdate. Late entries carry the real date." },
+
+    { id: "e40", cat: "ethics",
+      text: "A program director must cut services after losing part of a grant. Some staff suggest quietly dropping the clients who are hardest to serve.",
+      ask: "What is the BEST approach?",
+      opts: [
+        ["Drop the hardest-to-serve clients, since that helps more people per dollar.", "This targets the most vulnerable clients and is not a fair or open process."],
+        ["Let each worker privately decide which of their own clients to drop from services.", "Private, case-by-case cuts invite bias and inconsistency."],
+        ["Use open, fair criteria that don't discriminate, and apply them consistently.", "Administrators should allocate resources through open and fair procedures that don't discriminate."],
+        ["Keep all services running and hope new funding arrives in time.", "Ignoring the shortfall risks a sudden collapse of services for everyone."]
+      ],
+      c: 2,
+      tip: "Scarce resources: open, fair, nondiscriminatory rules." },
+
+    { id: "e41", cat: "ethics",
+      text: "In the staff break room, a shelter social worker hears a coworker joke about a resident's hygiene and call her “a lost cause.”",
+      ask: "What should the social worker do FIRST?",
+      opts: [
+        ["Report the comments to the shelter director so there is a formal record of them.", "Going up the chain comes later, if a direct talk doesn't work."],
+        ["Talk privately with the coworker about how the comments disrespect residents.", "Start with the colleague directly. Clients' dignity and worth deserve respect even when they aren't present."],
+        ["Let it go, since no residents were in the room to hear it.", "Disrespect shapes how staff treat clients, whether or not clients hear it."],
+        ["Raise it at the next staff meeting without naming the coworker.", "A direct, private conversation is the first and most respectful step."]
+      ],
+      c: 1,
+      tip: "Dignity and worth apply behind closed doors too. Talk to the colleague first." },
+
+    { id: "e42", cat: "ethics",
+      text: "A state starts requiring all benefit applications to be filed online. Many of a social worker's older and rural clients have no internet and are losing benefits.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Help each affected client apply online at the agency, one at a time, as they come in.", "This helps some people, but it leaves the unfair rule in place for everyone else."],
+        ["Encourage clients to write to their state legislators about the rule.", "Advocacy is good, but clients still need help now, and the worker has her own duty to act."],
+        ["Wait for agency leadership to decide how to respond to the change.", "Social workers have their own duty to pursue social justice."],
+        ["Help clients apply now and work with others to push for other ways to apply.", "Social workers meet immediate needs and also advocate to change policies that shut people out."]
+      ],
+      c: 3,
+      tip: "Help the person now AND change the system." },
+
+    { id: "e43", cat: "ethics",
+      text: "A social worker and a coworker who share several clients disagree sharply about scheduling. She is tempted to tell one client that the coworker is hard to work with.",
+      ask: "What should she do?",
+      opts: [
+        ["Keep clients out of it and work out the conflict with her coworker directly.", "Social workers shouldn't drag clients into disputes with colleagues. Resolve it between the two of them."],
+        ["Tell the client, since clients have a right to know about the people on their care team.", "Clients' rights don't include being pulled into staff conflicts."],
+        ["Tell the client, but only if the client asks why appointments keep changing.", "She can explain a schedule change without criticizing her coworker."]
+      ],
+      c: 0,
+      tip: "Never use clients in a dispute with a colleague." },
+
+    { id: "e44", cat: "ethics",
+      text: "A social worker told a colleague that he often gives clients wrong information about benefit rules. Two months later, clients are still being misinformed and losing benefits.",
+      ask: "What should the social worker do NEXT?",
+      opts: [
+        ["Talk with the colleague again and offer to share her own notes on the rules.", "She already tried a direct talk, and clients are still being hurt. It's time to go further."],
+        ["File a complaint with the state licensing board right away.", "Agency channels usually come before the licensing board."],
+        ["Raise the concern with their supervisor through the agency's usual channels.", "When talking with a colleague doesn't fix incompetence, take it through proper agency channels."],
+        ["Quietly tell their shared clients to bring all benefit questions to her instead.", "This works around the problem and leaves other clients at risk."]
+      ],
+      c: 2,
+      tip: "Colleague incompetence: talk first, then agency channels, then the board." },
+
+    { id: "e45", cat: "ethics",
+      text: "A supervisor often comments on a supervisee's body and has asked her out several times. She has said no each time.",
+      ask: "How does the NASW Code view the supervisor's behavior?",
+      opts: [
+        ["It is acceptable as long as no relationship actually begins.", "Unwanted sexual comments and advances are harassment whether or not anything follows."],
+        ["It is sexual harassment, which the Code forbids toward supervisees.", "The Code bars sexual harassment of supervisees, students, trainees, colleagues, and clients."],
+        ["It is a human resources and workplace matter rather than an ethics issue.", "It may break workplace rules too, but it is also a clear ethics violation."],
+        ["It breaks the Code only if the supervisee was once the supervisor's client.", "The ban on sexual harassment covers colleagues and supervisees, not only clients."]
+      ],
+      c: 1,
+      tip: "Sexual harassment of anyone a social worker works with is unethical." },
+
+    { id: "e46", cat: "ethics",
+      text: "A new social worker sees that her agency's website lists her as a licensed clinical social worker (LCSW). She has passed her exam but is still waiting for the license.",
+      ask: "What should she do?",
+      opts: [
+        ["Leave it, since the license will arrive within a few weeks.", "Until the license is issued, the listing is false. Clients may rely on it."],
+        ["Leave it, since the agency wrote the bio and not her.", "Social workers must correct misstatements of their credentials, even ones others made."],
+        ["Ask the agency to correct it right away.", "Social workers claim only credentials they actually hold and fix errors made by others."]
+      ],
+      c: 2,
+      tip: "Wrong credential listed? Get it fixed, even if someone else wrote it." },
+
+    { id: "e47", cat: "ethics",
+      text: "A social worker opening a private practice wants reviews for her website. She plans to ask several current clients to write them.",
+      ask: "What is the MAIN ethical concern?",
+      opts: [
+        ["Current clients may feel pressured to agree because of the power difference.", "The Code says not to seek testimonials from current clients or others open to undue influence."],
+        ["Online reviews are never allowed for any kind of social work practice, public or private.", "The concern is asking vulnerable people, not reviews as such."],
+        ["Reviews might reveal clients are in therapy, so she would need to edit them.", "Editing doesn't fix the core problem of pressuring current clients."],
+        ["Asking is fine as long as clients may post their reviews anonymously.", "Anonymity doesn't remove the pressure clients feel when their own provider asks."]
+      ],
+      c: 0,
+      tip: "No testimonials from current clients." },
+
+    { id: "e48", cat: "ethics",
+      text: "A child protection worker has heard many children describe abuse. Lately she has intrusive images of their stories, trouble sleeping, and startles easily.",
+      ask: "What is she MOST likely experiencing?",
+      opts: [
+        ["Burnout from a heavy workload", "Burnout is exhaustion and cynicism from work strain. It doesn't involve trauma symptoms like intrusive images."],
+        ["Countertransference toward her clients", "Countertransference is the worker's emotional reaction to a client based on her own history. It isn't a trauma response."],
+        ["Compassion satisfaction", "This is the good feeling that comes from helping others, the opposite of what she describes."],
+        ["Secondary traumatic stress", "Hearing others' trauma can cause PTSD-like symptoms in helpers, such as intrusive images, poor sleep, and jumpiness."]
+      ],
+      c: 3,
+      tip: "Trauma symptoms from hearing clients' trauma = secondary traumatic stress." },
+
+    { id: "e49", cat: "ethics",
+      text: "A social worker at an understaffed agency feels drained, has grown cynical about clients, and believes nothing she does makes a difference. She has not been exposed to unusual trauma.",
+      ask: "What does this BEST describe?",
+      opts: [
+        ["Secondary traumatic stress", "STS comes from exposure to others' trauma and brings trauma symptoms. Neither is described here."],
+        ["Burnout", "Emotional exhaustion, cynicism, and a sense of not getting anything done are the hallmarks of burnout, often from workplace strain."],
+        ["Countertransference", "Countertransference is a reaction to a specific client, not a general drained and cynical state."]
+      ],
+      c: 1,
+      tip: "Burnout = exhausted + cynical + ineffective." },
+
+    { id: "e50", cat: "ethics",
+      text: "A supervisor notices that a supervisee with a heavy trauma caseload has become irritable, is missing deadlines, and says she “can't feel anything” after sessions.",
+      ask: "What should the supervisor do FIRST?",
+      opts: [
+        ["Raise the concern in supervision and plan together for support and self-care.", "Self-care is part of ethical practice. Supervisors name the signs early and help find support."],
+        ["Give her a formal written warning about the missed deadlines.", "Discipline first misses what is driving the problem."],
+        ["Move all of her trauma cases to others without discussing it with her.", "Acting without her leaves her out and disrupts clients' care."],
+        ["Wait to see whether things improve on their own once the busy season is over.", "Signs of compassion fatigue tend to grow when ignored, and clients may be affected."]
+      ],
+      c: 0,
+      tip: "Self-care is an ethical duty. Supervisors help, not punish." },
+
+    { id: "e51", cat: "ethics",
+      text: "A social worker is the only counselor in a small rural county. Her car breaks down, and the only garage within 60 miles is owned by a current client.",
+      ask: "What is the BEST way to handle this?",
+      opts: [
+        ["Transfer the client to a counselor in the next county before using the garage.", "There is no nearby counselor, so this costs the client his services over a car repair. The client's needs come first."],
+        ["Use the garage, and ask the client for a discount since they know each other.", "Asking for special treatment uses the relationship for personal gain. That is exploitation."],
+        ["Talk with the client about it, set clear boundaries, and document the plan.", "In rural practice some dual relationships can't be avoided. The worker protects the client by naming it, setting boundaries, and documenting."],
+        ["Use the garage, and say nothing, since the contact is only about the car.", "Ignoring the overlap leaves the client unsure how to act. Unavoidable dual relationships should be discussed openly."]
+      ],
+      c: 2,
+      tip: "Rural dual relationship you can't avoid? Discuss it, set boundaries, document." },
+
+    { id: "e52", cat: "ethics",
+      text: "A social worker is shopping at the grocery store and sees a current client in the next aisle with his wife and children. They have never talked about meeting in public.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Wait for the client to greet her first, and keep it brief.", "This protects confidentiality. The client chooses whether anyone learns he is in services. Raise the topic at the next session."],
+        ["Walk over and greet him by name so he doesn't feel ignored or snubbed.", "Greeting him first may force him to explain to his family who she is. That risks his privacy."],
+        ["Leave the store right away so that no contact can happen.", "Fleeing is not needed. A brief, client-led exchange is fine, and the client may feel rejected if he sees her leave."]
+      ],
+      c: 0,
+      tip: "In public, the client makes the first move. Talk about it at the next session." },
+
+    { id: "e53", cat: "ethics",
+      text: "A wealthy client in the middle of treatment gives his social worker a watch worth about $400. He says he wants to show how much the sessions mean to him.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Accept it, since the client can easily afford a gift of this size.", "The client's wealth doesn't change the problem. A costly gift can blur boundaries and create a sense of debt."],
+        ["Accept it on behalf of the agency and put it in the office.", "This still takes a valuable gift from a client. It also sidesteps talking about what the gift means."],
+        ["Accept it, and note the gift and its value in the case record.", "Documenting a boundary problem doesn't fix it. A gift this large should be declined."],
+        ["Thank him, decline the watch, and explore what it means to him.", "A costly gift during treatment risks the relationship. Decline kindly and use the moment to talk about his feelings."]
+      ],
+      c: 3,
+      tip: "Small gift: maybe. Expensive gift: decline kindly and explore it." },
+
+    { id: "e54", cat: "ethics",
+      text: "A county social worker helps families choose group homes for their adult children with disabilities. Her husband recently bought one of the group homes on the county's list.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Keep quiet, as long as she treats that home the same as the others.", "Even fair treatment looks biased when the conflict is hidden. Conflicts of interest must be disclosed."],
+        ["Tell her supervisor and step back from placements at that home.", "The Code says to disclose real or possible conflicts and resolve them so the client's interests come first. Telling the agency and stepping back does that."],
+        ["Steer families away from that home so no one can say she favors it.", "This harms families who might be best served there. Their choice should not depend on her conflict."],
+        ["Tell families about the home, since she knows its staff and quality well.", "Promoting her husband's business puts her own interests ahead of the client's. This is the conflict itself."]
+      ],
+      c: 1,
+      tip: "Conflict of interest? Disclose it and step back from the decision." },
+
+    { id: "e55", cat: "ethics",
+      text: "A residential treatment program asks a social worker to invite one of her current clients to tell her story in a fundraising video. The client is doing well and often says she owes the program everything.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Ask the client, and make clear that saying no won't affect her care.", "Even with that promise, the Code says not to seek testimonials from current clients. Her gratitude makes a free yes unlikely."],
+        ["Ask the client, and have her sign a written release before filming.", "A signed form doesn't remove the pressure she may feel. Asking a current client is the problem."],
+        ["Tell the program she can't ask a current client, and explain why.", "The Code says not to solicit testimonials from current clients or others open to undue influence. The power imbalance makes free consent unlikely."]
+      ],
+      c: 2,
+      tip: "Testimonials: never ask current clients. Gratitude plus power = no free yes." },
+
+    { id: "e56", cat: "ethics",
+      text: "A 38-year-old client with schizophrenia has been stable for two years. He is not a danger to himself or others. He tells his social worker he plans to stop his antipsychotic because of weight gain.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Explore his concerns and encourage him to talk with his prescriber.", "A capable adult has the right to make choices about his treatment. Help him make an informed choice and connect with the prescriber."],
+        ["Tell him that stopping is not an option and that he must keep taking it.", "This ignores his right to self-determination. The worker can share concerns but can't order him."],
+        ["Call his psychiatrist and ask about starting an involuntary hold.", "He is not a danger to himself or others. An involuntary hold would be far too restrictive."],
+        ["Accept his decision and close the case, since he no longer wants treatment.", "He wants to stop one medication, not services. Closing the case leaves him without support during a risky change."]
+      ],
+      c: 0,
+      tip: "Capable client refusing meds: respect, inform, connect to the prescriber." },
+
+    { id: "e57", cat: "ethics",
+      text: "A hospital social worker meets with a 52-year-old patient who is alert and oriented. He is a Jehovah's Witness and is refusing a blood transfusion before surgery. His adult son wants the team to override him.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Ask the ethics committee to find a legal way to give the transfusion.", "A competent adult's informed refusal is legally and ethically his to make. The committee can't overrule it."],
+        ["Help the son explain to his father why the transfusion is needed.", "This sides with the family against a capable patient. It pressures him to give up a religious choice."],
+        ["Stay out of it, since this is a medical decision for the doctors.", "Supporting patient rights and wishes is a core social work role on the team. Stepping back fails the patient."],
+        ["Check privately that the choice is his own, and record his wishes.", "A capable adult may refuse treatment for religious reasons. Make sure the choice is informed and free, then support it."]
+      ],
+      c: 3,
+      tip: "Capable adult + religious refusal = his right. Check it's free and informed." },
+
+    { id: "e58", cat: "ethics",
+      text: "On a home visit, a social worker finds that an 81-year-old woman with dementia has almost no food and her utilities are shut off. Her son, who manages her money, recently bought a new truck. State law requires reporting suspected elder abuse.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Ask the son to explain where his mother's money has been going.", "Questioning the possible abuser can tip him off and put her at more risk. It is also not required before reporting."],
+        ["Ask the woman whether she wants a report made about her son.", "With dementia, she may not be able to weigh this choice. The law requires a report of reasonable suspicion either way."],
+        ["Report it to Adult Protective Services, following state law.", "Signs of financial exploitation and neglect of a vulnerable adult call for a report. Proof is not needed, only reasonable suspicion."],
+        ["Watch the situation for a few more weeks to gather more evidence.", "Waiting leaves a vulnerable adult without food or heat. Mandated reporters don't need proof."]
+      ],
+      c: 2,
+      tip: "Elder neglect or exploitation suspected? Report to APS. Don't investigate first." },
+
+    { id: "e59", cat: "ethics",
+      text: "A 34-year-old client tells her social worker that her uncle sexually abused her when she was 10. The uncle died several years ago. She says she has never told anyone.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Report the past abuse to child protective services right away.", "She is an adult now and the uncle is dead, so no child is at risk. A report isn't the right step here."],
+        ["Respond with support and let her lead what she works on.", "The worker's first job is to honor the disclosure and follow the client's goals. No child is at current risk."],
+        ["Encourage her to file a police report so the abuse is on record.", "Pushing her toward a report puts the worker's agenda ahead of the client's own choices."]
+      ],
+      c: 1,
+      tip: "Adult disclosing old abuse, no child at risk now: support her and follow her lead." },
+
+    { id: "e60", cat: "ethics",
+      text: "A client who was passed over for a promotion says angrily, “Somebody at that place is going to pay for this.” He doesn't name anyone or say anything more.",
+      ask: "What should the social worker do FIRST?",
+      opts: [
+        ["Ask him what he means, including any plan, target, or means.", "A vague threat calls for assessment first. Duty to warn depends on a serious threat against an identifiable person."],
+        ["Call his employer and warn them that he made a threat.", "Breaking confidentiality before assessing is premature. There may be no real danger at all."],
+        ["Call the police and ask them to check on his workplace.", "Calling police before learning more is not the least restrictive step. Assess before acting."],
+        ["Treat the comment as venting and gently move on to another topic.", "Ignoring possible danger is risky. The worker needs to find out what he meant."]
+      ],
+      c: 0,
+      tip: "Vague threat = assess first. Duty to warn needs a serious threat to someone identifiable." },
+
+    { id: "e61", cat: "ethics",
+      text: "A social worker realizes she forgot to write a progress note for a session she held three days ago.",
+      ask: "What should she do?",
+      opts: [
+        ["Write the note now, and date it the day of the session.", "Backdating makes the record false. The note must show when it was actually written."],
+        ["Write it now, label it a late entry, and give both dates.", "A late entry is fine when it is clearly marked. It shows the date written and the date of the session."],
+        ["Skip the note, since too much time has passed to recall it.", "Every service needs to be documented. Three days later is still close enough to write an accurate note."],
+        ["Add the details to her next progress note for this client.", "Folding one session into another blurs the record. Each service should have its own clear entry."]
+      ],
+      c: 1,
+      tip: "Late note: write it, mark it late, show both dates. Never backdate." },
+
+    { id: "e62", cat: "ethics",
+      text: "A social worker reviewing a paper case file sees that last week she wrote the wrong medication dose in a client's note.",
+      ask: "What should she do?",
+      opts: [
+        ["Black out the error so no one is misled, and write the correct dose.", "Hiding the original text looks like tampering. Records must show what was changed."],
+        ["Remove the page and rewrite the whole note with the correct dose.", "Replacing pages destroys the original record. That can look like falsifying records."],
+        ["Cross it out with one line, add the right dose, date and initial it.", "A proper correction keeps the original readable and shows who changed it and when."]
+      ],
+      c: 2,
+      tip: "Fix a record with one line, the correction, date, and initials. Never erase." },
+
+    { id: "e63", cat: "ethics",
+      text: "A hospital team has just found that a 76-year-old Korean American woman has advanced cancer. Her adult children ask the team not to tell her, saying that in their family the children carry this news.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Tell the patient the diagnosis right away, since she has a right to know.", "Rushing in ignores her own wishes, which may match her family's. Ask her first how she wants to handle news."],
+        ["Agree with the children's request, out of respect for their culture.", "The family's view may not be the patient's. Only she can say whether she wants to know."],
+        ["Ask the doctors to decide, since sharing a diagnosis is a medical call.", "This leaves out the patient's own wishes. The social worker can help find out what she wants."],
+        ["Ask the patient privately what she wants to know and who should decide.", "This respects both culture and autonomy. Some patients want family to handle it, others want to know. Ask her."]
+      ],
+      c: 3,
+      tip: "Family asks you to withhold news? Ask the patient what she wants to know." },
+
+    { id: "e64", cat: "ethics",
+      text: "A hospice client with terminal cancer asks her social worker about medical aid in dying and what she would need to know about it.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Gently change the subject, since talking about it may push her toward it.", "Avoiding the topic leaves her alone with an important question. Discussing it is not encouraging it."],
+        ["Explore her question, and share what the law and agency policy allow.", "Laws differ by state, so the worker follows the law and agency policy. She learns the client's fears and wishes first, then gives accurate information and refers as needed."],
+        ["Tell her it sounds like a reasonable choice, given how much she suffers.", "Giving a personal opinion may sway her. The worker should explore, not steer."],
+        ["Ask her family to come in so they can help her think it through.", "She asked the worker, not her family. Bringing them in without her okay breaks her privacy."]
+      ],
+      c: 1,
+      tip: "Asked about aid in dying? Explore first, then share what the law and agency policy allow." },
+
+    { id: "e65", cat: "ethics",
+      text: "A client is grieving a breakup but doesn't meet criteria for any mental health diagnosis. His insurance won't pay without a diagnosis, and he asks the social worker to “put down depression or something.”",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Decline, explain why, and discuss other options, like a sliding fee.", "A diagnosis must be accurate. Giving a false one to get paid is insurance fraud, but the worker can help him find another way to pay."],
+        ["Give him a mild depression diagnosis, since he does have some symptoms.", "Some symptoms are not a diagnosis. Inflating it to get paid is fraud and stays on his record."],
+        ["Use an adjustment disorder code, since insurers rarely question it.", "Picking a code because it won't be questioned is still fraud if he doesn't meet the criteria."],
+        ["Agree, since he is the one asking and it helps him get care.", "The client's request doesn't make a false diagnosis honest. The worker is responsible for accurate billing."]
+      ],
+      c: 0,
+      tip: "Diagnose what's there. A diagnosis made up for payment is fraud." },
+
+    { id: "e66", cat: "ethics",
+      text: "A client's insurance pays for only one session per day. After a crisis, the social worker met with her twice on Monday. Her supervisor tells her to bill the second session as if it happened on Tuesday.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Do as told, since the supervisor is responsible for billing decisions.", "Following orders doesn't excuse fraud. Each social worker answers for her own records."],
+        ["Report the supervisor to the insurance company right away.", "Going outside first skips a step. Talk with the supervisor directly before going up the chain."],
+        ["Decline, and tell the supervisor billing must show the real dates.", "Billing must reflect what was done and when. Raise the concern directly with the supervisor first."],
+        ["Bill it on Tuesday, but write the real date in her own notes.", "This still sends false information to the insurer. Keeping a private true record doesn't fix it."]
+      ],
+      c: 2,
+      tip: "Bill the real date, every time. Raise it with the supervisor first." },
+
+    { id: "e67", cat: "ethics",
+      text: "During a video session, a client says she took a bottle of pills an hour ago. Then the video freezes and the call drops. At the start of the session, she confirmed she was at her home address on file.",
+      ask: "What should the social worker do FIRST?",
+      opts: [
+        ["Keep trying to reconnect the video so she can assess the client.", "There is no time for more assessment. A possible overdose is a medical emergency."],
+        ["Call emergency services and send them to the client's address.", "Danger is imminent, so act now. Use the emergency line that covers her area. This is why telehealth workers confirm location every session."],
+        ["Call the client's emergency contact and ask them to check on her.", "The contact may be far away or slow. Emergency services should be called first."],
+        ["Text the client and ask her to call back as soon as she can.", "She may be unable to answer. Waiting for a reply wastes time she may not have."]
+      ],
+      c: 1,
+      tip: "Telehealth: confirm location every session. Overdose = call emergency services first." },
+
+    { id: "e68", cat: "ethics",
+      text: "An agency lets social workers text clients on agency phones for scheduling only. A client starts texting her social worker long messages about past trauma late at night.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Answer each message in detail so the client feels supported.", "This turns texting into therapy without privacy safeguards. It also sets up expectations the worker can't meet."],
+        ["Stop answering her texts so she learns to wait for sessions.", "Silence leaves her confused and unsupported. She needs to know why, and where to turn in a crisis."],
+        ["Block her number, since she is breaking the agency's rules.", "This is harsh and may feel like rejection. A clear, kind explanation is better."],
+        ["Reply briefly with the texting limits and crisis options.", "Set clear limits on what texting is for, give crisis resources, and talk it through at the next session."]
+      ],
+      c: 3,
+      tip: "Texting: set clear limits, give crisis options, talk about it in session." },
+
+    { id: "e69", cat: "ethics",
+      text: "A client says she has been sober for a month. A coworker tells the social worker that the client's public social media shows photos of her drinking at a party last weekend.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Not look, and talk with the client about sobriety and relapse.", "The Code says to avoid searching for client information online without a compelling reason and, when fitting, consent. Talk to the client instead."],
+        ["Look at the photos, since they are public and anyone can see them.", "Public doesn't mean appropriate. Searching a client online without a strong reason harms trust."],
+        ["Look at the photos, then show them to the client in the next session.", "Confronting her with secret research damages the relationship and her trust."]
+      ],
+      c: 0,
+      tip: "Don't search clients online. Ask the client directly." },
+
+    { id: "e70", cat: "ethics",
+      text: "A client in a private practice lost her job and her insurance. She signed a clear fee agreement at intake, owes for two sessions, and says she can't keep paying. She is stable and not at risk of harm to herself or others.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["End services today and mail her a list of other providers.", "Ending suddenly is abandonment. Termination needs discussion and a planned transition."],
+        ["Keep seeing her and let the balance grow, then send it to collections later.", "Letting debt pile up without talking about it harms the client. Fee issues should be discussed openly."],
+        ["Talk it over and plan a transition to low-cost care with her.", "Ending for nonpayment can be ethical when the client is safe, the fee terms were clear, and the effects are discussed and planned."],
+        ["Keep seeing her, but cut sessions to 15 minutes until she can pay again.", "Short sessions may not meet her needs. It is better to plan with her than to cut care on your own."]
+      ],
+      c: 2,
+      tip: "Can't pay? Talk, plan, and transfer care. Never just stop." },
+
+    { id: "e71", cat: "ethics",
+      text: "A new social worker is assigned to a Somali Muslim family. Before the first visit, she reads a book on Somali culture and plans her approach around it.",
+      ask: "What is the BEST way for her to practice cultural humility?",
+      opts: [
+        ["Ask the family about their own beliefs and practices.", "Cultural humility means learning from the client, not assuming. Each family lives its culture in its own way."],
+        ["Use what she read to guide the visit and avoid offending them.", "Reading helps, but applying general facts to every family leads to stereotypes."],
+        ["Ask the agency to assign a worker who shares their culture.", "The family didn't ask for this, and it skips the worker's own duty to learn. Every worker must be able to serve diverse clients."],
+        ["Treat them exactly as she treats every other family.", "Ignoring culture misses what matters to the family. Being culture-blind is not being fair."]
+      ],
+      c: 0,
+      tip: "Cultural humility = the client is the expert on their own culture." },
+
+    { id: "e72", cat: "ethics",
+      text: "A school social worker reviews her notes and sees that she describes Black boys as “aggressive” and white boys as “frustrated” for very similar behavior.",
+      ask: "What should she do?",
+      opts: [
+        ["Assume the notes are accurate, since she wrote what she saw.", "The pattern points to bias in how she sees behavior. Ignoring it lets the harm continue."],
+        ["Ask to have the Black students moved to another worker's caseload.", "Moving students avoids the problem rather than fixing it. It also treats them differently because of race."],
+        ["Stop writing any descriptions of student behavior in her notes.", "Notes still need to describe behavior. The fix is objective language, not no language."],
+        ["Take it to supervision and use objective, behavior-based terms.", "Naming implicit bias and getting supervision is anti-racist practice. Describe behavior, not labels."]
+      ],
+      c: 3,
+      tip: "Spot your own bias? Name it, take it to supervision, describe behavior." },
+
+    { id: "e73", cat: "ethics",
+      text: "During intake, a social worker tells a Chinese American client who was born in Ohio, “Your English is so good!” The client goes quiet and looks away.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Explain that she meant it as a compliment, not an insult.", "Defending intent puts the focus on the worker. Impact matters more than intent."],
+        ["Own the hurtful comment, apologize, and invite the client to respond.", "When a worker commits a microaggression, she owns it, repairs it, and makes room for the client's response."],
+        ["Move on with the intake to avoid making things more awkward.", "Ignoring the moment can damage trust. The client noticed and the worker should address it."],
+        ["Offer to transfer the client to a Chinese American social worker instead.", "This avoids repair and assumes the client wants a match. Own the mistake instead."]
+      ],
+      c: 1,
+      tip: "Made a microaggression? Own it, apologize, invite the client in." },
+
+    { id: "e74", cat: "ethics",
+      text: "A Deaf client who uses American Sign Language is coming in for counseling. Her hearing sister offers to interpret so the agency won't have to pay for one.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Accept the sister's offer, since the client knows and trusts her.", "Family members aren't neutral, may not be skilled interpreters, and limit what the client can say freely."],
+        ["Use written notes back and forth during the session instead.", "Written English may not be the client's first language. Notes are not equal access for counseling."],
+        ["Arrange a qualified ASL interpreter, at no cost to the client.", "Deaf clients have a right to effective communication. A trained, neutral interpreter protects accuracy and privacy."]
+      ],
+      c: 2,
+      tip: "Deaf client: qualified ASL interpreter, agency pays. Not family, not notes." },
+
+    { id: "e75", cat: "ethics",
+      text: "A 27-year-old autistic client gives short, literal answers and avoids eye contact. A colleague's note from intake says she has “poor engagement and seems guarded.”",
+      ask: "What is the BEST approach?",
+      opts: [
+        ["Ask how she communicates best and adjust the way she works.", "Neurodiversity-affirming practice adapts to the client, for example with clear questions and written summaries. Her style is not poor engagement."],
+        ["Keep the note as is, since it describes what the colleague saw.", "The note reads normal autistic communication as resistance. That label can follow her and shape care."],
+        ["Work with her on making eye contact so others see her as engaged.", "This asks her to mask her natural style. The worker should adapt, not the client."],
+        ["Refer her to an autism specialist and close her case at this agency.", "Being autistic doesn't mean she needs a different agency. Workers should adapt to serve her."]
+      ],
+      c: 0,
+      tip: "Neurodivergent client: adapt to how she communicates. Don't call it resistance." },
+
+    { id: "e76", cat: "ethics",
+      text: "An undocumented mother tells a clinic social worker she is afraid to get her son's asthma treated or tell anyone about her abusive partner. She fears being reported to immigration.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Promise her that nothing she says will ever be shared with anyone.", "Confidentiality has limits, such as child safety. Promising more than the worker can keep breaks trust later."],
+        ["Advise her to avoid the clinic and other services until her status changes.", "This leaves her son and herself without care. Many services are open regardless of status."],
+        ["Explain privacy and its limits, and link her to immigrant legal help.", "Honest information about privacy plus trusted legal help lets her make safe choices for herself and her son."],
+        ["Tell her the agency must check her status before it can help her.", "Social workers don't act as immigration enforcement. This adds fear without reason."]
+      ],
+      c: 2,
+      tip: "Undocumented client: be honest about privacy limits, link to legal help." },
+
+    { id: "e77", cat: "ethics",
+      text: "A refugee woman needs an interpreter for counseling. The only local interpreter for her language belongs to her small religious community. She says she can't speak freely in front of him.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Reassure her that the interpreter is bound by confidentiality, and go ahead.", "Her fear is real in a small community. A promise of confidentiality may not make her feel safe enough to talk."],
+        ["Arrange a phone or video interpreter from outside her community.", "Clients should have interpreters they can trust. A remote interpreter protects her privacy and her ability to speak openly."],
+        ["Hold the session in simple English so no interpreter is needed.", "Limited English limits what she can share and understand. It's not effective communication."]
+      ],
+      c: 1,
+      tip: "Client doesn't trust the interpreter? Find another one, even remotely." },
+
+    { id: "e78", cat: "ethics",
+      text: "A woman in her early twenties comes to a clinic with her “boyfriend,” who answers questions for her and holds her ID. She says she works long hours at a salon, lives there, and has no money of her own.",
+      ask: "What should the social worker do FIRST?",
+      opts: [
+        ["Give her a trafficking hotline card while the boyfriend is in the room.", "If he is controlling her, this could put her in danger. Information should be shared privately."],
+        ["Ask the boyfriend why he keeps her ID and answers for her.", "Confronting a possible trafficker can put her at serious risk."],
+        ["Call the police and report possible trafficking right away.", "She is an adult and hasn't been asked anything yet. Safe assessment comes first, with her input."],
+        ["Find a safe way to speak with her alone and assess her situation.", "Many signs of trafficking are present. Talking privately is the first step to learning what is happening and what she wants."]
+      ],
+      c: 3,
+      tip: "Trafficking signs? First get her alone safely, then assess." },
+
+    { id: "e79", cat: "ethics",
+      text: "A 15-year-old scratched a teacher's car in the school parking lot. The principal wants a long suspension. The school social worker suggests a restorative approach.",
+      ask: "What BEST describes a restorative approach here?",
+      opts: [
+        ["A firm meeting where the student is told the rules and the consequences.", "This is still punishment-focused. Restorative work centers on harm and repair, not just rules."],
+        ["A meeting where the student hears the harm done and helps repair it.", "Restorative practices bring together those affected to talk about the harm and agree on how to make things right."],
+        ["A shorter suspension, plus a written apology the student must turn in.", "A required apology with punishment isn't restorative. Repair comes from a shared process."],
+        ["Individual counseling for the student, instead of any consequence.", "Restorative practice still holds the student accountable. It just does so through repair."]
+      ],
+      c: 1,
+      tip: "Restorative = talk about the harm, then repair it together." },
+
+    { id: "e80", cat: "ethics",
+      text: "A social worker at a housing agency notices that Latino families seem to wait much longer for intake appointments than other families with similar needs.",
+      ask: "What should the social worker do FIRST?",
+      opts: [
+        ["Gather the facts and raise the pattern with her supervisor.", "Social workers act against discrimination. Start inside the agency with clear information so it can be fixed."],
+        ["File a complaint with the state civil rights office right away.", "Outside action may come later. First check the facts and raise it inside the agency."],
+        ["Quietly tell the Latino families they should each file complaints.", "This puts the burden on clients and skips the worker's own duty to act."],
+        ["Leave it alone, since scheduling is not part of her job.", "Social workers have a duty to challenge unfair practices in their own agency."]
+      ],
+      c: 0,
+      tip: "Unfair pattern in your agency? Get the facts and raise it inside first." },
+
+    { id: "a21", cat: "assess",
+      text: "A 52-year-old woman comes in for low mood. Over two sessions the social worker has asked about her family, work, friends, and alcohol use. She has also mentioned feeling tired all the time and losing weight without trying.",
+      ask: "Which area is MOST important to add to the assessment?",
+      opts: [
+        ["Her hobbies and how she spends her free time.", "Leisure is part of a full picture, but it won't explain her physical symptoms."],
+        ["Her school history and highest level of education.", "Useful background, but not the gap that matters most here."],
+        ["How satisfied she is with the agency's services so far.", "Feedback is good practice, but it isn't an assessment priority."],
+        ["Her physical health, recent checkups, and medications.", "A biopsychosocial assessment includes the bio part. Fatigue and weight loss can come from a medical problem, so this gap matters most."]
+      ],
+      c: 3,
+      tip: "Biopsychosocial = bio too. Physical symptoms? Ask about health and meds." },
+
+    { id: "a22", cat: "assess",
+      text: "A Lakota client tells the social worker that her grandmother was taken to a boarding school as a child and punished for speaking her language. She says her family has struggled with grief, drinking, and distrust of agencies for generations.",
+      ask: "Which concept BEST describes what the client is describing?",
+      opts: [
+        ["Historical trauma", "Right. Historical trauma is the shared, cumulative wounding of a group from mass harm like forced removal, passed down across generations."],
+        ["Secondary traumatic stress", "That describes helpers who absorb trauma from hearing others' stories, not a community's history."],
+        ["Paranoid thinking", "Distrust of agencies has real historical roots here. Calling it paranoia pathologizes a reasonable response."]
+      ],
+      c: 0,
+      tip: "Group harm passed down through generations = historical trauma." },
+
+    { id: "a23", cat: "assess",
+      text: "During a home visit, an 81-year-old woman's bills are past due even though her pension is deposited every month. Her nephew, who moved in recently, answers every question for her, and she looks at him before she speaks.",
+      ask: "What should the social worker do FIRST?",
+      opts: [
+        ["Ask the nephew to explain why the bills haven't been paid.", "This alerts the possible abuser before the social worker has heard from the client."],
+        ["Arrange to talk with the woman alone, away from her nephew.", "Possible financial exploitation. Interview the older adult privately so she can speak freely and safely."],
+        ["Ask the woman in front of her nephew whether she feels safe.", "She can't answer honestly with him in the room. Talk with her privately."],
+        ["Help the nephew set up automatic bill payments for her.", "This may hand more control to the person who could be exploiting her."]
+      ],
+      c: 1,
+      tip: "Suspected elder abuse = talk with the older adult alone." },
+
+    { id: "a24", cat: "assess",
+      text: "A teacher reports that a 7-year-old often comes to school hungry. On a home visit, the social worker finds a clean apartment and a caring, attentive mother. The family's food benefits were cut off last month because of a paperwork error.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Report the mother to child protective services for neglect.", "Poverty alone is not neglect. The mother is caring and the cause is a lost benefit."],
+        ["Tell the mother she must find a way to feed her son daily.", "Lecturing ignores the real barrier and damages trust."],
+        ["Help restore her benefits and link her to food pantries now.", "The need is food, caused by a lost benefit. Meet the concrete need and fix the paperwork problem."],
+        ["Ask the school to give the boy extra snacks and close the case.", "Snacks help a little, but the whole family is still without food."]
+      ],
+      c: 2,
+      tip: "Poverty is not neglect. Meet the concrete need." },
+
+    { id: "a25", cat: "assess",
+      text: "A woman tells the social worker about her relationship with her boyfriend. The social worker is assessing how dangerous the situation is.",
+      ask: "Which detail should MOST concern the social worker about the risk of a deadly attack?",
+      opts: [
+        ["He once choked her until she nearly passed out.", "Right. Past strangulation is one of the strongest warning signs that a partner may later kill."],
+        ["He yells at her when he has been drinking.", "Verbal abuse matters, but it is not the strongest sign of lethal risk."],
+        ["He criticizes the way she raises her children.", "Hurtful and controlling, but a weaker danger sign than past strangulation."],
+        ["He stops speaking to her for days after a fight.", "Emotional withholding is harmful, but less tied to lethal risk."]
+      ],
+      c: 0,
+      tip: "IPV danger signs: strangulation, guns, threats to kill, recent separation." },
+
+    { id: "a26", cat: "assess",
+      text: "A woman has cared for her father, who has dementia, for three years. She tells the social worker, “Lately I snap at him over little things, and then I feel awful.”",
+      ask: "What should the social worker do FIRST?",
+      opts: [
+        ["Recommend that her father move into a memory care unit.", "Placement may come up later, but it's a plan made before any assessment."],
+        ["Teach her some techniques for calmly redirecting a person with dementia.", "Helpful later, but it skips assessing her stress and both people's safety."],
+        ["Tell her that snapping at him is a form of elder abuse.", "This shames a caregiver who is reaching out and may stop her from talking."],
+        ["Explore her stress, her supports, and whether either is unsafe.", "Assess caregiver strain first: sleep, help, respite, and whether things ever get physical."]
+      ],
+      c: 3,
+      tip: "Caregiver strain: assess her load, supports, and safety before advising." },
+
+    { id: "a27", cat: "assess",
+      text: "A 64-year-old grandmother has taken in her two grandchildren after their parents were arrested. The social worker is completing a kinship care assessment.",
+      ask: "Which is a well-known strength of kinship care?",
+      opts: [
+        ["Relatives usually get more money and services than foster parents.", "The reverse is often true. Kin caregivers tend to get less support, which the assessment should look at."],
+        ["Placing children with relatives removes the need for a permanency plan.", "Children in kinship care still need a permanency plan."],
+        ["Children can keep ties to their family, culture, and community.", "Right. Kinship care keeps children connected to people and traditions they know, which can soften the trauma of removal."]
+      ],
+      c: 2,
+      tip: "Kinship care = family and cultural continuity, but often less support." },
+
+    { id: "a28", cat: "assess",
+      text: "A foster mother tells the social worker that her new 9-year-old foster son hides bread and crackers under his bed, even though there is always plenty of food in the house.",
+      ask: "How should the social worker understand this behavior?",
+      opts: [
+        ["As stealing that needs firm rules and consequences.", "Punishing a survival behavior can make the child feel less safe."],
+        ["As a common response to past hunger or neglect.", "Food hoarding is common in children who went without food. It's a coping behavior, so ask about his history."],
+        ["As a sign of an eating disorder that needs treatment.", "Hiding food after deprivation is not, by itself, an eating disorder."],
+        ["As a bid for attention from his new foster mother.", "This misreads a survival behavior as attention seeking."]
+      ],
+      c: 1,
+      tip: "Food hoarding in foster care = past hunger. Reassure, don't punish." },
+
+    { id: "a29", cat: "assess",
+      text: "A man was released from prison two days ago after 12 years. He is staying with a cousin who has told him he must leave by Friday. He has a parole check-in next week.",
+      ask: "Which area is MOST urgent to assess at this first meeting?",
+      opts: [
+        ["His feelings about the crime that led to his sentence.", "This may matter later, but it's not the urgent need."],
+        ["His long-term career goals and interest in job training programs.", "Work matters for reentry, but not before a place to sleep."],
+        ["Where he will live after Friday and what parole allows.", "Housing is the immediate crisis. Parole rules can limit where he may live, so assess both now."],
+        ["His relationships with his family before prison.", "Family history is part of a full assessment, not today's priority."]
+      ],
+      c: 2,
+      tip: "Reentry: housing and parole conditions first." },
+
+    { id: "a30", cat: "assess",
+      text: "During a summer heat wave, a social worker visits an 83-year-old woman who lives alone. Her apartment is very hot and has no air conditioning. She takes a water pill, says she feels dizzy, and hasn't been drinking much.",
+      ask: "What should the social worker do FIRST?",
+      opts: [
+        ["Schedule a follow-up visit for when the weather cools down.", "Waiting leaves her at risk of heat illness, which can be deadly for older adults."],
+        ["Apply for a utility program that helps pay for air conditioning.", "Good for later, but it won't protect her today."],
+        ["Finish the planned assessment, then talk about the heat.", "Her physical safety comes before the planned agenda."],
+        ["Help her get to a cool place and get medical care now.", "Dizziness, heat, low fluids, and a diuretic point to heat illness. Physical safety comes first."]
+      ],
+      c: 3,
+      tip: "Climate events hit older adults hardest. Physical safety first." },
+
+    { id: "a31", cat: "assess",
+      text: "A 34-year-old man has major depression and drinks heavily most days. He is not in withdrawal. He asks whether he should deal with his drinking or his depression first.",
+      ask: "What is the BEST approach?",
+      opts: [
+        ["Treat both at the same time in an integrated plan.", "Right. For co-occurring disorders, integrated treatment of both together is the recommended approach."],
+        ["Treat the drinking first, then the depression once he's sober.", "Waiting leaves the depression untreated, and it often fuels the drinking."],
+        ["Treat the depression first, since he drinks to cope with it.", "The drinking keeps worsening his mood. Both need attention now."],
+        ["Refer him to two separate programs that don't coordinate.", "Separate, uncoordinated care is what integrated treatment was designed to replace."]
+      ],
+      c: 0,
+      tip: "Co-occurring disorders = integrated treatment, both at once." },
+
+    { id: "a32", cat: "assess",
+      text: "A woman just diagnosed with breast cancer talks in detail about survival rates, research studies, and treatment options. When the social worker asks how she feels about the diagnosis, she quickly returns to the statistics.",
+      ask: "Which defense mechanism is she MOST likely using?",
+      opts: [
+        ["Denial", "She fully accepts the diagnosis. Denial would mean refusing to accept that it's real."],
+        ["Sublimation", "Sublimation turns unacceptable urges into socially valued activity. That doesn't fit here."],
+        ["Intellectualization", "She uses facts and analysis to keep painful feelings at a distance."],
+        ["Suppression", "Suppression is a conscious choice to set feelings aside for later, not a reflexive retreat into facts."]
+      ],
+      c: 2,
+      tip: "Facts and figures instead of feelings = intellectualization." },
+
+    { id: "a33", cat: "assess",
+      text: "A social worker is assessing a 20-year-old college student who is worried about her eating.",
+      ask: "Which sign MOST strongly suggests that she makes herself vomit?",
+      opts: [
+        ["Fine, soft hair growing on her arms and back", "This hair (lanugo) comes with starvation, as in anorexia, not vomiting."],
+        ["Calluses or scrapes on the backs of her knuckles", "Right. Repeatedly using the fingers to trigger vomiting scrapes the knuckles on the teeth."],
+        ["Weighing herself several times every day", "Common in many eating concerns, but not a sign of vomiting."],
+        ["Wearing loose, baggy clothes even in hot summer weather", "Can point to body image concerns, but not to vomiting."]
+      ],
+      c: 1,
+      tip: "Knuckle calluses, worn tooth enamel, puffy cheeks = purging." },
+
+    { id: "a34", cat: "assess",
+      text: "A 76-year-old man with early Alzheimer's disease refuses a surgery his doctor recommends. His children want the social worker to say he can't make his own decisions.",
+      ask: "What should the social worker assess?",
+      opts: [
+        ["Whether his choice matches what his doctor recommends.", "Disagreeing with the doctor isn't proof of incapacity. People with capacity can make choices others dislike."],
+        ["Whether his children agree with his decision.", "Family agreement doesn't decide capacity."],
+        ["Whether his diagnosis means he can no longer decide.", "A diagnosis alone doesn't remove capacity. Capacity is about a specific decision."],
+        ["Whether he understands the choice, its risks, and his options.", "Capacity is decision-specific: can he understand, weigh the risks, reason, and state a steady choice?"]
+      ],
+      c: 3,
+      tip: "Capacity is decision-specific. A diagnosis is not the answer." },
+
+    { id: "a35", cat: "assess",
+      text: "A 14-year-old tells the school social worker that someone he met online is threatening to send his private photos to his classmates unless he pays. He is shaking and says, “My life is over.”",
+      ask: "What should the social worker do FIRST?",
+      opts: [
+        ["Ask him directly whether he is thinking about killing himself.", "Sextortion has been linked to youth suicides, and he says his life is over. Check his safety first."],
+        ["Help him send a small payment so the threats will stop.", "Paying usually leads to more demands. Victims are advised not to pay."],
+        ["Tell him to delete all the messages and his accounts right away.", "Deleting destroys evidence needed for a report. Save it instead."],
+        ["Explain that sending photos was a mistake he has to own.", "Blaming adds shame and raises risk. He is the victim of a crime."]
+      ],
+      c: 0,
+      tip: "Sextortion: safety first, don't pay, save evidence, report." },
+
+    { id: "a36", cat: "assess",
+      text: "A client says, “My marriage is great, there's nothing to talk about.” Earlier in the session he mentioned that he has slept on the couch for a month and that he and his wife barely speak.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["“It sounds like your marriage is going well right now.”", "This reflects only one side and ignores the clear mixed message."],
+        ["“Why would you say it's great when it obviously isn't?”", "Too harsh and judging. It invites defensiveness, not reflection."],
+        ["“You said it's great, and also that you barely speak. Help me understand.”", "A gentle confrontation puts both statements side by side so he can look at the gap himself."],
+        ["“Okay, let's move on to talk about your job instead.”", "Dropping the topic misses an important discrepancy."]
+      ],
+      c: 2,
+      tip: "Confronting = name both statements gently, then let the client explain." },
+
+    { id: "a37", cat: "assess",
+      text: "A client says, “My family is just impossible.” The social worker responds, “When you say impossible, what happens at home?”",
+      ask: "Which interviewing skill is the social worker using?",
+      opts: [
+        ["Reflecting feelings", "Reflecting would name the emotion, such as, “You sound worn out.”"],
+        ["Interpreting", "Interpreting offers the worker's idea of a deeper meaning. This response just asks for more detail."],
+        ["Summarizing", "Summarizing pulls together several points from the session. This is one question."],
+        ["Clarifying", "Right. The social worker asks the client to explain a vague word so both understand the same thing."]
+      ],
+      c: 3,
+      tip: "Clarifying = “What do you mean by...?” Turn vague words into specifics." },
+
+    { id: "a38", cat: "assess",
+      text: "A social worker is doing an intake with a Somali-speaking client through a trained interpreter in the room.",
+      ask: "Which is BEST practice for the social worker?",
+      opts: [
+        ["Look at the interpreter and say, “Ask her how she's sleeping.”", "Talking to the interpreter about the client sidelines the client."],
+        ["Look at the client and speak to her directly, in short sentences.", "Speak to the client in the first person and pause often so everything can be interpreted accurately."],
+        ["Ask the interpreter to summarize the client's long answers.", "Summaries lose details. Ask for everything to be interpreted."],
+        ["Let the interpreter skip any parts that seem off topic to save time.", "Details that seem off topic can matter. Nothing should be left out."]
+      ],
+      c: 1,
+      tip: "With an interpreter: talk TO the client, first person, short chunks." },
+
+    { id: "a39", cat: "assess",
+      text: "A refugee woman is being assessed through an interpreter from her small local community. She gives short, vague answers about her home life and keeps glancing at the interpreter.",
+      ask: "What should the social worker do NEXT?",
+      opts: [
+        ["Continue, since interpreters must keep everything confidential.", "Rules don't erase her fear of gossip in a small community. Her comfort matters."],
+        ["Offer her a phone interpreter from outside her community.", "In a small community the interpreter may know her. A phone or video interpreter from elsewhere can make her feel safer."],
+        ["Ask her husband to come and interpret at the next session.", "Family members shouldn't interpret, especially about home life, where abuse could be a concern."]
+      ],
+      c: 1,
+      tip: "Small community? Offer an outside interpreter so the client can speak freely." },
+
+    { id: "a40", cat: "assess",
+      text: "A 45-year-old man says he has thought about suicide on bad nights this month. He has no plan right now. He mentions that he keeps two hunting rifles at home.",
+      ask: "What is the BEST way to address the rifles?",
+      opts: [
+        ["Help him arrange to store them away from home for now.", "Lethal means counseling: putting time and distance between a person and a gun saves lives, and storing guns away from home is one of the best options."],
+        ["Tell him he is required by law to give his guns to police.", "This isn't accurate as a general rule, and it can damage trust and safety planning."],
+        ["Leave the topic alone, since he has no current plan.", "Suicidal crises can come on quickly. Access to a gun greatly raises the chance a crisis turns deadly."],
+        ["Suggest he lock the rifles up and keep the key himself.", "Locking helps a little, but he still has easy access in a crisis."]
+      ],
+      c: 0,
+      tip: "Suicide risk + guns = lethal means counseling. Time and distance save lives." },
+
+    { id: "a41", cat: "assess",
+      text: "A 16-year-old tells the social worker she cuts her arms when she feels overwhelmed. She says it calms her down and that she doesn't want to die.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Treat it as a suicide attempt and arrange a hospital admission today.", "Self-harm without suicidal intent isn't an attempt. Hospitalization isn't the first step without other risk."],
+        ["Accept that she isn't suicidal and focus on other issues.", "Self-harm is a risk factor for later suicide. It needs attention."],
+        ["Ask her to sign a contract promising to stop cutting.", "No-harm contracts don't work and may stop her from being honest."],
+        ["Explore what the cutting does for her and assess for suicide.", "Self-injury is often a way to cope with pain, but it raises suicide risk, so assess both."]
+      ],
+      c: 3,
+      tip: "Self-harm without intent to die still needs a suicide assessment." },
+
+    { id: "a42", cat: "assess",
+      text: "A social worker is assessing a man who says he gets so angry at his neighbor that he wants to “teach him a lesson.”",
+      ask: "Which factor is the BEST predictor of future violence?",
+      opts: [
+        ["How angry he appears during the session", "Anger in the moment tells you little about whether he will act."],
+        ["Whether he has a mental health diagnosis", "Most people with mental illness are not violent. A diagnosis is a weak predictor."],
+        ["Whether he has been violent in the past", "Right. Past violent behavior is the best single predictor of future violence."]
+      ],
+      c: 2,
+      tip: "Best predictor of violence = past violence." },
+
+    { id: "a43", cat: "assess",
+      text: "A social worker asks a client how ready she is to cut back on her drinking, on a scale of 0 to 10. She says, “Maybe a 4.”",
+      ask: "Which follow-up question is BEST?",
+      opts: [
+        ["“Why aren't you higher than a 4?”", "This invites her to list reasons not to change, which builds resistance."],
+        ["“A 4 is pretty low. What would it take to get you to a 10?”", "Judging her number and jumping to 10 skips where she is now."],
+        ["“What makes it a 4 and not a 1?”", "This invites her to name her own reasons for change, which builds motivation."],
+        ["“Do you think a 4 is good enough?”", "A yes-or-no question that hints at judgment and gets little information."]
+      ],
+      c: 2,
+      tip: "Scaling: ask “Why not lower?” to draw out reasons for change." },
+
+    { id: "a44", cat: "assess",
+      text: "During a mental status exam, a client says she feels “great.” She speaks slowly, looks down, and her eyes fill with tears several times.",
+      ask: "How should the social worker record her mood and affect?",
+      opts: [
+        ["Mood euthymic; affect euthymic and appropriate.", "This ignores what the social worker observed."],
+        ["Mood “great” in her words; affect tearful, sad, incongruent.", "Mood is what the client reports. Affect is what the worker sees. Here they don't match."],
+        ["Mood depressed; affect cheerful and bright.", "This swaps the two terms. Mood is self-reported, affect is observed."],
+        ["Leave mood blank, since her words can't be trusted.", "Mood is recorded in the client's own words, even when it doesn't match affect."]
+      ],
+      c: 1,
+      tip: "Mood = what client says. Affect = what you see." },
+
+    { id: "a45", cat: "assess",
+      text: "A client firmly believes that a TV news anchor is sending him secret personal messages during the evening broadcast. No one can talk him out of it.",
+      ask: "How should the social worker describe this on a mental status exam?",
+      opts: [
+        ["Auditory hallucination", "A hallucination is hearing or seeing something that isn't there. The broadcast is real; his belief about it is false."],
+        ["Illusion", "An illusion is a misperception of a real sensation, like seeing a coat as a person."],
+        ["Flight of ideas", "Flight of ideas is fast speech jumping between topics, a thought process problem."],
+        ["Delusion", "A fixed false belief held despite evidence. Believing the TV speaks to you personally is a delusion of reference."]
+      ],
+      c: 3,
+      tip: "Hallucination = false perception. Delusion = false fixed belief." },
+
+    { id: "a46", cat: "assess",
+      text: "A social worker at a community mental health center hears from four clients on the same morning.",
+      ask: "Which client should the social worker help get medical care MOST urgently?",
+      opts: [
+        ["A client on lithium who has vomiting, diarrhea, shaky hands, and confusion", "These are signs of lithium toxicity, which can be dangerous. This client needs medical care right away."],
+        ["A client who started an SSRI last week and has mild nausea", "Mild stomach upset is a common early side effect that often fades."],
+        ["A client on an antipsychotic who has gained five pounds in three months", "Weight gain should be raised with the prescriber, but it isn't an emergency."],
+        ["A child on a stimulant who isn't hungry at lunch", "Low appetite is a common, expected side effect to mention at the next visit."]
+      ],
+      c: 0,
+      tip: "Lithium + vomiting, diarrhea, tremor, confusion = urgent medical care." },
+
+    { id: "a47", cat: "assess",
+      text: "A woman has taken an antipsychotic for many years. The social worker notices she keeps smacking her lips and moving her tongue in and out without seeming aware of it.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Help her let her prescriber know about the movements soon.", "These may be tardive dyskinesia, a possible long-term side effect. The prescriber needs to know so it can be assessed."],
+        ["Advise her to stop the medication until she sees the doctor.", "Social workers don't give dosing advice. Stopping suddenly can cause relapse."],
+        ["Treat the movements as anxiety and teach her relaxation skills.", "This misreads a possible medication side effect and delays care."]
+      ],
+      c: 0,
+      tip: "Lip smacking, tongue movements on antipsychotics = possible tardive dyskinesia. Tell the prescriber." },
+
+    { id: "a48", cat: "assess",
+      text: "A 16-year-old started an antidepressant two weeks ago. His mother says he is restless and not sleeping. Today he tells the social worker he has started thinking about dying.",
+      ask: "What should the social worker do?",
+      opts: [
+        ["Reassure him that side effects usually fade in a few weeks.", "New suicidal thoughts in a young person on an antidepressant are a warning sign, not a side effect to wait out."],
+        ["Suggest he skip doses until he sees his psychiatrist.", "Social workers don't advise on dosing. That's the prescriber's call."],
+        ["Assess his suicide risk and contact his prescriber today.", "Antidepressants carry a warning about suicidal thinking in youth early in treatment. Assess safety and alert the prescriber now."],
+        ["Note it and bring it up at his psychiatry visit next month.", "A month is far too long to wait with new suicidal thoughts."]
+      ],
+      c: 2,
+      tip: "Youth + new antidepressant + new suicidal thoughts = assess and call the prescriber now." },
+
+    { id: "a49", cat: "assess",
+      text: "A client has taken a benzodiazepine for anxiety every day for six years. She tells the social worker she plans to quit “cold turkey” this weekend.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Praise her decision and help her plan the weekend.", "Supporting a sudden stop ignores a real medical risk."],
+        ["Encourage her to talk to her prescriber about tapering.", "Stopping a long-used benzodiazepine suddenly can cause dangerous withdrawal, including seizures. A taper is planned with the prescriber."],
+        ["Suggest she cut her dose in half this weekend to make it easier.", "Social workers don't give dosing instructions."]
+      ],
+      c: 1,
+      tip: "Benzos: never stop suddenly. The prescriber plans the taper." },
+
+    { id: "a50", cat: "assess",
+      text: "A social worker at a walk-in clinic has four people waiting.",
+      ask: "Whom should the social worker see FIRST?",
+      opts: [
+        ["A man who needs a letter for his housing application due today", "Time-sensitive, but no one is in danger."],
+        ["A woman who got an eviction notice that takes effect in two weeks", "Serious, but there is time to act."],
+        ["A teen who is crying after a breakup with her boyfriend", "She is upset, but nothing points to danger yet. Check in soon."],
+        ["A man who says voices are telling him to hurt himself", "Command hallucinations to self-harm are an immediate safety risk. See him first."]
+      ],
+      c: 3,
+      tip: "Triage: danger to self or others comes first." },
+
+    { id: "a51", cat: "assess",
+      text: "A social worker and a client who wants to return to work are writing goals together.",
+      ask: "Which goal is BEST written?",
+      opts: [
+        ["The client will feel more confident about finding a job.", "Not measurable and has no time frame."],
+        ["The client will apply for at least three jobs a week for the next month.", "Specific, measurable, achievable, relevant, and time-bound: a SMART goal."],
+        ["The client will work hard to improve his job situation.", "Vague. There's no way to tell when it has been met."],
+        ["The client will get a full-time job with good pay.", "Partly outside his control, with no clear steps or time frame."]
+      ],
+      c: 1,
+      tip: "SMART: Specific, Measurable, Achievable, Relevant, Time-bound." },
+
+    { id: "a52", cat: "assess",
+      text: "A Mexican American client with depression tells the social worker she also sees a curandera, a traditional healer, and wants that to be part of her care.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Tell her to stop seeing the healer, since it isn't evidence based.", "This dismisses her culture and her right to choose her care."],
+        ["Respect her choice but leave the healer out of the treatment plan.", "Leaving it out misses a source of strength she values."],
+        ["Learn about the healing practices and include them in her plan.", "Culturally responsive planning builds on what the client values, while checking that nothing is harmful."]
+      ],
+      c: 2,
+      tip: "Culturally responsive plans include the client's own healing practices." },
+
+    { id: "a53", cat: "assess",
+      text: "A 28-year-old woman with a mild intellectual disability has panic attacks. She reads at about a second-grade level.",
+      ask: "Which approach is MOST appropriate?",
+      opts: [
+        ["Adapted CBT with simple words, pictures, role play, and practice.", "Adjust the method to her abilities. Concrete, visual, hands-on steps work well."],
+        ["Insight-focused therapy that explores her early childhood.", "Abstract, insight-based work is a poor fit for her learning style."],
+        ["A medication referral only, since therapy won't help her.", "People with intellectual disabilities can benefit from adapted therapy."],
+        ["Standard CBT worksheets at the usual pace so that nothing gets missed.", "Text-heavy worksheets at the usual pace don't fit her reading level."]
+      ],
+      c: 0,
+      tip: "Match the intervention to the client's abilities. Adapt, don't exclude." },
+
+    { id: "a54", cat: "assess",
+      text: "A client has met with the social worker for four months for social anxiety. The social worker is considering whether she is ready to end services.",
+      ask: "Which sign BEST shows she is ready for termination?",
+      opts: [
+        ["She says she really enjoys the sessions and looks forward to them.", "Enjoying sessions doesn't show the goals have been met."],
+        ["She has met her goals and uses her coping skills on her own.", "Readiness = goals met and skills used independently in daily life."],
+        ["The agency needs to open spots for new clients.", "Agency needs alone don't decide when a client is ready."]
+      ],
+      c: 1,
+      tip: "Ready to end = goals met + skills used on her own." },
+
+    { id: "a55", cat: "assess",
+      text: "A Spanish-speaking mother with no car wants a parenting class. The social worker finds one listed in the county resource guide.",
+      ask: "What should the social worker do BEFORE making the referral?",
+      opts: [
+        ["Check that it offers Spanish, is near a bus line, and has openings.", "A referral only helps if the client can actually use it. Check language, transport, timing, and openings."],
+        ["Give her the phone number so she can look into it herself.", "Handing over a number without checking fit often leads to a dead end."],
+        ["Refer her right away, since the class is in the guide.", "Resource guides go out of date. Check first."]
+      ],
+      c: 0,
+      tip: "Check the fit before you refer: language, cost, transport, openings." },
+
+    { id: "i21", cat: "interv",
+      text: "Residents of a senior apartment building tell a social worker that their elevator has been broken for three weeks. Management ignores their calls.",
+      ask: "What is the BEST way to apply an empowerment approach?",
+      opts: [
+        ["Call the building manager yourself and demand a repair date.", "It may get results, but the worker acts for residents instead of building their power to act."],
+        ["Help residents plan a meeting and present their demands together.", "Empowerment builds clients' own skills and collective voice so they can change their situation."],
+        ["File a complaint with the city housing office on the residents' behalf.", "Doing it for them skips the residents' own voice. Outside complaints can come later if needed."],
+        ["Reassure residents that management will get to the repair soon.", "False reassurance dismisses a real problem and leaves residents powerless."]
+      ],
+      c: 1,
+      tip: "Empowerment = clients act for themselves; the worker builds their capacity." },
+
+    { id: "i22", cat: "interv",
+      text: "On a hospital rehab team, a nurse has started holding long talks with a patient's family about their grief and money worries. The social worker had been working with the family on these issues.",
+      ask: "What should the social worker do FIRST?",
+      opts: [
+        ["Report the nurse to the unit manager for working outside of her role.", "Going up the chain comes after a direct conversation, and no one is in danger."],
+        ["Step back from the family so the two services don't overlap.", "Withdrawing leaves the family's psychosocial needs to someone else without any plan."],
+        ["Talk with the nurse directly to clarify roles and coordinate care.", "Role blurring on a team is best handled by talking with the colleague first and agreeing on who does what."],
+        ["Raise the problem at the next team meeting in front of everyone.", "Calling her out publicly skips the respectful first step of talking with her one on one."]
+      ],
+      c: 2,
+      tip: "Role conflict on a team: talk to the colleague first, then coordinate." },
+
+    { id: "i23", cat: "interv",
+      text: "A 58-year-old man with advanced heart failure is still getting treatment that his cardiologist hopes will extend his life. He wants to keep that treatment and also wants help with breathlessness, pain, and planning ahead.",
+      ask: "Which service is the BEST fit right now?",
+      opts: [
+        ["Palliative care, which can be given alongside life-extending treatment.", "Palliative care eases symptoms and supports planning at any stage of a serious illness, together with curative treatment."],
+        ["Hospice care, since his heart failure is advanced and can no longer be cured.", "Hospice is generally for a prognosis of about six months or less, with comfort care instead of curative treatment."],
+        ["Neither, since symptom care begins only after treatment stops.", "Wrong. Symptom relief and advance care planning can start as soon as a serious illness is diagnosed."]
+      ],
+      c: 0,
+      tip: "Palliative = any stage, alongside treatment. Hospice = last months of life, comfort instead of cure." },
+
+    { id: "i24", cat: "interv",
+      text: "A child welfare worker looks into a neglect report. A single father who was recently laid off has little food in the house and his kids have missed some school, but they are healthy, bonded to him, and not in danger.",
+      ask: "What is the BEST plan?",
+      opts: [
+        ["Offer in-home services and link him to food and job help.", "With no safety threat, reasonable efforts go toward keeping the family together and meeting the needs behind the report."],
+        ["Place the children with relatives until he finds work again.", "Removal is for safety threats that services can't manage. Poverty alone is not a reason to separate a family."],
+        ["Close the case without services, since there is no danger.", "The family has real unmet needs. Supports now can prevent a future crisis."],
+        ["Require parenting classes before the case can be closed.", "Parenting skills are not the problem here. The need is food, school routines, and income."]
+      ],
+      c: 0,
+      tip: "No immediate danger = keep the family together and bring services in." },
+
+    { id: "i25", cat: "interv",
+      text: "A 2-year-old has been in foster care for four months. The agency works with his mother toward reunification while also preparing his foster parents to adopt him if reunification fails.",
+      ask: "What is this approach called?",
+      opts: [
+        ["Kinship care", "Kinship care is placement with relatives or close family friends."],
+        ["Concurrent planning", "Working on reunification and a backup permanent plan at the same time shortens the child's time in care."],
+        ["Family preservation services", "Family preservation services aim to prevent removal in the first place."]
+      ],
+      c: 1,
+      tip: "Concurrent planning = Plan A (reunify) and Plan B (another permanent home) at the same time." },
+
+    { id: "i26", cat: "interv",
+      text: "In the sixth session, a client says, “Last week it felt like you were taking my husband's side.” She seems guarded today.",
+      ask: "What should the social worker do NEXT?",
+      opts: [
+        ["Invite her to say more about it and acknowledge how it felt to her.", "Exploring a rupture openly and without defensiveness repairs the alliance and often makes it stronger."],
+        ["Explain that she was staying neutral and did not take either side.", "Defending herself puts the worker's view ahead of the client's experience."],
+        ["Note the comment and move on to the goals planned for today.", "Ignoring a rupture leaves it to grow and can lead to dropout."],
+        ["Offer to refer her to another social worker she may trust more.", "Premature. Most ruptures can be repaired by talking about them."]
+      ],
+      c: 0,
+      tip: "Alliance rupture? Name it, explore it, own your part. The alliance is a top predictor of outcome." },
+
+    { id: "i27", cat: "interv",
+      text: "A clinic social worker sees that many clients are losing Medicaid because the renewal forms are long and confusing. Several have missed medical care as a result.",
+      ask: "What is the BEST macro-level response?",
+      opts: [
+        ["Help each client fill out the renewal forms one at a time.", "Helpful case advocacy, but it doesn't change the process that keeps causing the problem."],
+        ["Tell clients to call the Medicaid office and complain directly.", "This puts the burden back on clients and does not use the worker's view of the pattern."],
+        ["Wait to see whether the problem improves at the next renewal cycle.", "Clients are already missing care. Waiting lets the harm continue."],
+        ["Document the pattern and bring it to leaders and policymakers.", "A pattern across many clients calls for cause (policy) advocacy, backed by data, to change the system."]
+      ],
+      c: 3,
+      tip: "One client = case advocacy. A pattern across many = cause advocacy, built on data." },
+
+    { id: "i28", cat: "interv",
+      text: "Tenants in a building owned by a large company have had no heat for weeks. Polite requests have failed, so they hold a rally outside the company's office and alert local news.",
+      ask: "Which community organizing model does this reflect?",
+      opts: [
+        ["Locality development", "Locality development uses consensus and broad local cooperation, not pressure on an opponent."],
+        ["Social planning", "Social planning relies on experts and data to design services, not on residents' protest."],
+        ["Social action", "Social action organizes people with less power to confront those with more and demand change."]
+      ],
+      c: 2,
+      tip: "Locality development = consensus. Social planning = experts and data. Social action = confront power." },
+
+    { id: "i29", cat: "interv",
+      text: "A client going through a hard divorce has started calling the social worker's office line ten or more times a day. She gets angry when calls aren't returned within the hour.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Stop answering her calls so the pattern is not rewarded.", "Cutting her off without a plan is punitive and could leave a real crisis unanswered."],
+        ["Agree on set check-in times and a crisis line for urgent needs.", "Good limits are clear, consistent, and respectful, and they still give the client a way to get help."],
+        ["Give her your personal cell number so she can always reach you.", "This blurs boundaries and makes the pattern harder to manage."],
+        ["Return every call within the hour to keep her trust for now.", "This can't be sustained and reinforces the pattern instead of building her coping."]
+      ],
+      c: 1,
+      tip: "Limit setting = clear, consistent, respectful, with a plan for real needs." },
+
+    { id: "i30", cat: "interv",
+      text: "A domestic violence shelter wants to become more trauma-informed.",
+      ask: "Which change BEST reflects trauma-informed care principles?",
+      opts: [
+        ["Ask each new resident to describe her abuse in detail at intake.", "Forcing detailed disclosure early can retraumatize. Residents should choose what to share and when."],
+        ["Add stricter curfews and nightly room checks to keep everyone safe.", "Heavy control can mirror an abuser's control. Safety should be built with residents, not imposed on them."],
+        ["Have staff set each resident's goals to lower her stress.", "Taking decisions away removes voice and choice, a core principle."],
+        ["Explain house rules and the reasons for them, and offer choices.", "Transparency, trust, and choice are core trauma-informed principles that restore a sense of control."]
+      ],
+      c: 3,
+      tip: "Trauma-informed: safety, trust and transparency, peer support, collaboration, voice and choice, culture." },
+
+    { id: "i31", cat: "interv",
+      text: "A woman's ex-husband died suddenly. They divorced years ago, but she feels deep sadness. She is sleeping, eating, and working as usual. She says, “I feel silly. I don't really have the right to be this upset.”",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Remind her that after a divorce the loss is not really hers to mourn.", "This repeats the very message that is making her grief harder."],
+        ["Suggest she put her energy into her current relationships instead.", "Redirecting her away from the loss dismisses it."],
+        ["Validate her grief and explain that unrecognized losses still hurt.", "This is disenfranchised grief. Naming and validating it helps her grieve openly."],
+        ["Assess her for depression, since the grief seems out of proportion.", "Her reaction is a normal grief response, not a sign of a disorder."]
+      ],
+      c: 2,
+      tip: "Disenfranchised grief = a loss others don't recognize (ex-partners, pets, miscarriage, overdose). Validate it." },
+
+    { id: "i32", cat: "interv",
+      text: "A man who drinks heavily every day wants to quit. He had a seizure the last time he stopped drinking suddenly.",
+      ask: "Which level of care should the social worker recommend FIRST?",
+      opts: [
+        ["Weekly outpatient counseling while he cuts back on his own", "Stopping without medical care is dangerous given his past withdrawal seizure."],
+        ["Medically supervised withdrawal management", "Alcohol withdrawal can cause seizures and death. A history of seizures calls for medical detox first."],
+        ["A mutual-help group such as AA, starting this week", "Peer support can help later, but it does not manage dangerous withdrawal."]
+      ],
+      c: 1,
+      tip: "Past withdrawal seizures or DTs = medically managed detox first." },
+
+    { id: "i33", cat: "interv",
+      text: "A client who had been sober for eight months drank at a wedding last weekend. She says, “I've ruined everything. I might as well give up.”",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Tell her she will need to restart treatment from the beginning.", "This confirms her all-or-nothing thinking and ignores eight months of progress."],
+        ["Point out that the slip shows her current plan is clearly not working.", "One lapse does not mean the plan failed. This feeds her hopelessness."],
+        ["Suggest she avoid all weddings and parties from now on.", "Blanket avoidance is not realistic and skips understanding what happened."],
+        ["Treat it as a lapse to learn from and review what led up to it.", "Relapse prevention treats a slip as information. Countering 'I blew it' thinking keeps a lapse from becoming a relapse."]
+      ],
+      c: 3,
+      tip: "A slip is not a full relapse. Watch for the 'I've blown it' trap (abstinence violation effect)." },
+
+    { id: "i34", cat: "interv",
+      text: "A father ordered by family court to attend counseling sits with his arms crossed and says, “I'm only here because the judge made me.”",
+      ask: "What is the BEST response?",
+      opts: [
+        ["“You didn't choose this. Let's look at what the court requires and what's up to you.”", "Acknowledging the pressure and being clear about his choices lowers resistance with involuntary clients."],
+        ["“If you won't take part, I'll have to report that to the court.”", "Leading with a threat increases resistance and harms the relationship."],
+        ["“Let's set the court aside and talk about your childhood instead.”", "Ignoring the mandate avoids the main issue he just raised."],
+        ["“Lots of fathers feel that way at first, but you'll see it helps.”", "Premature reassurance brushes off his feelings."]
+      ],
+      c: 0,
+      tip: "Involuntary clients: acknowledge the pressure, be honest about requirements, and find what they DO choose." },
+
+    { id: "i35", cat: "interv",
+      text: "A woman is admitted to an inpatient psychiatric unit after a suicide attempt.",
+      ask: "When should discharge planning begin?",
+      opts: [
+        ["Once her symptoms have stabilized", "Waiting this long leaves too little time to arrange housing, follow-up care, and supports."],
+        ["A day or two before her expected discharge date", "Last-minute planning raises the risk of gaps in care after she leaves."],
+        ["At admission", "Discharge planning starts at admission so aftercare is ready. The weeks after discharge are a high-risk time."]
+      ],
+      c: 2,
+      tip: "Discharge planning starts at admission." },
+
+    { id: "i36", cat: "interv",
+      text: "A man with depression has stopped seeing friends and spends most days in bed. He says he will start doing things again once he feels more motivated.",
+      ask: "What is the BEST next step using behavioral activation?",
+      opts: [
+        ["Wait until his motivation comes back before setting any activity goals.", "In depression, waiting for motivation keeps the cycle going."],
+        ["Schedule small, doable activities now, before motivation returns.", "Behavioral activation holds that action comes first and mood and motivation follow."],
+        ["Explore the childhood roots of his loss of interest in things.", "That is an insight-oriented approach, not behavioral activation."],
+        ["Have him write down his negative thoughts in a daily journal.", "Thought records are a cognitive technique. Behavioral activation targets what he does."]
+      ],
+      c: 1,
+      tip: "Behavioral activation: do first, feel better later. Start small and schedule it." },
+
+    { id: "i37", cat: "interv",
+      text: "A client in DBT says that a few times a week her emotions spike so high she can't think straight. She has a safety plan and no current thoughts of self-harm.",
+      ask: "Which skill is BEST to teach for those peak moments?",
+      opts: [
+        ["Check the facts to see whether her emotion fits the actual situation.", "Useful for emotion regulation, but it needs a calmer mind than she has at her peak."],
+        ["Use DEAR MAN to ask others clearly for what she needs.", "That is an interpersonal effectiveness skill, not a way to bring down extreme arousal."],
+        ["Build positive experiences to lower her overall vulnerability.", "Helps over time, but it does not calm an emotional spike in the moment."],
+        ["Use TIPP skills, like cold water on the face and paced breathing.", "TIPP changes body chemistry fast. It is the distress tolerance skill for when emotions are too high to think."]
+      ],
+      c: 3,
+      tip: "TIPP = Temperature, Intense exercise, Paced breathing, Paired muscle relaxation." },
+
+    { id: "i38", cat: "interv",
+      text: "During a session, a client who smokes makes several statements about her smoking.",
+      ask: "Which statement is change talk?",
+      opts: [
+        ["“My grandfather smoked his whole life and lived to 90.”", "This is sustain talk, an argument for keeping things the same."],
+        ["“I've tried quitting before, and it never sticks.”", "This leans toward sustain talk and doubt about her ability to change."],
+        ["“I want to play soccer with my kids without running out of breath.”", "This expresses desire and a reason to change, which is change talk to reflect and build on."],
+        ["“Everyone at work smokes, so it's hard to avoid it.”", "This explains why change is hard, which is sustain talk."]
+      ],
+      c: 2,
+      tip: "Change talk = DARN-CAT: Desire, Ability, Reasons, Need, Commitment, Activation, Taking steps." },
+
+    { id: "i39", cat: "interv",
+      text: "A woman says that whenever she and her husband argue, she calls their adult daughter to vent. The daughter then gets angry with her father.",
+      ask: "In Bowen family systems theory, what is this pattern called?",
+      opts: [
+        ["Emotional cutoff", "Cutoff means managing unresolved tension by distancing from family, not pulling someone in."],
+        ["Triangulation", "Two people in conflict pull in a third to lower their own anxiety. Bowen saw the triangle as the basic unit of family systems."],
+        ["Enmeshment", "Enmeshment is a structural family therapy term for blurred, overly close boundaries."],
+        ["Scapegoating", "Scapegoating blames one member for the family's problems. Here the daughter is drawn in as an ally."]
+      ],
+      c: 1,
+      tip: "Bowen: triangles lower tension between two people. The goal is differentiation of self." },
+
+    { id: "i40", cat: "interv",
+      text: "In a parenting support group, one member talks at length every week. Other members have started to look bored and stop speaking.",
+      ask: "What is the BEST response by the group leader?",
+      opts: [
+        ["Ask the member to leave, since she keeps disrupting the group.", "Removal is a last resort. The leader should first try to manage the pattern within the group."],
+        ["Wait for other members to confront her about it on their own.", "Members are already withdrawing. The leader is responsible for balancing participation."],
+        ["Gently cut in, thank her, and invite others to share their views.", "Kindly blocking and drawing others in protects the group without shaming one member."],
+        ["Discuss the problem with the rest of the group while she is absent.", "Talking about her behind her back harms trust and group safety."]
+      ],
+      c: 2,
+      tip: "Monopolizer: block gently, link, and draw others in." },
+
+    { id: "i41", cat: "interv",
+      text: "A school social worker wants to show that a reward chart, and not something else, is what reduces a student's classroom outbursts.",
+      ask: "Which single-subject design gives the STRONGEST evidence?",
+      opts: [
+        ["An AB design", "AB shows change after the intervention, but it can't rule out other causes that happened at the same time."],
+        ["A B design with no baseline", "Without a baseline there is nothing to compare the results to."],
+        ["A case study with progress notes", "Narrative notes give the weakest evidence of cause."],
+        ["An ABAB (withdrawal) design", "If behavior improves, gets worse when the chart is removed, then improves again, the chart is likely the cause."]
+      ],
+      c: 3,
+      tip: "ABAB = strongest single-subject evidence. The ethical catch: you remove something that helps." },
+
+    { id: "i42", cat: "interv",
+      text: "Halfway through the first year of a new after-school program, staff survey students and parents to learn what is working and what needs to change.",
+      ask: "What type of evaluation is this?",
+      opts: [
+        ["Formative evaluation", "Formative evaluation happens while a program is running, to improve it."],
+        ["Summative evaluation", "Summative evaluation judges a program's overall worth at the end, often for funding decisions."],
+        ["Outcome (impact) evaluation", "Outcome evaluation asks whether participants changed, not how to improve the program midstream."]
+      ],
+      c: 0,
+      tip: "Formative = forming and improving along the way. Summative = summing up at the end." },
+
+    { id: "i43", cat: "interv",
+      text: "Evaluators of a home-visiting program check how often visits happen, whether staff follow the program model, and which families are being reached.",
+      ask: "What type of evaluation is this?",
+      opts: [
+        ["Outcome evaluation", "Outcome evaluation measures whether families changed, not how the program was delivered."],
+        ["Needs assessment", "A needs assessment comes before a program, to find gaps and needs."],
+        ["Process evaluation", "Process evaluation checks whether a program is delivered as planned: fidelity, dosage, and reach."],
+        ["Cost-effectiveness analysis", "That compares costs with results, which these evaluators are not doing."]
+      ],
+      c: 2,
+      tip: "Process = was it delivered as planned? Outcome = did people change?" },
+
+    { id: "i44", cat: "interv",
+      text: "An agency wants to start a program for older adults in a rural county, but no one is sure which services they lack most.",
+      ask: "What should the agency do FIRST?",
+      opts: [
+        ["Start a meals program, since it is the most common senior service.", "Guessing from what is common elsewhere may miss what this county needs."],
+        ["Do a needs assessment with residents, providers, and local data.", "A needs assessment finds gaps before a program is designed, so services match real needs."],
+        ["Run an outcome evaluation of a similar program in another county.", "That says whether another program worked, not what this county needs."],
+        ["Apply for grants for the services staff believe are most needed.", "Staff opinion alone is not evidence of need. Ask the community first."]
+      ],
+      c: 1,
+      tip: "Before designing a program: needs assessment." },
+
+    { id: "i45", cat: "interv",
+      text: "An agency compares two substance use programs by calculating the cost per client who stays sober for one year.",
+      ask: "What type of analysis is this?",
+      opts: [
+        ["Cost-benefit analysis", "Cost-benefit puts a dollar value on the outcomes too and compares total dollars in and out."],
+        ["Cost-effectiveness analysis", "Cost-effectiveness measures cost per unit of outcome, with the outcome left in natural units like sober clients."],
+        ["Process evaluation", "Process evaluation looks at how a program is delivered, not its costs."]
+      ],
+      c: 1,
+      tip: "Cost-effectiveness = cost per outcome. Cost-benefit = costs and outcomes both in dollars." },
+
+    { id: "i46", cat: "interv",
+      text: "A new anxiety scale gives nearly the same score when a client takes it twice in one week. But the scores don't match clinicians' ratings of anxiety and seem to track tiredness instead.",
+      ask: "What is the BEST description of this scale?",
+      opts: [
+        ["Valid but not reliable", "A scale that is not consistent cannot be valid, and this one is consistent."],
+        ["Both reliable and valid", "The scores don't match other measures of anxiety, so validity is in doubt."],
+        ["Neither reliable nor valid", "The scores are consistent over time, so the scale is reliable."],
+        ["Reliable but not valid", "Consistent scores show reliability. Not measuring anxiety means it is not valid."]
+      ],
+      c: 3,
+      tip: "Reliable = consistent. Valid = measures what it claims. Reliable is possible without valid, not the other way." },
+
+    { id: "i47", cat: "interv",
+      text: "A social worker wants to study whether her agency's new group program reduces depression and publish the results. The participants would be current clients.",
+      ask: "What must she do BEFORE collecting data?",
+      opts: [
+        ["Get ethics board approval and voluntary informed consent.", "Research with clients needs IRB or ethics review and consent that makes clear saying no won't affect services."],
+        ["Get her supervisor's approval, since the data belong to the agency.", "Supervisor approval is not enough. Research needs ethics review and client consent."],
+        ["Collect the data first and remove all names before publishing.", "Removing names later does not replace consent before data collection."],
+        ["Tell clients that taking part is a condition of joining the group.", "Research must be voluntary. Services can never depend on agreeing to take part."]
+      ],
+      c: 0,
+      tip: "Research with clients: IRB review + voluntary informed consent. Saying no never costs them services." },
+
+    { id: "i48", cat: "interv",
+      text: "A social worker treating a client for depression wants to track whether she is improving over time.",
+      ask: "What is the BEST way to measure progress?",
+      opts: [
+        ["Ask her at the end of treatment whether she feels any better overall.", "One look back at the end gives no baseline and no picture of change over time."],
+        ["Give a standardized depression scale at baseline and at set points.", "A reliable, valid measure repeated over time shows real change and guides treatment."],
+        ["Rely on the social worker's clinical impressions in session notes.", "Impressions are useful but subjective and hard to compare across time."],
+        ["Count the number of sessions she attends over the next months.", "Attendance is a service output, not a measure of whether her depression improved."]
+      ],
+      c: 1,
+      tip: "Track progress with a standardized measure, repeated over time, starting with a baseline." },
+
+    { id: "i49", cat: "interv",
+      text: "A researcher wants to understand how refugee mothers experience raising teenagers in a new country, in their own words.",
+      ask: "Which method is BEST?",
+      opts: [
+        ["A large survey that uses rating scales", "Rating scales give numbers, not the mothers' own words and meanings."],
+        ["A review of the teens' school attendance records", "Records give no view of the mothers' experience."],
+        ["In-depth interviews analyzed for themes", "Qualitative methods capture lived experience and meaning in participants' own words."],
+        ["An experiment comparing two parenting programs", "Experiments test whether something works, not what an experience is like."]
+      ],
+      c: 2,
+      tip: "Meaning and experience = qualitative. How much or how many = quantitative." },
+
+    { id: "i50", cat: "interv",
+      text: "After a client dies by suicide, a social worker can't sleep and wonders whether she should stay in the field. Her supervisor spends their meeting helping her process the loss and plan self-care.",
+      ask: "Which function of supervision is this?",
+      opts: [
+        ["Administrative", "Administrative supervision covers policies, workload, and accountability."],
+        ["Educational", "Educational supervision builds knowledge and practice skills."],
+        ["Supportive", "Supportive supervision addresses stress, morale, and burnout so the worker can keep functioning well."]
+      ],
+      c: 2,
+      tip: "Administrative = rules and workload. Educational = skills. Supportive = stress and morale." },
+
+    { id: "i51", cat: "interv",
+      text: "A newly licensed social worker in clinical supervision realizes she gave a client wrong information about the limits of confidentiality in their first session two weeks ago.",
+      ask: "What is the BEST action?",
+      opts: [
+        ["Correct it with the client herself but leave it out of supervision.", "Supervisees are responsible for bringing mistakes to supervision, not just fixing them alone."],
+        ["Wait to see if it causes a problem before mentioning it.", "Waiting leaves the client with wrong information and hides the error."],
+        ["Write a note in the file and handle it on her own.", "Documenting is not enough. The supervisor needs to know and help plan the fix."],
+        ["Tell her supervisor soon and plan the correction with the client.", "Supervisees must be open about errors. Prompt disclosure protects the client and lets the supervisor help."]
+      ],
+      c: 3,
+      tip: "Supervisees bring mistakes, doubts, and learning needs to supervision promptly." },
+
+    { id: "i52", cat: "interv",
+      text: "A social worker in private practice pays an experienced colleague to discuss a hard case once a month. The colleague has no authority over her work.",
+      ask: "Which statement about this arrangement is TRUE?",
+      opts: [
+        ["It is consultation, and she decides whether to use the advice.", "A consultant advises without authority. The social worker keeps full responsibility for her decisions."],
+        ["It is supervision, so the colleague shares responsibility for the case.", "Supervision involves authority and accountability, which this colleague does not have."],
+        ["It is peer supervision, so she has to follow the colleague's advice.", "Peer supervision is among equals and does not require following advice."]
+      ],
+      c: 0,
+      tip: "Consultation = advice without authority. Supervision = authority plus shared accountability." },
+
+    { id: "i53", cat: "interv",
+      text: "A client keeps asking her social worker to make all her decisions for her. In supervision, the social worker starts asking her supervisor to tell her exactly what to do with this client.",
+      ask: "What does this MOST likely reflect?",
+      opts: [
+        ["Parallel process", "The client-worker dynamic is being replayed between worker and supervisor. Naming it helps both relationships."],
+        ["Transference", "Transference is the client's feelings toward the worker, not a pattern repeated in supervision."],
+        ["Compassion fatigue", "Compassion fatigue is emotional exhaustion from caring for people in pain, not a mirrored pattern."],
+        ["Role conflict", "Role conflict means clashing job demands, which is not what is happening."]
+      ],
+      c: 0,
+      tip: "Parallel process = the client relationship gets mirrored in supervision." },
+
+    { id: "i54", cat: "interv",
+      text: "A clinical supervisor oversees six social workers who carry high-risk caseloads.",
+      ask: "Which practice BEST reduces the supervisor's liability risk?",
+      opts: [
+        ["Meet regularly, review high-risk cases and records, and document it.", "Supervisors can be held liable for supervisees' work. Regular, documented oversight of risky cases is the protection."],
+        ["Let her more experienced supervisees decide which cases to bring up.", "The supervisor may never learn about the cases that carry the most risk."],
+        ["Avoid reading case notes so she isn't responsible for their content.", "Not looking does not remove liability and leaves clients less protected."],
+        ["Have supervisees sign forms taking full responsibility for cases.", "A signed form does not end the supervisor's legal and ethical duties."]
+      ],
+      c: 0,
+      tip: "Vicarious liability: supervisors share responsibility. Regular, documented review is the safeguard." },
+
+    { id: "i55", cat: "interv",
+      text: "A Black social worker tells her program director that coworkers often touch her hair and tell her she is “so articulate.” She says it is wearing her down.",
+      ask: "What is the BEST response by the director?",
+      opts: [
+        ["Advise her to address each coworker herself, since that works best.", "This puts the burden on the person being harmed. The director is responsible for the workplace."],
+        ["Tell her the comments are likely meant kindly and to let them go.", "This minimizes microaggressions and her experience."],
+        ["Wait to see whether other staff raise similar concerns first.", "One credible report is enough to act. Waiting lets the harm continue."],
+        ["Take it seriously and address it with staff, policy, and training.", "Leaders must keep the workplace safe and inclusive by acting on microaggressions, not minimizing them."]
+      ],
+      c: 3,
+      tip: "Administrators own a safe, inclusive workplace: act on reports, don't minimize or shift the burden." },
+
+    { id: "h21", cat: "human",
+      text: "A 4-year-old in a play group used to invent games and lead other kids in pretend play. Since his father began scolding him harshly for messes and “silly ideas,” he waits to be told what to do and apologizes constantly.",
+      ask: "Which of Erikson's stages is MOST affected?",
+      opts: [
+        ["Trust vs. mistrust", "That stage is infancy. It depends on whether caregivers meet basic needs reliably."],
+        ["Autonomy vs. shame and doubt", "That stage is the toddler years and centers on doing things by yourself, like feeding and toileting."],
+        ["Initiative vs. guilt", "Preschoolers start plans and play on their own. Harsh criticism of those efforts can leave guilt instead of a sense of purpose."],
+        ["Industry vs. inferiority", "That stage is school age and centers on skills and competence compared with peers."]
+      ],
+      c: 2,
+      tip: "Ages 3 to 5: initiative vs. guilt. Let them plan, pretend, and lead." },
+
+    { id: "h22", cat: "human",
+      text: "A 10-year-old with dyslexia tells the school social worker, “I'm the dumbest kid in my class. I'm bad at everything.” He has stopped turning in homework.",
+      ask: "Which approach BEST fits his developmental stage?",
+      opts: [
+        ["Help him find tasks he can master, and praise real effort and progress.", "In Erikson's industry vs. inferiority stage, children build competence by mastering tasks. Real successes counter the sense of inferiority."],
+        ["Reassure him that grades don't matter much at his age.", "This dismisses what matters most to him right now. School-age kids judge themselves by what they can do."],
+        ["Focus sessions on exploring who he wants to be as an adult.", "Identity questions belong to adolescence. At 10, the main task is competence."],
+        ["Ask his teacher to lower expectations so he stops comparing himself to others.", "Lowering the bar without support can confirm his belief that he can't do it. Accommodations plus skill-building work better."]
+      ],
+      c: 0,
+      tip: "Ages 6 to 12: industry vs. inferiority. Competence comes from real wins." },
+
+    { id: "h23", cat: "human",
+      text: "A 54-year-old man says his life has felt flat and pointless since his children moved out. He recently started mentoring young apprentices at work and says it's the first thing in years that feels meaningful.",
+      ask: "Which of Erikson's stages is he working through?",
+      opts: [
+        ["Intimacy vs. isolation", "That's young adulthood: forming close, committed relationships."],
+        ["Identity vs. role confusion", "That's adolescence: figuring out who you are."],
+        ["Ego integrity vs. despair", "That's late life: looking back and accepting the life you've lived."],
+        ["Generativity vs. stagnation", "Middle adulthood: the need to guide the next generation and contribute. Without it, people feel stuck and self-focused."]
+      ],
+      c: 3,
+      tip: "Midlife: generativity vs. stagnation. Mentoring, parenting, giving back." },
+
+    { id: "h24", cat: "human",
+      text: "A 4-year-old in a hospital playroom tells the social worker that the IV pole is “mad at her” and that the moon followed her car to the hospital to watch over her.",
+      ask: "How is this BEST understood?",
+      opts: [
+        ["A possible sign of psychosis that needs a psychiatric consult", "Magical, animistic thinking is normal at this age. It isn't a symptom by itself."],
+        ["Normal preoperational thinking that gives objects feelings", "Piaget called this animism. It's typical from about 2 to 7, before logical thinking develops."],
+        ["Regression caused by the stress of being in the hospital", "Stress can cause regression, but this kind of thinking is simply typical for a 4-year-old."]
+      ],
+      c: 1,
+      tip: "Ages 2 to 7: animism, egocentrism, magical thinking. Normal, not pathology." },
+
+    { id: "h25", cat: "human",
+      text: "A social worker wants to use a cognitive technique that asks clients to test their beliefs against evidence and imagine “what if” outcomes they haven't experienced.",
+      ask: "Based on Piaget, which client is MOST likely developmentally ready for this approach?",
+      opts: [
+        ["A 5-year-old who worries about monsters", "Preschool thinking is concrete and magical. Use play and simple coping skills instead."],
+        ["An 8-year-old who is anxious about tests", "Concrete operational kids reason logically about real, present things but struggle with abstract hypotheticals."],
+        ["A 15-year-old who fears being rejected", "Formal operations, from about age 11 or 12, brings abstract and hypothetical reasoning. That's what this technique needs."],
+        ["A 10-year-old who feels left out at recess", "At 10, thinking is still concrete operational. Abstract “what if” reasoning is mostly out of reach."]
+      ],
+      c: 2,
+      tip: "Abstract “what if” thinking = formal operations, about 11 or 12 and up." },
+
+    { id: "h26", cat: "human",
+      text: "A client feels intense guilt and calls herself “a terrible person” over small mistakes, like forgetting to return a call. She holds herself to rigid moral rules.",
+      ask: "In Freud's structural model, which part of the personality appears to be overly harsh?",
+      opts: [
+        ["Superego (conscience)", "The superego is the internalized conscience and ideals. When it's too strict, it produces heavy guilt and self-criticism."],
+        ["Ego (reality and balance)", "The ego is the reality-based mediator between drives and conscience. Its job is balance, not punishment."],
+        ["Id (drives and impulses)", "The id holds basic drives and seeks pleasure. It has no sense of right and wrong."]
+      ],
+      c: 0,
+      tip: "Id = wants it now. Superego = should and shouldn't. Ego = referee in reality." },
+
+    { id: "h27", cat: "human",
+      text: "A mother says her 18-month-old used to toddle off happily to explore. Now he runs off, then rushes back to show her things, cries when she leaves the room, and pushes her away when she tries to help.",
+      ask: "In Mahler's theory, which subphase is this?",
+      opts: [
+        ["Practicing", "In practicing (about 10 to 16 months), the new walker explores happily with little worry about mom."],
+        ["Rapprochement", "From about 16 to 24 months, the child realizes he's separate and swings between independence and clinging. This back-and-forth is normal."],
+        ["Differentiation", "Differentiation (about 5 to 10 months) is the baby's first sense of being separate, as in stranger anxiety."],
+        ["Object constancy", "That's the later ability (about 24 to 36 months) to hold a steady inner image of mom when she's away."]
+      ],
+      c: 1,
+      tip: "Rapprochement: “go away, come back.” Normal toddler push-pull, about 16 to 24 months." },
+
+    { id: "h28", cat: "human",
+      text: "A 7-year-old can't finish a puzzle alone, but she completes it when her tutor asks guiding questions and points out the edge pieces. Over time the tutor gives less help.",
+      ask: "Which concept does this BEST illustrate?",
+      opts: [
+        ["Assimilation, fitting new information into existing schemas", "That's Piaget's term for how a child takes in new information. It doesn't describe guided help from an adult."],
+        ["Vicarious learning, copying a model who is rewarded", "That's Bandura. The child isn't watching someone else get rewarded."],
+        ["Zone of proximal development, with scaffolding", "Vygotsky: the gap between what a child can do alone and with help. Support that fades as skill grows is called scaffolding, a term later researchers built on his idea."]
+      ],
+      c: 2,
+      tip: "ZPD = can't do it alone, can do it with help. Scaffold, then fade." },
+
+    { id: "h29", cat: "human",
+      text: "Asked about a moral dilemma, a woman explains her choice by talking about who would be hurt and what she owes the people close to her. A colleague notes that Kohlberg's scale would score this lower than abstract, rule-based answers.",
+      ask: "Whose theory BEST addresses this concern?",
+      opts: [
+        ["Erikson, who described a stage of intimacy vs. isolation", "Erikson's stages cover psychosocial conflicts, not styles of moral reasoning."],
+        ["Piaget, who described moral realism in young children", "Piaget's moral stages focus on how children view rules, not adult relationship-based ethics."],
+        ["Bandura, who showed that moral behavior is learned by modeling", "Modeling explains how behavior is learned, not why care-based reasoning was undervalued."],
+        ["Gilligan, who described an ethic of care", "Carol Gilligan argued that Kohlberg's research, built mainly on boys and men, undervalued reasoning based on care, relationships, and responsibility."]
+      ],
+      c: 3,
+      tip: "Gilligan: ethic of care (relationships). Kohlberg: ethic of justice (rules and rights)." },
+
+    { id: "h30", cat: "human",
+      text: "A 31-year-old client texts her partner many times a day for reassurance, fears he will leave whenever he is busy, and says she can never feel close enough to him.",
+      ask: "Which adult attachment style does this MOST suggest?",
+      opts: [
+        ["Dismissive-avoidant", "Dismissive adults value independence and keep partners at a distance. She seeks more closeness, not less."],
+        ["Anxious-preoccupied", "Anxious adults crave closeness, fear abandonment, and need frequent reassurance. This often traces back to inconsistent early care."],
+        ["Secure, reacting to normal relationship stress", "Secure adults trust partners and handle time apart without constant fear. Her pattern is ongoing, not a passing reaction."]
+      ],
+      c: 1,
+      tip: "Anxious: “Don't leave me.” Avoidant: “Don't get too close.” Secure: comfortable with both." },
+
+    { id: "h31", cat: "human",
+      text: "Parents of a 2-year-old raised in a Spanish-English home say she uses about five words, doesn't combine words, and rarely points to show them things. Her pediatrician hasn't seen her in a year.",
+      ask: "What is the BEST response?",
+      opts: [
+        ["Encourage a developmental and hearing evaluation right away.", "By 2, children should be putting two words together and pointing to show things. Fewer than 50 words at 2 is a common flag for evaluation. Early help leads to better outcomes."],
+        ["Explain that learning two languages often delays speech and she will catch up.", "Bilingual children reach language milestones on a similar schedule when both languages are counted. This myth delays help."],
+        ["Suggest the parents use only English at home so she isn't confused.", "Dropping the home language doesn't fix a delay. Children do best with rich talk in the parents' strongest language."],
+        ["Suggest waiting until age 3, since many late talkers catch up on their own.", "Some do, but with so few words and no pointing, waiting risks missing a real delay. Evaluate now."]
+      ],
+      c: 0,
+      tip: "Red flags at 2: few words, no two-word phrases, no pointing. Evaluate, don't wait." },
+
+    { id: "h32", cat: "human",
+      text: "Parents of a 16-year-old are confused. He gets good grades and can explain the dangers of reckless driving, yet he speeds whenever his friends are in the car.",
+      ask: "What BEST explains this pattern?",
+      opts: [
+        ["He lacks the knowledge to understand risk and needs more safety education.", "He clearly understands the risk. Knowledge alone doesn't stop risky choices in the moment."],
+        ["Reward areas mature before self-control areas, and peers boost the pull.", "The prefrontal cortex keeps maturing into the mid-20s, while reward sensitivity peaks in adolescence. Having peers present raises risk-taking."],
+        ["Risk-taking at this age points to an emerging conduct disorder.", "Some risk-taking is developmentally typical. Conduct disorder is a pattern of violating others' rights and rules."],
+        ["He is acting out unresolved anger at his parents.", "Nothing in the vignette points to anger. The peer effect is the key detail."]
+      ],
+      c: 1,
+      tip: "Teen brain: gas pedal early, brakes later (mid-20s). Peers press the gas." },
+
+    { id: "h33", cat: "human",
+      text: "A 4-year-old's father died suddenly last month. She keeps asking when Daddy is coming home, plays happily for a while, then becomes clingy and has tantrums at bedtime.",
+      ask: "What is the BEST guidance for her mother?",
+      opts: [
+        ["Tell her Daddy is sleeping or went on a long trip, to soften the loss.", "Euphemisms confuse young children and can make them afraid of sleep or trips. Use clear, concrete words."],
+        ["Refer her for evaluation, since her up-and-down reactions suggest complicated grief.", "Moving in and out of grief is typical for young children. It isn't a sign of a disorder."],
+        ["Answer each time, simply and honestly, that Daddy died and can't come back.", "Young children don't yet grasp that death is permanent, so repeated questions are normal. Concrete, honest answers and steady routines help."],
+        ["Avoid talking about her father until she is old enough to understand.", "Silence leaves the child alone with her confusion. Children grieve at every age and need honest talk."]
+      ],
+      c: 2,
+      tip: "Preschool grief: repeated questions, grief in bursts. Use the word “died” and keep routines." },
+
+    { id: "h34", cat: "human",
+      text: "An 81-year-old widow with Alzheimer's disease needs to move into a nursing home for long-term care. She has Medicare and Social Security, and her savings are almost gone.",
+      ask: "Which program is MOST likely to pay for her long-term nursing home stay?",
+      opts: [
+        ["Medicare", "Medicare covers only short-term skilled nursing care after a qualifying hospital stay, up to 100 days. It doesn't pay for ongoing custodial care."],
+        ["Social Security", "Social Security is an income benefit, not health coverage. Her check usually goes toward her care, but it falls far short of the cost."],
+        ["Medicaid", "Medicaid is the main payer for long-term nursing home care for people who meet its income and asset limits."]
+      ],
+      c: 2,
+      tip: "Medicare = short-term skilled care (up to 100 days). Medicaid = long-term care when money runs out." },
+
+    { id: "h35", cat: "human",
+      text: "Whenever her parents argue, a 13-year-old gets pulled in. Her mother vents to her about her father, and her father asks her to pass messages to her mother. Her grades are falling.",
+      ask: "Which family systems concept BEST describes this?",
+      opts: [
+        ["Triangulation", "A third person, often a child, is drawn into a two-person conflict to ease tension. It calms the couple but burdens the child."],
+        ["Scapegoating", "Scapegoating blames one member for the family's problems. She's being used as a go-between, not blamed."],
+        ["Disengagement", "Disengaged families have rigid boundaries and little involvement. She is over-involved."],
+        ["Differentiation", "Differentiation is the ability to stay yourself within the family's emotions. It's the opposite of being pulled in."]
+      ],
+      c: 0,
+      tip: "Triangle: two people in conflict pull in a third. Help the couple talk to each other directly." },
+
+    { id: "h36", cat: "human",
+      text: "A 34-year-old man calls his mother several times a day, can't make decisions without her approval, and becomes anxious whenever she's upset, even about things unrelated to him.",
+      ask: "In Bowen family systems theory, what does this MOST suggest?",
+      opts: [
+        ["A disengaged family boundary", "Disengagement means distance and little involvement. This is the opposite."],
+        ["An emotional cutoff", "Cutoff manages family tension by distancing or ending contact. He is moving closer, not away."],
+        ["Triangulation with his mother", "Triangulation needs a third person pulled into a conflict between two others."],
+        ["Low differentiation of self", "Low differentiation means emotional fusion: his thoughts and feelings are run by her emotions, not his own."]
+      ],
+      c: 3,
+      tip: "Bowen: well-differentiated = close AND still yourself. Low = fusion. The other extreme = cutoff." },
+
+    { id: "h37", cat: "human",
+      text: "As planned with the social worker, a father has started ignoring his daughter's whining for candy at the store. For the first week, her whining gets louder and lasts longer.",
+      ask: "What should the social worker tell the father?",
+      opts: [
+        ["The plan isn't working, so it's time to try a different approach.", "Giving up now teaches the child that more whining pays off."],
+        ["This spike is expected. Stay consistent and it should fade.", "An extinction burst is a short surge when a reward stops. Giving in now would reinforce the worse behavior."],
+        ["Give her candy once in a while so the change feels less harsh.", "Rewarding now and then is intermittent reinforcement, which makes behavior even harder to stop."],
+        ["Explain to her why candy is unhealthy each time she whines.", "Explaining gives her attention, which can keep the whining going."]
+      ],
+      c: 1,
+      tip: "Extinction burst: worse before better. Don't give in. Occasional rewards make it stick." },
+
+    { id: "h38", cat: "human",
+      text: "After being racially profiled by campus police, a Black college student who once downplayed race now reads only Black authors, joins Black student groups, and avoids his white friends, saying he can't trust them.",
+      ask: "In Cross's model of Black identity development, which stage is he MOST likely in?",
+      opts: [
+        ["Pre-encounter", "In pre-encounter, a person downplays race or favors white norms. He used to be here."],
+        ["Encounter", "The encounter is the event that shakes old views, like the profiling. He has moved past it into a new phase."],
+        ["Immersion-emersion", "He is surrounding himself with Black culture and pulling away from white people. That's typical of immersion-emersion."],
+        ["Internalization-commitment", "That final stage brings a secure Black identity, lasting commitment to action, and openness to others. He isn't there yet."]
+      ],
+      c: 2,
+      tip: "Cross: pre-encounter, encounter, immersion-emersion, internalization, internalization-commitment." },
+
+    { id: "h39", cat: "human",
+      text: "A 15-year-old Mexican American client says she's embarrassed by her family's accent and food, wants only white friends, and says, “I'm not like other Mexicans.”",
+      ask: "In the minority identity development model (Atkinson, Morten, and Sue), which stage BEST fits?",
+      opts: [
+        ["Dissonance", "Dissonance starts when experiences challenge her views and create confusion. She shows no conflict yet."],
+        ["Resistance and immersion", "That stage rejects the dominant culture and embraces one's own. She's doing the reverse."],
+        ["Integrative awareness", "That's a secure identity that values her own culture and others. She devalues her own."],
+        ["Conformity", "In conformity, a person prefers the dominant culture's values and looks down on their own group."]
+      ],
+      c: 3,
+      tip: "MID: conformity, dissonance, resistance and immersion, introspection, integrative awareness." },
+
+    { id: "h40", cat: "human",
+      text: "A 24-year-old man came out last year. He now spends nearly all his time in LGBTQ spaces, is angry at straight people in general, and calls straight friends who support him “clueless.”",
+      ask: "In Cass's model of sexual identity formation, which stage does this MOST suggest?",
+      opts: [
+        ["Identity pride", "Pride brings deep immersion in the gay community, anger at heterosexual society, and an us-versus-them view."],
+        ["Identity tolerance", "In tolerance, he'd be cautiously seeking out gay people while not yet fully accepting the identity."],
+        ["Identity synthesis", "Synthesis is the final stage. Sexual identity becomes one part of the whole self, and allies are seen as allies."],
+        ["Identity comparison", "Comparison is an early stage of weighing the possibility of being gay, often with a sense of not fitting in."]
+      ],
+      c: 0,
+      tip: "Cass: confusion, comparison, tolerance, acceptance, pride, synthesis. Pride = us vs. them." },
+
+    { id: "h41", cat: "human",
+      text: "A Vietnamese immigrant family asks for help with conflict. Their 14-year-old son, who speaks fluent English and translates for his parents at the bank and doctor, now argues about curfews and calls their rules old-fashioned.",
+      ask: "What BEST explains the family's stress?",
+      opts: [
+        ["Normal adolescent rebellion that will pass on its own", "Some pushback is normal, but this misses how adapting to a new culture shapes the conflict."],
+        ["An acculturation gap, worsened by his role as interpreter", "Children often adapt faster than parents. Acting as interpreter can flip family roles and weaken parents' authority."],
+        ["The parents' failure to adapt to their new culture", "This blames the parents. Adapting at different speeds is normal, and the gap itself is the issue."],
+        ["The son's assimilation and rejection of his family's heritage", "Nothing says he rejects his heritage. He is simply moving into the new culture faster than his parents."]
+      ],
+      c: 1,
+      tip: "Acculturation gap: kids adapt faster, roles flip. Avoid using children as interpreters." },
+
+    { id: "h42", cat: "human",
+      text: "A 21-year-old raised in a devout church tells the social worker she's questioning beliefs she once accepted without thought. She wants to decide for herself what she believes, even if it differs from her family.",
+      ask: "In Fowler's stages of faith, which stage is she MOST likely entering?",
+      opts: [
+        ["Individuative-reflective", "This stage, often in young adulthood, means critically examining inherited beliefs and taking personal ownership of them."],
+        ["Synthetic-conventional", "This adolescent stage holds a faith shaped by the community and mostly unexamined. She's moving beyond it."],
+        ["Universalizing", "This rare final stage centers on selfless commitment to justice and love for all. It doesn't fit a young adult's questioning."]
+      ],
+      c: 0,
+      tip: "Fowler: teens absorb the group's faith (synthetic-conventional). Young adults question and own it (individuative-reflective)." },
+
+    { id: "h43", cat: "human",
+      text: "A 9-year-old has lived through his parents' divorce, his mother's incarceration, and two moves. His school social worker is planning ways to strengthen his resilience.",
+      ask: "Which protective factor does research MOST consistently link to resilience in children like him?",
+      opts: [
+        ["High intelligence and strong grades", "Problem-solving skills help, but they matter less than relationships and can't replace them."],
+        ["Staying busy with many structured activities", "Activities can help, but being busy isn't the key ingredient."],
+        ["A steady, caring bond with at least one adult", "The most consistent finding: at least one stable, supportive adult buffers the effects of adversity and toxic stress."],
+        ["Not talking about the hard events so he can move on", "Avoidance doesn't build resilience. Safe chances to process what happened support coping."]
+      ],
+      c: 2,
+      tip: "Top buffer against ACEs: one stable, caring adult. Relationships build resilience." },
+
+    { id: "h44", cat: "human",
+      text: "A client who uses a wheelchair tells the social worker, “My legs aren't the problem. The problem is that the job center has stairs and no ramp, and the bus lift is always broken.”",
+      ask: "Which view of disability is the client expressing?",
+      opts: [
+        ["The medical model", "The medical model locates disability in the body and focuses on diagnosis, treatment, and cure."],
+        ["The social model", "The social model sees disability as created by barriers in the environment and society. The fix is removing barriers."],
+        ["The moral model", "The moral model sees disability as a sign of sin, shame, or a test. Nothing here suggests that."]
+      ],
+      c: 1,
+      tip: "Medical model: fix the person. Social model: fix the barriers." },
+
+    { id: "h45", cat: "human",
+      text: "A 41-year-old woman was just diagnosed with autism. She says she spent years copying other people's social behavior to fit in and feels exhausted, but also relieved to finally have an explanation.",
+      ask: "Which response is MOST consistent with a neurodiversity-affirming approach?",
+      opts: [
+        ["Explore what the diagnosis means to her and what would ease the strain of masking.", "This treats autism as a difference, not a defect. It centers her view and looks at changing demands, not just building skills."],
+        ["Help her practice looking more natural in social situations so she can keep fitting in.", "Masking is linked to exhaustion, burnout, and depression. Polishing the mask adds to the strain."],
+        ["Tell her that autism diagnosed this late is usually mild and needs little support.", "A late diagnosis often reflects masking, not low support needs. Women are often diagnosed late."],
+        ["Focus on whether the diagnosis is accurate, since autism usually shows up in childhood.", "Autism starts early, but many adults, especially women, were missed as children. Questioning it dismisses her."]
+      ],
+      c: 0,
+      tip: "Neurodiversity-affirming: difference, not deficit. Reduce masking and adapt the environment." }
   ] /* Q-END */;

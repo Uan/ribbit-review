@@ -7,6 +7,11 @@
   const ART = window.RQ_ART;
   const MUSIC = window.RQ_MUSIC || { play() {}, unlock() {}, setVolume() {} };
   const LOOT = window.RQ_LOOT;
+  const KNOW_IT_ALL = LOOT.QUESTS.find(q => q.id === "master");
+  if (KNOW_IT_ALL) {
+    KNOW_IT_ALL.goal = Q.length;
+    KNOW_IT_ALL.text = `Get all ${Q.length} questions right on your latest try.`;
+  }
   const SHINY = 0.04;          // chance a critter is Sparkly when it appears
   const RESPAWN = 40000;       // ms before a defeated critter comes back (while she's not right next to its spot)
   const BY_ID = {};
@@ -47,7 +52,8 @@
     "Sudden change? Rule out medical causes first.",
     "Colleague problem? Talk to them first, then go up the chain.",
     "Answer for the ideal agency, not the one you've worked in.",
-    "Two answers look right? Pick the one that has to happen first."
+    "Two answers look right? Pick the one that has to happen first.",
+    "Some questions have only three choices on the new exam. Same thinking, better odds."
   ];
   const NEWT_HELLO = [
     "Gabi! There you are.",
@@ -792,7 +798,7 @@
     fillAsk($("b-ask"), q.ask);
     const box = $("b-opts");
     box.textContent = "";
-    shuffle([0, 1, 2, 3]).forEach((orig, pos) => {
+    shuffle(q.opts.map((_, i) => i)).forEach((orig, pos) => {
       const b = document.createElement("button");
       b.type = "button";
       b.className = "opt";
@@ -819,7 +825,7 @@
   function battleItems() {
     $("b-snack-n").textContent = G.items.snack;
     $("b-tea-n").textContent = G.items.tea;
-    const wrongLeft = B.q ? [0, 1, 2, 3].filter(o => o !== B.q.c && !B.gone.includes(o)).length : 0;
+    const wrongLeft = B.q ? B.q.opts.map((_, i) => i).filter(o => o !== B.q.c && !B.gone.includes(o)).length : 0;
     $("b-snack").disabled = G.items.snack <= 0 || B.picked !== null || wrongLeft <= 1;
     $("b-tea").disabled = G.items.tea <= 0 || G.hearts >= maxHearts();
   }
@@ -924,7 +930,7 @@
   });
   on("b-snack", "click", () => {
     if (!B || B.picked !== null || G.items.snack <= 0) return;
-    const wrong = [0, 1, 2, 3].filter(o => o !== B.q.c && !B.gone.includes(o));
+    const wrong = B.q.opts.map((_, i) => i).filter(o => o !== B.q.c && !B.gone.includes(o));
     if (wrong.length <= 1) return;
     const o = pick(wrong);
     B.gone.push(o);

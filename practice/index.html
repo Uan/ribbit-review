@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gabi’s Ribbit Review</title>
-<meta name="description" content="80 ASWB-style practice questions on human development and diversity, values and ethics, assessment and planning, and intervention and practice, with the why behind every answer.">
+<meta name="description" content="ASWB-style practice questions on human development and diversity, values and ethics, assessment and planning, and intervention and practice, with the why behind every answer.">
 <meta property="og:title" content="Gabi’s Ribbit Review">
-<meta property="og:description" content="80 ASWB-style practice questions, with the why behind every answer.">
+<meta property="og:description" content="ASWB-style practice questions, with the why behind every answer.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#bfe6cb" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#11231d" media="(prefers-color-scheme: dark)">
@@ -262,7 +262,7 @@ a.pill-btn{display:inline-flex; align-self:flex-start; text-decoration:none}
       <div class="hero-text">
         <p class="hello">Hi Gabi!</p>
         <h1 id="title">Ribbit Review</h1>
-        <p class="sub">80 ASWB-style practice questions, with the why behind every answer.</p>
+        <p class="sub">ASWB-style practice questions, with the why behind every answer.</p>
       </div>
       <div class="hero-frog">
         <p id="hero-bubble" class="bubble down" aria-live="polite">Tap me for luck!</p>
@@ -326,6 +326,7 @@ a.pill-btn{display:inline-flex; align-self:flex-start; text-decoration:none}
         <li><span><b>Colleague problem?</b> Talk to them first, then go up the chain.</span></li>
         <li><span><b>Answer for the ideal agency,</b> not the one you’ve worked in.</span></li>
         <li><span><b>Two answers look right?</b> Pick the one that has to happen first.</span></li>
+        <li><span><b>Only three choices?</b> The new exam has some. Same thinking, better odds.</span></li>
       </ul>
     </section>
   </section>
@@ -382,7 +383,7 @@ a.pill-btn{display:inline-flex; align-self:flex-start; text-decoration:none}
   </footer>
 </div>
 
-<script src="../questions.js?v=202610222047"></script>
+<script src="../questions.js?v=202610230027"></script>
 <script>
 (() => {
   "use strict";
@@ -467,12 +468,12 @@ a.pill-btn{display:inline-flex; align-self:flex-start; text-decoration:none}
 
   // ---------- saved progress (this browser only) ----------
   const KEY = "gabi-ribbit-review-v1";
-  const store = { best: {}, missed: [], session: null };
+  const store = { best: {}, missed: [], seen: [], session: null };
 
   function validSession(s) {
     return !!s && typeof s.pond === "string" && Array.isArray(s.ids) && s.ids.length > 0 &&
       s.ids.every(id => BY_ID[id]) && Array.isArray(s.perms) && s.perms.length === s.ids.length &&
-      s.perms.every(p => Array.isArray(p) && p.length === 4 && [0, 1, 2, 3].every(n => p.includes(n))) &&
+      s.perms.every((p, k) => Array.isArray(p) && p.length === BY_ID[s.ids[k]].opts.length && p.every((n, i) => p.includes(i))) &&
       Number.isInteger(s.i) && s.i >= 0 && s.i < s.ids.length && Array.isArray(s.answers);
   }
 
@@ -481,6 +482,7 @@ a.pill-btn{display:inline-flex; align-self:flex-start; text-decoration:none}
     if (raw && typeof raw === "object") {
       if (raw.best && typeof raw.best === "object") store.best = raw.best;
       if (Array.isArray(raw.missed)) store.missed = raw.missed.filter(id => BY_ID[id]);
+      if (Array.isArray(raw.seen)) store.seen = raw.seen.filter(id => BY_ID[id]);
       if (validSession(raw.session)) store.session = raw.session;
     }
   } catch (e) { /* storage unavailable: start fresh */ }
@@ -501,9 +503,11 @@ a.pill-btn{display:inline-flex; align-self:flex-start; text-decoration:none}
   function renderHome() {
     Object.keys(CATS).concat("mix").forEach(k => {
       const best = store.best[k];
-      const base = k === "mix" ? "20 random from all four" : "20 questions";
+      const total = Q.filter(q => q.cat === k).length;
+      const base = k === "mix" ? "20 random from all four" : "20 at a time · " + total + " in all";
       $("#pond-" + k + " .pond-meta").textContent = typeof best === "number" ? base + " · best " + best + "/20" : base;
     });
+    $(".sub").textContent = Q.length + " ASWB-style practice questions, with the why behind every answer.";
     const n = store.missed.length;
     $("#pond-missed").hidden = n === 0;
     $("#pond-missed .pond-meta").textContent = n + (n === 1 ? " question" : " questions") + " to try again";
@@ -518,8 +522,14 @@ a.pill-btn{display:inline-flex; align-self:flex-start; text-decoration:none}
 
   function start(pond) {
     let ids = [];
-    if (CATS[pond]) ids = shuffle(Q.filter(q => q.cat === pond).map(q => q.id));
-    else if (pond === "mix") {
+    if (CATS[pond]) {
+      // a 20-question round: missed ones first, then ones not seen here yet, then the rest
+      const all = Q.filter(q => q.cat === pond).map(q => q.id);
+      const missed = all.filter(id => store.missed.includes(id));
+      const unseen = all.filter(id => !missed.includes(id) && !store.seen.includes(id));
+      const rest = all.filter(id => !missed.includes(id) && !unseen.includes(id));
+      ids = shuffle(shuffle(missed).concat(shuffle(unseen), shuffle(rest)).slice(0, 20));
+    } else if (pond === "mix") {
       const keys = shuffle(Object.keys(CATS));
       keys.forEach((k, n) => {
         const take = Math.floor(20 / keys.length) + (n < 20 % keys.length ? 1 : 0);
@@ -528,7 +538,7 @@ a.pill-btn{display:inline-flex; align-self:flex-start; text-decoration:none}
       ids = shuffle(ids);
     } else if (pond === "missed") ids = shuffle(store.missed).slice(0, 20);
     if (!ids.length) return;
-    S = { pond, ids, perms: ids.map(() => shuffle([0, 1, 2, 3])), i: 0, answers: [] };
+    S = { pond, ids, perms: ids.map(id => shuffle(BY_ID[id].opts.map((_, i) => i))), i: 0, answers: [] };
     store.session = S;
     save();
     renderQ();
@@ -610,6 +620,7 @@ a.pill-btn{display:inline-flex; align-self:flex-start; text-decoration:none}
     const missed = new Set(store.missed);
     if (orig === q.c) missed.delete(q.id); else missed.add(q.id);
     store.missed = Array.from(missed);
+    if (!store.seen.includes(q.id)) store.seen.push(q.id);
     store.session = S;
     save();
     reveal(true);
